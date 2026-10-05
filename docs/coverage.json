@@ -1,0 +1,3713 @@
+{
+  "covered": 302,
+  "drift": null,
+  "extensions": [
+    {
+      "cases": 1,
+      "extension": "3gp",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "3mf",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "7z",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "aab",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "aar",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "accdt",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "afdesign",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "afphoto",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "afpub",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "ai",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "alias"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "air",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "ape",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "apk",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "apks",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "apng",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "appx",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "appxbundle",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "arrow",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "ase",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "aseprite",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "asf",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "atom",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "syntax"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "avi",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "avif",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "avro",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "blend",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "syntax"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "bmp",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 3,
+      "extension": "br",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 3,
+      "extension": "bz2",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "cab",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "cb7",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "alias"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "cbr",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "alias"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "cbt",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "cbz",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "crate",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "alias"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "crtx",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 0,
+      "extension": "crx",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": []
+    },
+    {
+      "cases": 1,
+      "extension": "cur",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "dae",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "syntax"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "db",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "dcm",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "dcx",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "dib",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "dic",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "dicom",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "dng",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 16,
+      "extension": "doc",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "original"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "docm",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 2,
+      "extension": "docx",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "container-only",
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "dot",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "alias"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "dotm",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "dotx",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "duckdb",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "dwfx",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "ear",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "egg",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 2,
+      "extension": "epub",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "container-only",
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "exr",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "fb2",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "syntax"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "fcstd",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "feather",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "fit",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "fits",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "flac",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "fts",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "gcsx",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "gem",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "geojson",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 2,
+      "extension": "gif",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "glox",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "gltf",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "gpkg",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "gpx",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "syntax"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "gqsx",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 3,
+      "extension": "gz",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "h5",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "har",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "hdf",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "hdf5",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "heic",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "heif",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 4,
+      "extension": "hwp",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "original"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "ibooks",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "icns",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "ico",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "idml",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "ifczip",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "ipa",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "ipc",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "ipsw",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "ipynb",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "j2k",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "jar",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "jfi",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "alias"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "jfif",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "alias"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "jif",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "alias"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "jp2",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "jpe",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "alias"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "jpeg",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "alias"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "jpf",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "alias"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "jpg",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "jpx",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "alias"
+      ]
+    },
+    {
+      "cases": 3,
+      "extension": "json",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "jsonl",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "jxl",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "key",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "kml",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "syntax"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "kmz",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "kra",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "kth",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "lpf",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 3,
+      "extension": "lz",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 3,
+      "extension": "lz4",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 3,
+      "extension": "lzma",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 3,
+      "extension": "lzo",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "m2ts",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "m4a",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "m4b",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "m4v",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "map",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "mat",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "mbtiles",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "mcaddon",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "mcpack",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "mcworld",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "mellel",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "syntax"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "mkv",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "mov",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "mp3",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "mp4",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "mpp",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "original"
+      ]
+    },
+    {
+      "cases": 2,
+      "extension": "msg",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "original"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "msi",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "original"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "msix",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "mts",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "mxl",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "nbk",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "nc",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "nc4",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "ndjson",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "nib",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "syntax"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "nmbtemplate",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "notebook",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 2,
+      "extension": "npz",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "container-only",
+        "native"
+      ]
+    },
+    {
+      "cases": 2,
+      "extension": "nrrd",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "numbers",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "nupkg",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "odb",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "odc",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "odf",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "odg",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "odi",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "odm",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 2,
+      "extension": "odp",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "container-only",
+        "native"
+      ]
+    },
+    {
+      "cases": 2,
+      "extension": "ods",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "container-only",
+        "native"
+      ]
+    },
+    {
+      "cases": 2,
+      "extension": "odt",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "container-only",
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "oex",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "oga",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "ogg",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "onepkg",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "opus",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "ora",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "orc",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "osk",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "otc",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "otg",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "oth",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "oti",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "otm",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "otp",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "ots",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "ott",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "oxps",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "oxt",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "pages",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 2,
+      "extension": "parquet",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "pbm",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "pcx",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "pdf",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "pgm",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "pk3",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 3,
+      "extension": "png",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "pnm",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "pot",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "alias"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "potm",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "potx",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "ppam",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "ppm",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "pps",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "alias"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "ppsm",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "ppsx",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 6,
+      "extension": "ppt",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "original"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "pptm",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 2,
+      "extension": "pptx",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "container-only",
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "psb",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "psd",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "pt",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "pth",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "pub",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "original"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "puz",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "qgd",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "qgs",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "qgz",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "rar",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 2,
+      "extension": "rda",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 2,
+      "extension": "rdata",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 2,
+      "extension": "rds",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "rels",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "syntax"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "rmskin",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "rss",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "syntax"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "rtb",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "sav",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "scrivx",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "sketch",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "sldm",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "sldx",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "snupkg",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "sqlite",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "sqlite3",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "sqlitedb",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "stc",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "std",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "sti",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "stw",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "svg",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "svgz",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "swf",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "sxc",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "sxd",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "sxg",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "sxi",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "sxm",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "sxw",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "tar",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "targa",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "alias"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "taz",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "alias"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "tbz",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "alias"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "tbz2",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "alias"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "template",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "tga",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "tgs",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "tgz",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "alias"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "thm",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "alias"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "thmx",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "tif",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "tiff",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "tlz",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "alias"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "topojson",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "ts",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "tta",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "txz",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "alias"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "tzo",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "alias"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "tzst",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "alias"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "ui",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "syntax"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "unitypackage",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "alias"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "usdz",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "vdw",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "vscdb",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "vsd",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "original"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "vsdm",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "vsdx",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "vsix",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "vssm",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "vssx",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "vstm",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "vstx",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "war",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 2,
+      "extension": "warc",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "webm",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "webp",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "wgt",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "whl",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "wim",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "wmv",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "woff",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "woff2",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "wv",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "xap",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "xapk",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "xd",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "xhtml",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "syntax"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "xla",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "alias"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "xlam",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 13,
+      "extension": "xls",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "original"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "xlsb",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "xlsm",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 2,
+      "extension": "xlsx",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "container-only",
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "xlt",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "alias"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "xltm",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "xltx",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "xmind",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "xml",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "syntax"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "xmp",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "syntax"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "xpi",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "xps",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "xsl",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "syntax"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "xslt",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "syntax"
+      ]
+    },
+    {
+      "cases": 3,
+      "extension": "xz",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 3,
+      "extension": "z",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 2,
+      "extension": "zip",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "zipx",
+      "measured_statuses": {},
+      "native_or_original": false,
+      "scopes": [
+        "container-only"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "zsav",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 3,
+      "extension": "zst",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    }
+  ],
+  "generation_gaps": [],
+  "handler_count": 94,
+  "handlers": [
+    {
+      "cases": 2,
+      "extensions": [
+        "7z",
+        "cb7"
+      ],
+      "handler": "archive:7z",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "cab"
+      ],
+      "handler": "archive:cab",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 2,
+      "extensions": [
+        "cbr",
+        "rar"
+      ],
+      "handler": "archive:rar",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 3,
+      "extensions": [
+        "cbt",
+        "gem",
+        "tar"
+      ],
+      "handler": "archive:tar",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 2,
+      "extensions": [
+        "tbz",
+        "tbz2"
+      ],
+      "handler": "archive:tar.bz2",
+      "native_original_or_syntax": false
+    },
+    {
+      "cases": 3,
+      "extensions": [
+        "crate",
+        "tgz",
+        "unitypackage"
+      ],
+      "handler": "archive:tar.gz",
+      "native_original_or_syntax": false
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "tlz"
+      ],
+      "handler": "archive:tar.lz",
+      "native_original_or_syntax": false
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "tzo"
+      ],
+      "handler": "archive:tar.lzo",
+      "native_original_or_syntax": false
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "txz"
+      ],
+      "handler": "archive:tar.xz",
+      "native_original_or_syntax": false
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "taz"
+      ],
+      "handler": "archive:tar.z",
+      "native_original_or_syntax": false
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "tzst"
+      ],
+      "handler": "archive:tar.zst",
+      "native_original_or_syntax": false
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "wim"
+      ],
+      "handler": "archive:wim",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 137,
+      "extensions": [
+        "3mf",
+        "aab",
+        "aar",
+        "accdt",
+        "afdesign",
+        "afphoto",
+        "afpub",
+        "air",
+        "apk",
+        "apks",
+        "appx",
+        "appxbundle",
+        "cbz",
+        "crtx",
+        "crx",
+        "docm",
+        "docx",
+        "dotm",
+        "dotx",
+        "dwfx",
+        "ear",
+        "egg",
+        "epub",
+        "fcstd",
+        "gcsx",
+        "glox",
+        "gqsx",
+        "ibooks",
+        "idml",
+        "ifczip",
+        "ipa",
+        "ipsw",
+        "jar",
+        "key",
+        "kmz",
+        "kra",
+        "kth",
+        "lpf",
+        "mcaddon",
+        "mcpack",
+        "mcworld",
+        "mellel",
+        "msix",
+        "mxl",
+        "nbk",
+        "nmbtemplate",
+        "notebook",
+        "npz",
+        "numbers",
+        "nupkg",
+        "odb",
+        "odc",
+        "odf",
+        "odg",
+        "odi",
+        "odm",
+        "odp",
+        "ods",
+        "odt",
+        "oex",
+        "onepkg",
+        "ora",
+        "osk",
+        "otc",
+        "otg",
+        "oth",
+        "oti",
+        "otm",
+        "otp",
+        "ots",
+        "ott",
+        "oxps",
+        "oxt",
+        "pages",
+        "pk3",
+        "potm",
+        "potx",
+        "ppam",
+        "ppsm",
+        "ppsx",
+        "pptm",
+        "pptx",
+        "puz",
+        "qgz",
+        "rmskin",
+        "rtb",
+        "scrivx",
+        "sketch",
+        "sldm",
+        "sldx",
+        "snupkg",
+        "stc",
+        "std",
+        "sti",
+        "stw",
+        "sxc",
+        "sxd",
+        "sxg",
+        "sxi",
+        "sxm",
+        "sxw",
+        "template",
+        "thmx",
+        "usdz",
+        "vdw",
+        "vsdm",
+        "vsdx",
+        "vsix",
+        "vssm",
+        "vssx",
+        "vstm",
+        "vstx",
+        "war",
+        "wgt",
+        "whl",
+        "xap",
+        "xapk",
+        "xd",
+        "xlam",
+        "xlsb",
+        "xlsm",
+        "xlsx",
+        "xltm",
+        "xltx",
+        "xmind",
+        "xpi",
+        "xps",
+        "zip",
+        "zipx"
+      ],
+      "handler": "archive:zip",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "3gp"
+      ],
+      "handler": "pack_3gp",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "ai"
+      ],
+      "handler": "pack_ai",
+      "native_original_or_syntax": false
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "ape"
+      ],
+      "handler": "pack_ape",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 2,
+      "extensions": [
+        "arrow",
+        "ipc"
+      ],
+      "handler": "pack_arrow",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 2,
+      "extensions": [
+        "ase",
+        "aseprite"
+      ],
+      "handler": "pack_aseprite",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "asf"
+      ],
+      "handler": "pack_asf",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "avi"
+      ],
+      "handler": "pack_avi",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "avif"
+      ],
+      "handler": "pack_avif",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "avro"
+      ],
+      "handler": "pack_avro",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "blend"
+      ],
+      "handler": "pack_blend",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 2,
+      "extensions": [
+        "bmp",
+        "dib"
+      ],
+      "handler": "pack_bmp",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 3,
+      "extensions": [
+        "br"
+      ],
+      "handler": "pack_brotli",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 3,
+      "extensions": [
+        "bz2"
+      ],
+      "handler": "pack_bz2",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 2,
+      "extensions": [
+        "pt",
+        "pth"
+      ],
+      "handler": "pack_checkpoint",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 3,
+      "extensions": [
+        "z"
+      ],
+      "handler": "pack_compress",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 3,
+      "extensions": [
+        "dcm",
+        "dic",
+        "dicom"
+      ],
+      "handler": "pack_dcm",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "dng"
+      ],
+      "handler": "pack_dng",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "duckdb"
+      ],
+      "handler": "pack_duckdb",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "exr"
+      ],
+      "handler": "pack_exr",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "feather"
+      ],
+      "handler": "pack_feather",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 3,
+      "extensions": [
+        "fit",
+        "fits",
+        "fts"
+      ],
+      "handler": "pack_fits",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "flac"
+      ],
+      "handler": "pack_flac",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 2,
+      "extensions": [
+        "gif"
+      ],
+      "handler": "pack_gif",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 3,
+      "extensions": [
+        "gz"
+      ],
+      "handler": "pack_gzip",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 3,
+      "extensions": [
+        "h5",
+        "hdf",
+        "hdf5"
+      ],
+      "handler": "pack_hdf5",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 2,
+      "extensions": [
+        "heic",
+        "heif"
+      ],
+      "handler": "pack_heic",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "icns"
+      ],
+      "handler": "pack_icns",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 2,
+      "extensions": [
+        "cur",
+        "ico"
+      ],
+      "handler": "pack_ico",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 4,
+      "extensions": [
+        "j2k",
+        "jp2",
+        "jpf",
+        "jpx"
+      ],
+      "handler": "pack_jp2",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 7,
+      "extensions": [
+        "jfi",
+        "jfif",
+        "jif",
+        "jpe",
+        "jpeg",
+        "jpg",
+        "thm"
+      ],
+      "handler": "pack_jpg",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 9,
+      "extensions": [
+        "geojson",
+        "gltf",
+        "har",
+        "ipynb",
+        "json",
+        "map",
+        "topojson"
+      ],
+      "handler": "pack_json",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 2,
+      "extensions": [
+        "jsonl",
+        "ndjson"
+      ],
+      "handler": "pack_jsonl",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "jxl"
+      ],
+      "handler": "pack_jxl",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 3,
+      "extensions": [
+        "lz4"
+      ],
+      "handler": "pack_lz4",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 3,
+      "extensions": [
+        "lz"
+      ],
+      "handler": "pack_lzip",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 3,
+      "extensions": [
+        "lzma"
+      ],
+      "handler": "pack_lzma",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 3,
+      "extensions": [
+        "lzo"
+      ],
+      "handler": "pack_lzo",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 2,
+      "extensions": [
+        "m4a",
+        "m4b"
+      ],
+      "handler": "pack_m4a",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "m4v"
+      ],
+      "handler": "pack_m4v",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "mat"
+      ],
+      "handler": "pack_mat",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "mkv"
+      ],
+      "handler": "pack_mkv",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "mov"
+      ],
+      "handler": "pack_mov",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "mp3"
+      ],
+      "handler": "pack_mp3",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "mp4"
+      ],
+      "handler": "pack_mp4",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 2,
+      "extensions": [
+        "nc",
+        "nc4"
+      ],
+      "handler": "pack_netcdf",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "nib"
+      ],
+      "handler": "pack_nib",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 2,
+      "extensions": [
+        "nrrd"
+      ],
+      "handler": "pack_nrrd",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "oga"
+      ],
+      "handler": "pack_oga",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 2,
+      "extensions": [
+        "ogg",
+        "opus"
+      ],
+      "handler": "pack_ogg",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 50,
+      "extensions": [
+        "doc",
+        "dot",
+        "hwp",
+        "mpp",
+        "msg",
+        "msi",
+        "pot",
+        "pps",
+        "ppt",
+        "pub",
+        "vsd",
+        "xla",
+        "xls",
+        "xlt"
+      ],
+      "handler": "pack_ole",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "orc"
+      ],
+      "handler": "pack_orc",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 2,
+      "extensions": [
+        "parquet"
+      ],
+      "handler": "pack_parquet",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 2,
+      "extensions": [
+        "dcx",
+        "pcx"
+      ],
+      "handler": "pack_pcx",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "pdf"
+      ],
+      "handler": "pack_pdf",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 4,
+      "extensions": [
+        "apng",
+        "png"
+      ],
+      "handler": "pack_png",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 4,
+      "extensions": [
+        "pbm",
+        "pgm",
+        "pnm",
+        "ppm"
+      ],
+      "handler": "pack_pnm",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "psb"
+      ],
+      "handler": "pack_psb",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "psd"
+      ],
+      "handler": "pack_psd",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "qgd"
+      ],
+      "handler": "pack_qgd",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "qgs"
+      ],
+      "handler": "pack_qgs",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 6,
+      "extensions": [
+        "rda",
+        "rdata",
+        "rds"
+      ],
+      "handler": "pack_r_serialization",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 2,
+      "extensions": [
+        "sav",
+        "zsav"
+      ],
+      "handler": "pack_spss",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 7,
+      "extensions": [
+        "db",
+        "gpkg",
+        "mbtiles",
+        "sqlite",
+        "sqlite3",
+        "sqlitedb",
+        "vscdb"
+      ],
+      "handler": "pack_sqlite",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "svg"
+      ],
+      "handler": "pack_svg",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "svgz"
+      ],
+      "handler": "pack_svgz",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "swf"
+      ],
+      "handler": "pack_swf",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 2,
+      "extensions": [
+        "targa",
+        "tga"
+      ],
+      "handler": "pack_tga",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "tgs"
+      ],
+      "handler": "pack_tgs",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 2,
+      "extensions": [
+        "tif",
+        "tiff"
+      ],
+      "handler": "pack_tif",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 3,
+      "extensions": [
+        "m2ts",
+        "mts",
+        "ts"
+      ],
+      "handler": "pack_ts",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "tta"
+      ],
+      "handler": "pack_tta",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 2,
+      "extensions": [
+        "warc"
+      ],
+      "handler": "pack_warc",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "webm"
+      ],
+      "handler": "pack_webm",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "webp"
+      ],
+      "handler": "pack_webp",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "wmv"
+      ],
+      "handler": "pack_wmv",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "woff"
+      ],
+      "handler": "pack_woff",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "woff2"
+      ],
+      "handler": "pack_woff2",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "wv"
+      ],
+      "handler": "pack_wv",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 13,
+      "extensions": [
+        "atom",
+        "dae",
+        "fb2",
+        "gpx",
+        "kml",
+        "rels",
+        "rss",
+        "ui",
+        "xhtml",
+        "xml",
+        "xmp",
+        "xsl",
+        "xslt"
+      ],
+      "handler": "pack_xml",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 3,
+      "extensions": [
+        "xz"
+      ],
+      "handler": "pack_xz",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 3,
+      "extensions": [
+        "zst"
+      ],
+      "handler": "pack_zstd",
+      "native_original_or_syntax": true
+    }
+  ],
+  "handlers_covered": 94,
+  "missing": [
+    "crx"
+  ],
+  "native_or_original": 139,
+  "stores": [
+    "scientific-arrays-zarr"
+  ],
+  "supported": 303
+}

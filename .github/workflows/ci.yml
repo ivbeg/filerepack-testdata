@@ -1,0 +1,38 @@
+name: Corpus integrity and harness
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  harness:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python -m pip install -e '.[dev]'
+      - run: python -m frbench check
+      - run: python -m pytest -q
+      - run: python -m ruff check frbench tests scripts
+  core-integration:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: ivbeg/filerepack
+          path: implementation
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: sudo apt-get update && sudo apt-get install -y 7zip zip pigz
+      - run: python -m pip install -e . -e ./implementation
+      - run: python -m frbench run --filerepack implementation --ext json,xml,sqlite,gz,zip --tier smoke --output results/core
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: core-benchmark
+          path: results/core/

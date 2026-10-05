@@ -1,0 +1,5 @@
+* text=auto eol=lf
+# Corpus digests must survive checkouts on every platform, including intentional whitespace/CRLF.
+corpus/** -text -whitespace
+# Retain upstream legal documents exactly as supplied.
+licenses/** -text -whitespace
