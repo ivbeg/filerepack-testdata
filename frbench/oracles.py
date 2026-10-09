@@ -9,6 +9,7 @@ import hashlib
 import io
 import json
 import lzma
+import shutil
 import sqlite3
 import struct
 import subprocess
@@ -24,6 +25,9 @@ def digest(data):
 
 
 def command(argv, **kwargs):
+    alternatives = {'magick': 'convert', '7zz': '7z'}
+    if argv[0] in alternatives and not shutil.which(argv[0]):
+        argv = [alternatives[argv[0]], *argv[1:]]
     return subprocess.run(argv, check=True, capture_output=True, timeout=90, **kwargs).stdout
 
 
@@ -90,6 +94,27 @@ def array_bits(array):
     return (str(array.dtype.newbyteorder('<')), array.shape, values)
 
 
+def arrow_array_state(array):
+    import pyarrow as pa
+    if isinstance(array, pa.ChunkedArray):
+        array = array.combine_chunks()
+    valid = array.is_valid().to_pylist()
+    if pa.types.is_dictionary(array.type):
+        return arrow_array_state(array.dictionary_decode())
+    if pa.types.is_floating(array.type):
+        values = array.to_numpy(zero_copy_only=False)
+        return str(array.type), valid, array_bits(values[valid])
+    if pa.types.is_struct(array.type):
+        values = [arrow_array_state(array.field(i).filter(pa.array(valid)))
+                  for i in range(array.type.num_fields)]
+    elif (pa.types.is_list(array.type) or pa.types.is_large_list(array.type) or
+          pa.types.is_fixed_size_list(array.type) or pa.types.is_map(array.type)):
+        values = [arrow_array_state(value.values) if value.is_valid else None for value in array]
+    else:
+        values = array.to_pylist()
+    return str(array.type), valid, values
+
+
 def sqlite_state(path):
     uri = Path(path).resolve().as_uri() + '?mode=ro&immutable=1'
     with sqlite3.connect(uri, uri=True) as db:
@@ -106,7 +131,8 @@ def sqlite_state(path):
                 db.execute('PRAGMA user_version').fetchone())
 
 
-def raster_state(path):
+def raster_state(path, config=None):
+    from .semantic import image_metadata
     from PIL import Image
     try:
         import pillow_heif
@@ -115,24 +141,44 @@ def raster_state(path):
         pass
     with Image.open(path) as image:
         frames = []
+        # Palette indices and disposal/blend instructions describe storage/compositing.
+        # Compare the background color and rendered frames, rather than the index or
+        # instructions used to produce the same frames. Strict instruction identity
+        # is an explicit optional profile constraint.
+        palette = image.getpalette()
+        background = image.info.get('background')
+        background_color = (tuple(palette[background * 3:background * 3 + 3])
+                            if palette and isinstance(background, int) else None)
+        controls = (config or {}).get('preserve_frame_controls', False)
         for i in range(getattr(image, 'n_frames', 1)):
             image.seek(i)
-            frames.append((image.size, digest(image.convert('RGBA').tobytes()),
-                           image.info.get('duration'), image.info.get('disposal'),
-                           image.info.get('blend')))
-        return (frames, image.info.get('loop'))
+            high_depth = ((image.mode, digest(image.tobytes()))
+                          if image.mode in ('I', 'F') or image.mode.startswith('I;16') else None)
+            frames.append((image.size, digest(image.convert('RGBA').tobytes()), high_depth,
+                           image.info.get('duration'),
+                           getattr(image, 'disposal_method', image.info.get('disposal')) if controls else None,
+                           image.info.get('blend') if controls else None,
+                           image_metadata(image, background_color)))
+        exact = None
+        if (config or {}).get('exact_png_bits'):
+            import imagecodecs
+            exact = array_bits(imagecodecs.png_decode(Path(path).read_bytes()))
+        return (frames, image.info.get('loop'), exact)
 
 
 def media_state(path, video=False):
+    from .semantic import media_metadata
     info = json.loads(command(['ffprobe', '-v', 'error', '-show_streams', '-show_format',
                               '-of', 'json', str(path)]))
     streams = []
     for stream in info['streams']:
         kind = stream['codec_type']
         index = str(stream['index'])
-        if kind == 'video' and not stream.get('disposition', {}).get('attached_pic'):
+        if kind == 'video':
+            pixel_format = ('rgba64le' if any(bit in stream.get('pix_fmt', '')
+                                           for bit in ('10', '12', '14', '16', 'f32')) else 'rgba')
             raw = command(['ffmpeg', '-v', 'error', '-i', str(path), '-map', '0:' + index,
-                           '-vsync', '0', '-f', 'rawvideo', '-pix_fmt', 'rgba', '-'])
+                           '-vsync', '0', '-f', 'rawvideo', '-pix_fmt', pixel_format, '-'])
             # Keep frame count/order plus stream timing. Container time bases can change.
             streams.append((kind, stream['width'], stream['height'],
                             stream.get('avg_frame_rate'), digest(raw)))
@@ -142,26 +188,31 @@ def media_state(path, video=False):
             streams.append((kind, stream['sample_rate'], stream['channels'], digest(raw)))
         else:
             streams.append((kind, stream.get('codec_name'), stream.get('tags')))
-    return streams
+    return streams, media_metadata(info, command, path)
 
 
 def archive_state(path, config):
+    from .semantic import check_usdz, zip_metadata
     children = config.get('children', {})
     entries = []
     if config['kind'] == 'zip':
         with zipfile.ZipFile(path) as archive:
+            if config.get('package') == 'usdz':
+                check_usdz(Path(path), archive.infolist())
             if archive.testzip() is not None:
                 raise ValueError('Bad ZIP CRC')
             for info in archive.infolist():
                 data = archive.read(info)
                 verifier = children.get(info.filename, {'kind': 'bytes'})
                 value = bytes_state(data, verifier, info.filename)
-                entries.append((info.filename, info.is_dir(), value))
+                entries.append((info.filename, info.is_dir(), value, zip_metadata(info, config)))
             for name in config.get('stored_first', []):
                 info = archive.getinfo(name)
                 if archive.infolist()[0].filename != name or info.compress_type != 0:
                     raise ValueError(name + ' must be first and STORED')
-        return (sorted(entries, key=repr), archive.comment)
+        preserve_order = (config.get('preserve_order') or config.get('package') == 'usdz' or
+                          len({entry[0] for entry in entries}) != len(entries))
+        return (entries if preserve_order else sorted(entries, key=repr), archive.comment)
     import tarfile
     if config.get('codec'):
         source = io.BytesIO(decode_stream(Path(path).read_bytes(), config['codec']))
@@ -539,6 +590,13 @@ def fingerprint(path, config):
     kind = config['kind']
     if kind == 'npz':
         return npz_state(path)
+    if kind in ('tracev3', 'rtf', 'model'):
+        from .new_formats import model_state, rtf_state, tracev3_state
+        if kind == 'tracev3':
+            return tracev3_state(path.read_bytes())
+        if kind == 'rtf':
+            return rtf_state(path.read_bytes(), lambda data: bytes_state(data, {'kind': 'raster'}))
+        return model_state(path.read_bytes(), config['format'])
     if kind in ('zip', 'tar'):
         return archive_state(path, config)
     if kind == 'cpbz2':
@@ -619,7 +677,7 @@ def fingerprint(path, config):
     if kind == 'sqlite':
         return sqlite_state(path)
     if kind == 'raster':
-        return raster_state(path)
+        return raster_state(path, config)
     if kind in ('audio', 'video'):
         return media_state(path, kind == 'video')
     if kind == 'arrow':
@@ -643,7 +701,8 @@ def fingerprint(path, config):
                     reader = pa.ipc.open_stream(source)
                 table = reader.read_all()
         return (str(table.schema), table.schema.metadata,
-                tuple((f.name, f.metadata) for f in table.schema), table.to_pydict())
+                tuple((f.name, f.metadata) for f in table.schema),
+                tuple(arrow_array_state(column) for column in table.columns))
     if kind == 'avro':
         import fastavro
         with path.open('rb') as stream:
@@ -658,24 +717,11 @@ def fingerprint(path, config):
                                for e in ole.direntries if e and e.entry_type != 0)
             return streams, directory
     if kind == 'hdf5':
-        import h5py
-        objects = []
-        with h5py.File(path, 'r') as file:
-            def visit(name, obj):
-                attrs = sorted((k, repr(v)) for k, v in obj.attrs.items())
-                objects.append((name, attrs, array_bits(obj[()]) if isinstance(obj, h5py.Dataset)
-                                else None))
-            visit('/', file)
-            file.visititems(visit)
-        return objects
+        from .semantic import hdf5_state
+        return hdf5_state(path, array_bits)
     if kind == 'netcdf':
-        import netCDF4
-        with netCDF4.Dataset(path) as file:
-            file.set_auto_maskandscale(False)
-            return ([(k, repr(file.getncattr(k))) for k in sorted(file.ncattrs())],
-                    [(k, len(d), d.isunlimited()) for k, d in file.dimensions.items()],
-                    [(k, v.dimensions, [(a, repr(v.getncattr(a))) for a in sorted(v.ncattrs())],
-                      array_bits(v[:])) for k, v in file.variables.items()])
+        from .semantic import netcdf_state
+        return netcdf_state(path, array_bits)
     if kind == 'tiff':
         import tifffile
         with tifffile.TiffFile(path) as file:
@@ -742,19 +788,22 @@ def fingerprint(path, config):
     if kind == 'pdf':
         # Compare rendering, page geometry, metadata and attachments for shape-only pages.
         import pikepdf
+        from pypdf import PdfReader
+        from .semantic import pdf_semantics
         with pikepdf.open(path) as pdf:
             meta = sorted((str(k), str(v)) for k, v in pdf.docinfo.items())
             boxes = [(str(p.obj.get('/MediaBox')), str(p.obj.get('/CropBox')),
                       str(p.obj.get('/Rotate'))) for p in pdf.pages]
             attachments = sorted((k, digest(v.get_file().read_bytes()))
                                  for k, v in pdf.attachments.items())
-        text = b''  # This corpus contains shape-only pages; no text-equivalence claim.
+            semantic = pdf_semantics(pdf)
+        text = tuple(page.extract_text() for page in PdfReader(path).pages)
         with tempfile.TemporaryDirectory() as temp:
             prefix = Path(temp) / 'page'
             command(['gs', '-q', '-dSAFER', '-dBATCH', '-dNOPAUSE', '-sDEVICE=png16m',
                      '-r72', '-sOutputFile=' + str(prefix) + '-%03d.png', str(path)])
             pages = [raster_state(p) for p in sorted(Path(temp).glob('page-*.png'))]
-        return boxes, meta, attachments, text, pages
+        return boxes, meta, attachments, text, pages, semantic
     if kind in ('7z', 'rar'):
         # List/test/extract trusted repository fixtures into a disposable directory.
         # No externally supplied archives are accepted by this verifier.
@@ -783,8 +832,12 @@ def require(config):
         'tiff': ['tifffile', 'numpy'], 'fits': ['astropy', 'numpy'], 'mat': ['scipy', 'numpy'],
         'duckdb': ['duckdb'], 'dicom': ['pydicom', 'numpy'], 'spss': ['pyreadstat'], 'font': ['fontTools'], 'zarr': ['zarr', 'numpy'],
         'npz': ['numpy'],
-        'pdf': ['pikepdf', 'PIL'],
+        'pdf': ['pikepdf', 'pypdf', 'PIL'], 'tracev3': ['lz4'], 'rtf': ['PIL'],
     }.get(config['kind'], [])
+    if config['kind'] == 'model' and config.get('format') == 'onnx':
+        modules.append('onnx')
+    if config.get('exact_png_bits'):
+        modules += ['imagecodecs', 'numpy']
     commands = {'audio': ['ffmpeg', 'ffprobe'], 'video': ['ffmpeg', 'ffprobe'],
                 'pdf': ['gs'], '7z': ['7zz'], 'rar': ['unrar'],
                 'imagemagick': ['magick'], 'svg-render': ['magick'],
@@ -795,7 +848,9 @@ def require(config):
     if codec in ('lz', 'lzo', 'z'):
         commands += [{'lz': 'lzip', 'lzo': 'lzop', 'z': 'gzip'}[codec]]
     missing = [m for m in modules if not importlib.util.find_spec(m)]
-    missing += [c for c in commands if not shutil.which(c)]
+    alternatives = {'magick': 'convert', '7zz': '7z'}
+    missing += [c for c in commands if not shutil.which(c) and
+                not shutil.which(alternatives.get(c, c))]
     for child in config.get('children', {}).values():
         missing.extend(require(child))
     return sorted(set(missing))

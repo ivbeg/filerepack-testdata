@@ -14,8 +14,18 @@ Third-party originals retain separate upstream license labels; they are not reli
 | pyhwp HWP fixtures in `corpus/originals/ole_extended` | AGPL-3.0 (upstream label) | `licenses/ole_extended-COPYING.pyhwp` |
 | LibreOffice DOC/XLS regression fixtures | MPL-2.0 | `licenses/ole_extended-LICENSE.libreoffice` |
 | WiX v3 MSI fixture | Microsoft Reciprocal License (MS-RL) | `licenses/ole_extended-LICENSE.wix3` |
+| `corpus/originals/documents/blocks.docx` · python-docx | MIT | `licenses/originals-python-docx-LICENSE` |
+| `corpus/originals/documents/minimal.pdf` · qpdf | Apache-2.0 | `licenses/originals-qpdf-LICENSE.txt` |
+| `corpus/originals/images/pngsuite-*.png` · libpng/PngSuite | LicenseRef-PngSuite: explicit permission to use/copy/modify/distribute the images | `licenses/originals-libpng-README` |
+| `corpus/originals/scientific/matlab-double.mat` · SciPy | BSD-3-Clause | `licenses/originals-scipy-LICENSE.txt` |
+| `corpus/originals/audio/silence.flac` · Mutagen | GPL-2.0-or-later (upstream project terms) | `licenses/originals-mutagen-COPYING` |
 
 Any additional upstream license/notice copied with this corpus is retained under `licenses/`.
+There are 54 unmodified upstream originals across OLE, documents, images, scientific data and audio.
+These are regression fixtures and may themselves have been generated upstream; they are not a
+sample of typical production workloads. The PngSuite README grants terms for its image collection.
+Mutagen's [pinned source header](https://github.com/quodlibet/mutagen/blob/ada28b2cc92c515f3f26640a6feef6516d195872/mutagen/__init__.py)
+identifies GPL version 2 or later; its complete COPYING text is retained.
 Source commit IDs are embedded in every original URL. Derivative routing aliases record the parent
 case and retain its license. Original binary bytes, including macro-containing regression samples,
 are retained exactly and are parsed without executing their application content.

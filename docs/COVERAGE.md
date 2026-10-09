@@ -2,12 +2,12 @@
 
 Catalog: local filerepack source; regenerate with `python scripts/update_coverage.py --filerepack ../filerepack`.
 
-- 432 cases: 12 smoke, 406 extended, 14 rejection controls.
-- 306/306 registered extension routes have non-control fixtures.
-- 157 extensions have native or original fixtures.
-- 97/97 handler groups have fixtures.
-- 48 upstream originals; remaining fixtures are generated or routing derivatives.
-- 23/23 compound/content-detected filename routes have fixtures.
+- 477 cases: 12 smoke, 440 extended, 24 rejection controls, 1 separate stress fixtures.
+- 312/312 registered extension routes have non-control fixtures.
+- 163 extensions have native or original fixtures.
+- 102/102 handler groups have fixtures.
+- 54 upstream originals; remaining fixtures are generated or routing derivatives.
+- 28/28 compound/content-detected filename routes have fixtures.
 - Directory Zarr v2 is an additional store fixture outside the flat extension denominator.
 
 Handler and extension coverage means an input exists for that path. It does not guarantee that every sample is accepted for rewriting or becomes smaller.
@@ -17,9 +17,9 @@ Handler and extension coverage means an input exists for that path. It does not 
 | Scope | Cases | Meaning |
 |---|---:|---|
 | alias | 28 | Existing bitstream under another supported routing suffix. |
-| container-only | 128 | Generic ZIP/TAR/SQLite payload without an application-format claim. |
-| native | 212 | Generated format-shaped profile checked by the listed oracle. |
-| original | 48 | Unmodified, license-reviewed upstream regression sample. |
+| container-only | 130 | Generic ZIP/TAR/SQLite payload without an application-format claim. |
+| native | 249 | Generated format-shaped profile checked by the listed oracle. |
+| original | 54 | Unmodified, license-reviewed upstream regression sample. |
 | syntax | 16 | Valid generic structure without application/render qualification. |
 
 ## Handler groups
@@ -31,7 +31,7 @@ Handler and extension coverage means an input exists for that path. It does not 
 | `archive:cpio` | 1 | yes |
 | `archive:cpio.bz2` | 1 | yes |
 | `archive:rar` | 2 | yes |
-| `archive:tar` | 3 | yes |
+| `archive:tar` | 5 | yes |
 | `archive:tar.bz2` | 2 | transport/alias only |
 | `archive:tar.gz` | 3 | transport/alias only |
 | `archive:tar.lz` | 1 | transport/alias only |
@@ -40,11 +40,11 @@ Handler and extension coverage means an input exists for that path. It does not 
 | `archive:tar.z` | 1 | transport/alias only |
 | `archive:tar.zst` | 1 | transport/alias only |
 | `archive:wim` | 1 | yes |
-| `archive:zip` | 152 | yes |
+| `archive:zip` | 156 | yes |
 | `pack_3gp` | 1 | yes |
 | `pack_ai` | 1 | transport/alias only |
 | `pack_ape` | 1 | yes |
-| `pack_arrow` | 2 | yes |
+| `pack_arrow` | 3 | yes |
 | `pack_aseprite` | 2 | yes |
 | `pack_asf` | 1 | yes |
 | `pack_avi` | 1 | yes |
@@ -63,15 +63,16 @@ Handler and extension coverage means an input exists for that path. It does not 
 | `pack_exr` | 1 | yes |
 | `pack_feather` | 1 | yes |
 | `pack_fits` | 3 | yes |
-| `pack_flac` | 1 | yes |
+| `pack_flac` | 2 | yes |
+| `pack_gguf` | 1 | yes |
 | `pack_gif` | 2 | yes |
-| `pack_gzip` | 3 | yes |
-| `pack_hdf5` | 3 | yes |
+| `pack_gzip` | 7 | yes |
+| `pack_hdf5` | 4 | yes |
 | `pack_heic` | 2 | yes |
 | `pack_icns` | 1 | yes |
 | `pack_ico` | 2 | yes |
 | `pack_jp2` | 4 | yes |
-| `pack_jpg` | 7 | yes |
+| `pack_jpg` | 8 | yes |
 | `pack_json` | 9 | yes |
 | `pack_jsonl` | 2 | yes |
 | `pack_jxl` | 1 | yes |
@@ -81,28 +82,31 @@ Handler and extension coverage means an input exists for that path. It does not 
 | `pack_lzo` | 3 | yes |
 | `pack_m4a` | 2 | yes |
 | `pack_m4v` | 1 | yes |
-| `pack_mat` | 1 | yes |
-| `pack_mkv` | 1 | yes |
+| `pack_mat` | 2 | yes |
+| `pack_mkv` | 2 | yes |
 | `pack_mov` | 1 | yes |
 | `pack_mp3` | 1 | yes |
 | `pack_mp4` | 1 | yes |
-| `pack_netcdf` | 2 | yes |
+| `pack_netcdf` | 3 | yes |
 | `pack_nib` | 1 | yes |
 | `pack_nrrd` | 2 | yes |
 | `pack_oga` | 1 | yes |
 | `pack_ogg` | 2 | yes |
 | `pack_ole` | 50 | yes |
+| `pack_onnx` | 1 | yes |
 | `pack_orc` | 1 | yes |
-| `pack_parquet` | 2 | yes |
+| `pack_parquet` | 3 | yes |
 | `pack_pcx` | 2 | yes |
-| `pack_pdf` | 1 | yes |
-| `pack_png` | 4 | yes |
+| `pack_pdf` | 3 | yes |
+| `pack_png` | 7 | yes |
 | `pack_pnm` | 4 | yes |
 | `pack_psb` | 1 | yes |
 | `pack_psd` | 1 | yes |
 | `pack_qgd` | 1 | yes |
 | `pack_qgs` | 1 | yes |
-| `pack_r_serialization` | 15 | yes |
+| `pack_r_serialization` | 18 | yes |
+| `pack_rtf` | 2 | yes |
+| `pack_safetensors` | 1 | yes |
 | `pack_spss` | 2 | yes |
 | `pack_sqlite` | 7 | yes |
 | `pack_svg` | 1 | yes |
@@ -110,10 +114,11 @@ Handler and extension coverage means an input exists for that path. It does not 
 | `pack_swf` | 1 | yes |
 | `pack_tga` | 2 | yes |
 | `pack_tgs` | 1 | yes |
-| `pack_tif` | 2 | yes |
+| `pack_tif` | 3 | yes |
+| `pack_tracev3` | 1 | yes |
 | `pack_ts` | 3 | yes |
 | `pack_tta` | 1 | yes |
-| `pack_warc` | 2 | yes |
+| `pack_warc` | 3 | yes |
 | `pack_webm` | 1 | yes |
 | `pack_webp` | 1 | yes |
 | `pack_wmv` | 1 | yes |
@@ -145,7 +150,7 @@ Handler and extension coverage means an input exists for that path. It does not 
 | .apng | 1 | native |
 | .appx | 1 | container-only |
 | .appxbundle | 1 | container-only |
-| .arrow | 1 | native |
+| .arrow | 2 | native |
 | .ase | 1 | native |
 | .aseprite | 1 | native |
 | .asf | 1 | native |
@@ -179,7 +184,7 @@ Handler and extension coverage means an input exists for that path. It does not 
 | .dng | 1 | native |
 | .doc | 16 | original |
 | .docm | 1 | container-only |
-| .docx | 2 | container-only, native |
+| .docx | 3 | container-only, native, original |
 | .dot | 1 | alias |
 | .dotm | 1 | container-only |
 | .dotx | 1 | container-only |
@@ -194,19 +199,21 @@ Handler and extension coverage means an input exists for that path. It does not 
 | .feather | 1 | native |
 | .fit | 1 | native |
 | .fits | 1 | native |
-| .flac | 1 | native |
+| .flac | 2 | native, original |
 | .fts | 1 | native |
 | .gcsx | 1 | container-only |
 | .gem | 1 | container-only |
 | .geojson | 1 | native |
+| .gguf | 1 | native |
 | .gif | 2 | native |
 | .glox | 1 | container-only |
 | .gltf | 1 | native |
 | .gpkg | 1 | container-only |
 | .gpx | 1 | syntax |
 | .gqsx | 1 | container-only |
-| .gz | 3 | native |
-| .h5 | 1 | native |
+| .gz | 4 | native |
+| .gzip | 3 | native |
+| .h5 | 2 | native |
 | .har | 1 | native |
 | .hdf | 1 | native |
 | .hdf5 | 1 | native |
@@ -231,7 +238,7 @@ Handler and extension coverage means an input exists for that path. It does not 
 | .jpe | 1 | alias |
 | .jpeg | 1 | alias |
 | .jpf | 1 | alias |
-| .jpg | 1 | native |
+| .jpg | 2 | native |
 | .jpx | 1 | alias |
 | .json | 3 | native |
 | .jsonl | 1 | native |
@@ -251,13 +258,13 @@ Handler and extension coverage means an input exists for that path. It does not 
 | .m4b | 1 | native |
 | .m4v | 1 | native |
 | .map | 1 | native |
-| .mat | 1 | native |
+| .mat | 2 | native, original |
 | .mbtiles | 1 | container-only |
 | .mcaddon | 1 | container-only |
 | .mcpack | 1 | container-only |
 | .mcworld | 1 | container-only |
 | .mellel | 1 | syntax |
-| .mkv | 1 | native |
+| .mkv | 2 | native |
 | .mov | 1 | native |
 | .mp3 | 1 | native |
 | .mp4 | 1 | native |
@@ -269,7 +276,7 @@ Handler and extension coverage means an input exists for that path. It does not 
 | .mxl | 1 | container-only |
 | .nbk | 1 | container-only |
 | .nc | 1 | native |
-| .nc4 | 1 | native |
+| .nc4 | 2 | native |
 | .ndjson | 1 | native |
 | .nib | 1 | syntax |
 | .nmbtemplate | 1 | container-only |
@@ -291,6 +298,7 @@ Handler and extension coverage means an input exists for that path. It does not 
 | .oga | 1 | native |
 | .ogg | 1 | native |
 | .onepkg | 1 | container-only |
+| .onnx | 1 | native |
 | .opus | 1 | native |
 | .ora | 1 | container-only |
 | .orc | 1 | native |
@@ -306,13 +314,13 @@ Handler and extension coverage means an input exists for that path. It does not 
 | .oxps | 1 | container-only |
 | .oxt | 1 | container-only |
 | .pages | 1 | container-only |
-| .parquet | 2 | native |
+| .parquet | 3 | native |
 | .pbm | 1 | native |
 | .pcx | 1 | native |
-| .pdf | 1 | native |
+| .pdf | 3 | native, original |
 | .pgm | 1 | native |
 | .pk3 | 1 | container-only |
-| .png | 3 | native |
+| .png | 6 | native, original |
 | .pnm | 1 | native |
 | .pot | 1 | alias |
 | .potm | 1 | container-only |
@@ -335,13 +343,15 @@ Handler and extension coverage means an input exists for that path. It does not 
 | .qgs | 1 | native |
 | .qgz | 1 | native |
 | .rar | 1 | native |
-| .rda | 5 | native |
-| .rdata | 5 | native |
-| .rds | 5 | native |
+| .rda | 6 | native |
+| .rdata | 6 | native |
+| .rds | 6 | native |
 | .rels | 1 | syntax |
 | .rmskin | 1 | container-only |
 | .rss | 1 | syntax |
 | .rtb | 1 | container-only |
+| .rtf | 2 | native |
+| .safetensors | 1 | native |
 | .sav | 1 | native |
 | .scrivx | 1 | container-only |
 | .sketch | 1 | container-only |
@@ -364,7 +374,7 @@ Handler and extension coverage means an input exists for that path. It does not 
 | .sxi | 1 | container-only |
 | .sxm | 1 | container-only |
 | .sxw | 1 | container-only |
-| .tar | 1 | native |
+| .tar | 3 | native |
 | .targa | 1 | alias |
 | .taz | 1 | alias |
 | .tbz | 1 | alias |
@@ -376,9 +386,10 @@ Handler and extension coverage means an input exists for that path. It does not 
 | .thm | 1 | alias |
 | .thmx | 1 | container-only |
 | .tif | 1 | native |
-| .tiff | 1 | native |
+| .tiff | 2 | native |
 | .tlz | 1 | alias |
 | .topojson | 1 | native |
+| .tracev3 | 1 | native |
 | .ts | 1 | native |
 | .tta | 1 | native |
 | .txz | 1 | alias |
@@ -398,7 +409,7 @@ Handler and extension coverage means an input exists for that path. It does not 
 | .vstm | 1 | container-only |
 | .vstx | 1 | container-only |
 | .war | 1 | container-only |
-| .warc | 2 | native |
+| .warc | 3 | native |
 | .webm | 1 | native |
 | .webp | 1 | native |
 | .wgt | 1 | container-only |
@@ -430,7 +441,7 @@ Handler and extension coverage means an input exists for that path. It does not 
 | .xslt | 1 | syntax |
 | .xz | 3 | native |
 | .z | 3 | native |
-| .zip | 2 | native |
+| .zip | 5 | native |
 | .zipx | 1 | container-only |
 | .zsav | 1 | native |
 | .zst | 3 | native |
@@ -439,36 +450,42 @@ Handler and extension coverage means an input exists for that path. It does not 
 
 | Filename suffix or detected type | Cases |
 |---|---:|
-| `.tar.gz` | archives-container-tar-gz |
-| `.tar.xz` | archives-container-tar-xz |
-| `.tar.bz2` | archives-container-tar-bz2 |
-| `.tar.zst` | archives-container-tar-zst |
-| `.tar.br` | archives-container-tar-br |
-| `.tar.lz4` | archives-container-tar-lz4 |
-| `.tar.lz` | archives-container-tar-lz |
-| `.tar.lzma` | archives-container-tar-lzma |
-| `.tar.lzo` | archives-container-tar-lzo |
-| `.tar.z` | archives-container-tar-z |
-| `.warc.gz` | native-weak-warc-gz |
-| `.rds.gz` | scientific-arrays-rds-gz |
-| `.rds.bz2` | scientific-arrays-rds-bz2 |
-| `.rds.xz` | scientific-arrays-rds-xz |
-| `.rda.gz` | scientific-arrays-rda-gz |
-| `.rda.bz2` | scientific-arrays-rda-bz2 |
-| `.rda.xz` | scientific-arrays-rda-xz |
-| `.rdata.gz` | scientific-arrays-rdata-gz |
-| `.rdata.bz2` | scientific-arrays-rdata-bz2 |
-| `.rdata.xz` | scientific-arrays-rdata-xz |
 | `.cpio` | archives-cpio-tree-cpio |
 | `.cpio.bz2` | streams-cpio-tree-cpio-bz2 |
 | `.otf (ODF package detected by ZIP content)` | packages-native-otf |
+| `.rda.bz2` | scientific-arrays-rda-bz2 |
+| `.rda.gz` | scientific-arrays-rda-gz |
+| `.rda.gzip` | scientific-arrays-rda-gzip |
+| `.rda.xz` | scientific-arrays-rda-xz |
+| `.rdata.bz2` | scientific-arrays-rdata-bz2 |
+| `.rdata.gz` | scientific-arrays-rdata-gz |
+| `.rdata.gzip` | scientific-arrays-rdata-gzip |
+| `.rdata.xz` | scientific-arrays-rdata-xz |
+| `.rds.bz2` | scientific-arrays-rds-bz2 |
+| `.rds.gz` | scientific-arrays-rds-gz |
+| `.rds.gzip` | scientific-arrays-rds-gzip |
+| `.rds.xz` | scientific-arrays-rds-xz |
+| `.tar.br` | archives-container-tar-br |
+| `.tar.bz2` | archives-container-tar-bz2 |
+| `.tar.gz` | archives-container-tar-gz |
+| `.tar.gzip` | archives-container-tar-gzip |
+| `.tar.lz` | archives-container-tar-lz |
+| `.tar.lz4` | archives-container-tar-lz4 |
+| `.tar.lzma` | archives-container-tar-lzma |
+| `.tar.lzo` | archives-container-tar-lzo |
+| `.tar.xz` | archives-container-tar-xz |
+| `.tar.z` | archives-container-tar-z |
+| `.tar.zst` | archives-container-tar-zst |
+| `.warc.gz` | native-weak-warc-gz |
+| `.warc.gzip` | native-alias-warc-gzip |
 
 The ODF packages use the registered media-type/extension pairs from the [OASIS OpenDocument 1.3 MIME type table](https://docs.oasis-open.org/office/OpenDocument/v1.3/os/part3-schema/OpenDocument-v1.3-os-part3-schema.pdf). The `.otf` sample is an ODF formula template selected by ZIP content, because `.otf` is not a flat registry extension.
 
 ## Remaining depth gaps
 
-More real user-created office, media and scientific files, application rendering, nested archive combinations, complex HDF5 link graphs, high-bit-depth image metadata and opt-in OLE content transforms would improve representativeness. The current synthetic corpus deliberately includes favorable compression opportunities.
+More real user-created office, video and scientific files, application rendering, larger heterogeneous archives and opt-in OLE content transforms would improve representativeness. Bounded nesting, archive links/controls, HDF5 graphs/references, nested NetCDF groups, high-bit-depth pixels, image metadata, rich PDF and multi-stream media are included. The current synthetic corpus deliberately includes favorable compression opportunities.
 
 CRX3 is included as a correctly signed ZIP package and the independent oracle checks the signature. The current local filerepack run safely leaves it unchanged because the archive reader rejects the CRX prefix. This fixture records input coverage, not a claim of successful CRX recompression.
 
 Original licensed samples and generated files must be analyzed separately for empirical claims.
+The catalog is a snapshot of the local registry, including optional RTF. The committed 95827f3 implementation has 311 flat extensions and 101 handlers. Extra corpus routes are reported as removed registry entries when comparing an older implementation; strict coverage gates uncovered live routes, unresolved handler mappings and filename paths.

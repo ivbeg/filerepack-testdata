@@ -4095,6 +4095,46 @@
     },
     {
       "expectation": "observe",
+      "extension": "tar.gzip",
+      "family": "archives",
+      "id": "archives-container-tar-gzip",
+      "inventory": {
+        "bytes": 54415,
+        "sha256": "f31c6acda8ffe626a9d0b5c3a774e551109d0bbb143c585e44408dca5f7e9b0f"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "children": {
+          "data.json": {
+            "kind": "json"
+          },
+          "data.xml": {
+            "kind": "xml"
+          },
+          "nested/records.jsonl": {
+            "kind": "jsonl"
+          }
+        },
+        "codec": "gz",
+        "kind": "tar"
+      },
+      "path": "corpus/generated/archives/container.tar.gzip",
+      "provenance": {
+        "description": "Synthetic data authored for this corpus",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "qualification": {
+        "routing": {
+          "family": "tar.gz"
+        }
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
       "extension": "tar.lz",
       "family": "archives",
       "id": "archives-container-tar-lz",
@@ -5630,6 +5670,125 @@
     },
     {
       "expectation": "observe",
+      "extension": "gzip",
+      "family": "archives",
+      "id": "archives-detected-tar-gzip",
+      "inventory": {
+        "bytes": 54415,
+        "sha256": "f31c6acda8ffe626a9d0b5c3a774e551109d0bbb143c585e44408dca5f7e9b0f"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "children": {
+          "data.json": {
+            "kind": "json"
+          },
+          "data.xml": {
+            "kind": "xml"
+          },
+          "nested/records.jsonl": {
+            "kind": "jsonl"
+          }
+        },
+        "codec": "gz",
+        "kind": "tar"
+      },
+      "path": "corpus/generated/archives/detected-tar.gzip",
+      "provenance": {
+        "description": "Synthetic data authored for this corpus",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "qualification": {
+        "routing": {
+          "family": "tar.gz"
+        }
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "zip",
+      "family": "archives",
+      "id": "archives-empty-zip",
+      "inventory": {
+        "bytes": 22,
+        "sha256": "8739c76e681f900923b900c9df0ef75cf421d39cabb54650c4b9ad19b6a76d85"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "zip"
+      },
+      "path": "corpus/generated/archives/empty.zip",
+      "provenance": {
+        "description": "Synthetic data authored for this corpus",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "tar",
+      "family": "archives",
+      "id": "archives-linked-tar",
+      "inventory": {
+        "bytes": 10240,
+        "sha256": "9a44cce1b85142856f32f1a996fcedb429d387dc5b41a8337a91f0e247383734"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "tar"
+      },
+      "path": "corpus/generated/archives/linked.tar",
+      "provenance": {
+        "description": "Synthetic data authored for this corpus",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "zip",
+      "family": "archives",
+      "id": "archives-nested-zip",
+      "inventory": {
+        "bytes": 348,
+        "sha256": "f0270e0010381145089277101cbc9b7244b02a8e2dad2a428c0a6d46935a8700"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "children": {
+          "inner.zip": {
+            "children": {
+              "payload.json": {
+                "kind": "json"
+              }
+            },
+            "kind": "zip"
+          }
+        },
+        "kind": "zip"
+      },
+      "path": "corpus/generated/archives/nested.zip",
+      "provenance": {
+        "description": "Synthetic data authored for this corpus",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
       "extension": "crx",
       "family": "archives",
       "id": "archives-signed-extension-crx",
@@ -5658,6 +5817,34 @@
       "path": "corpus/generated/archives/signed-extension.crx",
       "provenance": {
         "description": "CRX3 with a temporary test-only signing key and a minimal extension manifest",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "zip",
+      "family": "archives",
+      "id": "archives-unicode-zip",
+      "inventory": {
+        "bytes": 162,
+        "sha256": "e6f893189b9f0f15004c2068a724e71600e649d048d24773f415e1093a38f86d"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "children": {
+          "данные/測定.json": {
+            "kind": "json"
+          }
+        },
+        "kind": "zip"
+      },
+      "path": "corpus/generated/archives/unicode.zip",
+      "provenance": {
+        "description": "Synthetic data authored for this corpus",
         "generator": "frbench.generate",
         "seed": 1729,
         "type": "generated"
@@ -5931,6 +6118,98 @@
     },
     {
       "expectation": "unchanged",
+      "extension": "zip",
+      "family": "archives",
+      "id": "controls-archive-parent-path-zip",
+      "inventory": {
+        "bytes": 169,
+        "sha256": "8f3f05b0c1f92d9a408158bf47b9f382a1176b97c84602b6881e6dcf50ca8c9a"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "bytes"
+      },
+      "path": "corpus/generated/controls/archive-parent-path.zip",
+      "provenance": {
+        "description": "Synthetic data authored for this corpus",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "container-only",
+      "tier": "control"
+    },
+    {
+      "expectation": "unchanged",
+      "extension": "docx",
+      "family": "archives",
+      "id": "controls-archive-signature-marker-docx",
+      "inventory": {
+        "bytes": 267,
+        "sha256": "ae62f8d0f64a5796393e5a6cf5e60930cd32289f6cc57ff9d5036838a2dcbf8d"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "bytes"
+      },
+      "path": "corpus/generated/controls/archive-signature-marker.docx",
+      "provenance": {
+        "description": "Synthetic data authored for this corpus",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "container-only",
+      "tier": "control"
+    },
+    {
+      "expectation": "unchanged",
+      "extension": "zip",
+      "family": "archives",
+      "id": "controls-bad-crc-zip",
+      "inventory": {
+        "bytes": 135,
+        "sha256": "c4378508f3829585956e5f071c5a75f8a374a70c346f972f64dfab04fac2d2ec"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "bytes"
+      },
+      "path": "corpus/generated/controls/bad-crc.zip",
+      "provenance": {
+        "description": "Synthetic data authored for this corpus",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "control"
+    },
+    {
+      "expectation": "unchanged",
+      "extension": "zip",
+      "family": "archives",
+      "id": "controls-duplicate-members-zip",
+      "inventory": {
+        "bytes": 217,
+        "sha256": "de0d19902af0d956bcea278d97094e9aff508d2eda2bc1aa81fa77ed88fd363c"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "bytes"
+      },
+      "path": "corpus/generated/controls/duplicate-members.zip",
+      "provenance": {
+        "description": "Synthetic data authored for this corpus",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "control"
+    },
+    {
+      "expectation": "unchanged",
       "extension": "pdf",
       "family": "documents",
       "id": "controls-encrypted-pdf",
@@ -5943,6 +6222,29 @@
         "kind": "bytes"
       },
       "path": "corpus/generated/controls/encrypted.pdf",
+      "provenance": {
+        "description": "Synthetic data authored for this corpus",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "control"
+    },
+    {
+      "expectation": "unchanged",
+      "extension": "zip",
+      "family": "archives",
+      "id": "controls-encrypted-zip",
+      "inventory": {
+        "bytes": 231,
+        "sha256": "323d852791f58fe8b223ee51c686d9ee127bbd9de6511b9cef5bbb1f518d804a"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "bytes"
+      },
+      "path": "corpus/generated/controls/encrypted.zip",
       "provenance": {
         "description": "Synthetic data authored for this corpus",
         "generator": "frbench.generate",
@@ -6092,6 +6394,29 @@
     },
     {
       "expectation": "unchanged",
+      "extension": "gguf",
+      "family": "scientific",
+      "id": "controls-truncated-gguf",
+      "inventory": {
+        "bytes": 12,
+        "sha256": "43c439801c05bd36e6f20ca4d100b8f208371b62e3bdd4ae9c87367fe671d357"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "bytes"
+      },
+      "path": "corpus/generated/controls/truncated.gguf",
+      "provenance": {
+        "description": "Synthetic data authored for this corpus",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "control"
+    },
+    {
+      "expectation": "unchanged",
       "extension": "nrrd",
       "family": "native",
       "id": "controls-truncated-nrrd",
@@ -6115,6 +6440,29 @@
     },
     {
       "expectation": "unchanged",
+      "extension": "onnx",
+      "family": "scientific",
+      "id": "controls-truncated-onnx",
+      "inventory": {
+        "bytes": 4,
+        "sha256": "e8ed1b5b94c4ba570684f5153ae6bd6fcc81e1a9a6687e9fe72646f9de62c4e5"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "bytes"
+      },
+      "path": "corpus/generated/controls/truncated.onnx",
+      "provenance": {
+        "description": "Synthetic data authored for this corpus",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "control"
+    },
+    {
+      "expectation": "unchanged",
       "extension": "psb",
       "family": "native",
       "id": "controls-truncated-psb",
@@ -6127,6 +6475,52 @@
         "kind": "bytes"
       },
       "path": "corpus/generated/controls/truncated.psb",
+      "provenance": {
+        "description": "Synthetic data authored for this corpus",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "control"
+    },
+    {
+      "expectation": "unchanged",
+      "extension": "rtf",
+      "family": "documents",
+      "id": "controls-truncated-rtf",
+      "inventory": {
+        "bytes": 204,
+        "sha256": "0ebc04a9ac231c9fd2ea04631099089b066655cd6679c0a37e1c4d61f55f5f4b"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "bytes"
+      },
+      "path": "corpus/generated/controls/truncated.rtf",
+      "provenance": {
+        "description": "Synthetic data authored for this corpus",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "control"
+    },
+    {
+      "expectation": "unchanged",
+      "extension": "safetensors",
+      "family": "scientific",
+      "id": "controls-truncated-safetensors",
+      "inventory": {
+        "bytes": 12,
+        "sha256": "6924d08d951760c3bf227cec49f7468a855ad34d6f8f638c795c98a08bd5e7a5"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "bytes"
+      },
+      "path": "corpus/generated/controls/truncated.safetensors",
       "provenance": {
         "description": "Synthetic data authored for this corpus",
         "generator": "frbench.generate",
@@ -6173,6 +6567,29 @@
         "kind": "bytes"
       },
       "path": "corpus/generated/controls/truncated.tgs",
+      "provenance": {
+        "description": "Synthetic data authored for this corpus",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "control"
+    },
+    {
+      "expectation": "unchanged",
+      "extension": "tracev3",
+      "family": "native",
+      "id": "controls-truncated-tracev3",
+      "inventory": {
+        "bytes": 288,
+        "sha256": "1ed985e2496fbfa201a7ecf18cf98d9b70ae6607b9c636388b14e97186c9ff23"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "bytes"
+      },
+      "path": "corpus/generated/controls/truncated.tracev3",
       "provenance": {
         "description": "Synthetic data authored for this corpus",
         "generator": "frbench.generate",
@@ -6555,6 +6972,87 @@
       },
       "scope": "native",
       "tier": "smoke"
+    },
+    {
+      "expectation": "observe",
+      "extension": "rtf",
+      "family": "documents",
+      "id": "documents-picture-binary-rtf",
+      "inventory": {
+        "bytes": 8552,
+        "sha256": "30640857b5a3889784400d27f368fcd0d314794197200e99a5dd057d1bf28d0d"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "rtf"
+      },
+      "path": "corpus/generated/documents/picture-binary.rtf",
+      "provenance": {
+        "description": "Synthetic data authored for this corpus",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "qualification": {
+        "requires_extension": "rtf",
+        "routing": {
+          "packer": "rtf"
+        }
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "rtf",
+      "family": "documents",
+      "id": "documents-picture-hex-rtf",
+      "inventory": {
+        "bytes": 16871,
+        "sha256": "15c0935e58b05056c8b5683f62f47315af67c47301816978913e7e8900932de0"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "rtf"
+      },
+      "path": "corpus/generated/documents/picture-hex.rtf",
+      "provenance": {
+        "description": "Synthetic data authored for this corpus",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "qualification": {
+        "requires_extension": "rtf",
+        "routing": {
+          "packer": "rtf"
+        }
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "pdf",
+      "family": "documents",
+      "id": "documents-text-form-link-pdf",
+      "inventory": {
+        "bytes": 3901,
+        "sha256": "441b3703fb5c1931921da9c48431bbab6fc303d4eb840e11bd7097c3ec72c117"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "pdf"
+      },
+      "path": "corpus/generated/documents/text-form-link.pdf",
+      "provenance": {
+        "description": "Synthetic data authored for this corpus",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
     },
     {
       "expectation": "observe",
@@ -7296,6 +7794,52 @@
       "expectation": "observe",
       "extension": "png",
       "family": "images",
+      "id": "images-high-depth-png",
+      "inventory": {
+        "bytes": 32969,
+        "sha256": "beaaf3e210a35baa5d3498e6f3b23c1cd566820a3a68e5d8a5abc179195ee1ac"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "raster"
+      },
+      "path": "corpus/generated/images/high-depth.png",
+      "provenance": {
+        "description": "Synthetic data authored for this corpus",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "jpg",
+      "family": "images",
+      "id": "images-metadata-jpg",
+      "inventory": {
+        "bytes": 1589,
+        "sha256": "406ea7c601f3651b78cfdffd4f5f0390117b6fd6c39586ee03424739fff8b2ed"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "raster"
+      },
+      "path": "corpus/generated/images/metadata.jpg",
+      "provenance": {
+        "description": "Synthetic data authored for this corpus",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "png",
+      "family": "images",
       "id": "images-metadata-png",
       "inventory": {
         "bytes": 4805,
@@ -7432,6 +7976,34 @@
     },
     {
       "expectation": "observe",
+      "extension": "warc",
+      "family": "native",
+      "id": "native-alias-warc-gzip",
+      "inventory": {
+        "bytes": 33471,
+        "sha256": "5b0cd2d67264d4334c9bee3b96bc4f42cf0fe04718d07b4709cc17c05fcb7a30"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "warc"
+      },
+      "path": "corpus/generated/native/alias.warc.gzip",
+      "provenance": {
+        "description": "Synthetic data authored for this corpus",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "qualification": {
+        "routing": {
+          "packer": "warc"
+        }
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
       "extension": "swf",
       "family": "native",
       "id": "native-animation-swf",
@@ -7449,6 +8021,34 @@
         "generator": "frbench.generate",
         "seed": 1729,
         "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "tracev3",
+      "family": "native",
+      "id": "native-archived-tracev3",
+      "inventory": {
+        "bytes": 31192,
+        "sha256": "8faa24ad3058232080d99b878604892fb4482800eabed2e68a64a1b6b8545029"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "tracev3"
+      },
+      "path": "corpus/generated/native/archived.tracev3",
+      "provenance": {
+        "description": "Synthetic data authored for this corpus",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "qualification": {
+        "routing": {
+          "packer": "tracev3"
+        }
       },
       "scope": "native",
       "tier": "extended"
@@ -7518,6 +8118,62 @@
         "generator": "frbench.generate",
         "seed": 1729,
         "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "gz",
+      "family": "native",
+      "id": "native-detected-warc-gz",
+      "inventory": {
+        "bytes": 33471,
+        "sha256": "5b0cd2d67264d4334c9bee3b96bc4f42cf0fe04718d07b4709cc17c05fcb7a30"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "warc"
+      },
+      "path": "corpus/generated/native/detected-warc.gz",
+      "provenance": {
+        "description": "Synthetic data authored for this corpus",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "qualification": {
+        "routing": {
+          "packer": "warc"
+        }
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "gzip",
+      "family": "native",
+      "id": "native-detected-warc-gzip",
+      "inventory": {
+        "bytes": 33471,
+        "sha256": "5b0cd2d67264d4334c9bee3b96bc4f42cf0fe04718d07b4709cc17c05fcb7a30"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "warc"
+      },
+      "path": "corpus/generated/native/detected-warc.gzip",
+      "provenance": {
+        "description": "Synthetic data authored for this corpus",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "qualification": {
+        "routing": {
+          "packer": "warc"
+        }
       },
       "scope": "native",
       "tier": "extended"
@@ -7704,6 +8360,182 @@
         "type": "generated"
       },
       "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "flac",
+      "family": "audio",
+      "id": "original-audio-silence-flac",
+      "inventory": {
+        "bytes": 50904,
+        "sha256": "999c5bc800d7b7e073cce8b42e194788f277bf4eb8e3c9eaa28e017d5875c62b"
+      },
+      "license": "GPL-2.0-or-later",
+      "oracle": {
+        "kind": "audio"
+      },
+      "path": "corpus/originals/audio/silence.flac",
+      "provenance": {
+        "commit": "ada28b2cc92c515f3f26640a6feef6516d195872",
+        "description": "Unmodified upstream regression fixture; original provenance does not imply a representative production workload",
+        "license_files": [
+          "licenses/originals-mutagen-COPYING"
+        ],
+        "license_source": "https://raw.githubusercontent.com/quodlibet/mutagen/ada28b2cc92c515f3f26640a6feef6516d195872/COPYING",
+        "repository": "https://github.com/quodlibet/mutagen",
+        "source": "https://raw.githubusercontent.com/quodlibet/mutagen/ada28b2cc92c515f3f26640a6feef6516d195872/tests/data/silence-44-s.flac",
+        "type": "upstream-original"
+      },
+      "scope": "original",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "docx",
+      "family": "documents",
+      "id": "original-documents-blocks-docx",
+      "inventory": {
+        "bytes": 11949,
+        "sha256": "16243dd05f686d6d5fab331843691492ad78ae3eb4f13cc8686077b44718c0ba"
+      },
+      "license": "MIT",
+      "oracle": {
+        "children": {
+          "[Content_Types].xml": {
+            "kind": "xml"
+          },
+          "_rels/.rels": {
+            "kind": "xml"
+          },
+          "docProps/app.xml": {
+            "kind": "xml"
+          },
+          "docProps/core.xml": {
+            "kind": "xml"
+          },
+          "word/_rels/document.xml.rels": {
+            "kind": "xml"
+          },
+          "word/document.xml": {
+            "kind": "xml"
+          },
+          "word/fontTable.xml": {
+            "kind": "xml"
+          },
+          "word/settings.xml": {
+            "kind": "xml"
+          },
+          "word/styles.xml": {
+            "kind": "xml"
+          },
+          "word/theme/theme1.xml": {
+            "kind": "xml"
+          },
+          "word/webSettings.xml": {
+            "kind": "xml"
+          }
+        },
+        "kind": "zip"
+      },
+      "path": "corpus/originals/documents/blocks.docx",
+      "provenance": {
+        "commit": "e45454602b53e8e572b179ccf1c91093ec9f4ed7",
+        "description": "Unmodified upstream regression fixture; original provenance does not imply a representative production workload",
+        "license_files": [
+          "licenses/originals-python-docx-LICENSE"
+        ],
+        "license_source": "https://raw.githubusercontent.com/python-openxml/python-docx/e45454602b53e8e572b179ccf1c91093ec9f4ed7/LICENSE",
+        "repository": "https://github.com/python-openxml/python-docx",
+        "source": "https://raw.githubusercontent.com/python-openxml/python-docx/e45454602b53e8e572b179ccf1c91093ec9f4ed7/tests/test_files/blk-inner-content.docx",
+        "type": "upstream-original"
+      },
+      "scope": "original",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "pdf",
+      "family": "documents",
+      "id": "original-documents-minimal-pdf",
+      "inventory": {
+        "bytes": 763,
+        "sha256": "c16e6eaf7d26ae388cac9a262224981394dc590f940bd2e3bb926eba2f2132a2"
+      },
+      "license": "Apache-2.0",
+      "oracle": {
+        "kind": "pdf"
+      },
+      "path": "corpus/originals/documents/minimal.pdf",
+      "provenance": {
+        "commit": "4eba95899886e851cc41d76886483b347612f2a8",
+        "description": "Unmodified upstream regression fixture; original provenance does not imply a representative production workload",
+        "license_files": [
+          "licenses/originals-qpdf-LICENSE.txt"
+        ],
+        "license_source": "https://raw.githubusercontent.com/qpdf/qpdf/4eba95899886e851cc41d76886483b347612f2a8/LICENSE.txt",
+        "repository": "https://github.com/qpdf/qpdf",
+        "source": "https://raw.githubusercontent.com/qpdf/qpdf/4eba95899886e851cc41d76886483b347612f2a8/qpdf/qtest/qpdf/minimal.pdf",
+        "type": "upstream-original"
+      },
+      "scope": "original",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "png",
+      "family": "images",
+      "id": "original-images-pngsuite-rgb16-png",
+      "inventory": {
+        "bytes": 302,
+        "sha256": "71179d2905aadb86adc25de7f737869b52e80e154c5335f5e6b614942515b2d4"
+      },
+      "license": "LicenseRef-PngSuite",
+      "oracle": {
+        "exact_png_bits": true,
+        "kind": "raster"
+      },
+      "path": "corpus/originals/images/pngsuite-rgb16.png",
+      "provenance": {
+        "commit": "18ea3e9404a09f42d92f952a4c0d1dd3d688182a",
+        "description": "Unmodified upstream regression fixture; original provenance does not imply a representative production workload",
+        "license_files": [
+          "licenses/originals-libpng-README"
+        ],
+        "license_source": "https://raw.githubusercontent.com/pnggroup/libpng/18ea3e9404a09f42d92f952a4c0d1dd3d688182a/contrib/pngsuite/README",
+        "repository": "https://github.com/pnggroup/libpng",
+        "source": "https://raw.githubusercontent.com/pnggroup/libpng/18ea3e9404a09f42d92f952a4c0d1dd3d688182a/contrib/pngsuite/basn2c16.png",
+        "type": "upstream-original"
+      },
+      "scope": "original",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "png",
+      "family": "images",
+      "id": "original-images-pngsuite-rgba8-png",
+      "inventory": {
+        "bytes": 184,
+        "sha256": "756a03364c02e3c9f85d6f4029eb3cef2488c081dc537d46e102bebcb9e02732"
+      },
+      "license": "LicenseRef-PngSuite",
+      "oracle": {
+        "kind": "raster"
+      },
+      "path": "corpus/originals/images/pngsuite-rgba8.png",
+      "provenance": {
+        "commit": "18ea3e9404a09f42d92f952a4c0d1dd3d688182a",
+        "description": "Unmodified upstream regression fixture; original provenance does not imply a representative production workload",
+        "license_files": [
+          "licenses/originals-libpng-README"
+        ],
+        "license_source": "https://raw.githubusercontent.com/pnggroup/libpng/18ea3e9404a09f42d92f952a4c0d1dd3d688182a/contrib/pngsuite/README",
+        "repository": "https://github.com/pnggroup/libpng",
+        "source": "https://raw.githubusercontent.com/pnggroup/libpng/18ea3e9404a09f42d92f952a4c0d1dd3d688182a/contrib/pngsuite/basn6a08.png",
+        "type": "upstream-original"
+      },
+      "scope": "original",
       "tier": "extended"
     },
     {
@@ -8812,6 +9644,34 @@
     },
     {
       "expectation": "observe",
+      "extension": "mat",
+      "family": "scientific",
+      "id": "original-scientific-matlab-double-mat",
+      "inventory": {
+        "bytes": 232,
+        "sha256": "4eb909e17c7f742f58acf75ec25b0ebd8b3fc5a83b813ddc3781e40ec2664fc2"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "mat"
+      },
+      "path": "corpus/originals/scientific/matlab-double.mat",
+      "provenance": {
+        "commit": "ecee36d388004b86bdf56bf3fd7498006cddda96",
+        "description": "Unmodified upstream regression fixture; original provenance does not imply a representative production workload",
+        "license_files": [
+          "licenses/originals-scipy-LICENSE.txt"
+        ],
+        "license_source": "https://raw.githubusercontent.com/scipy/scipy/ecee36d388004b86bdf56bf3fd7498006cddda96/LICENSE.txt",
+        "repository": "https://github.com/scipy/scipy",
+        "source": "https://raw.githubusercontent.com/scipy/scipy/ecee36d388004b86bdf56bf3fd7498006cddda96/scipy/io/matlab/tests/data/testdouble_7.4_GLNX86.mat",
+        "type": "upstream-original"
+      },
+      "scope": "original",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
       "extension": "npz",
       "family": "packages",
       "id": "packages-arrays-npz",
@@ -9725,7 +10585,9 @@
       },
       "license": "BSD-3-Clause",
       "oracle": {
-        "kind": "zip"
+        "kind": "zip",
+        "package": "usdz",
+        "preserve_order": true
       },
       "path": "corpus/generated/packages/scene.usdz",
       "provenance": {
@@ -10017,6 +10879,34 @@
       "expectation": "observe",
       "extension": "rda",
       "family": "scientific",
+      "id": "scientific-arrays-rda-gzip",
+      "inventory": {
+        "bytes": 4017,
+        "sha256": "aebf8d34d128024b982f7cbe1677aaaf0b6997e52c6c4a611116ac6a1e036628"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "r"
+      },
+      "path": "corpus/generated/scientific/arrays.rda.gzip",
+      "provenance": {
+        "description": "Synthetic data authored for this corpus",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "qualification": {
+        "routing": {
+          "packer": "r-serialization"
+        }
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "rda",
+      "family": "scientific",
       "id": "scientific-arrays-rda-xz",
       "inventory": {
         "bytes": 428,
@@ -10109,6 +10999,34 @@
       "expectation": "observe",
       "extension": "rdata",
       "family": "scientific",
+      "id": "scientific-arrays-rdata-gzip",
+      "inventory": {
+        "bytes": 4017,
+        "sha256": "aebf8d34d128024b982f7cbe1677aaaf0b6997e52c6c4a611116ac6a1e036628"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "r"
+      },
+      "path": "corpus/generated/scientific/arrays.rdata.gzip",
+      "provenance": {
+        "description": "Synthetic data authored for this corpus",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "qualification": {
+        "routing": {
+          "packer": "r-serialization"
+        }
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "rdata",
+      "family": "scientific",
       "id": "scientific-arrays-rdata-xz",
       "inventory": {
         "bytes": 428,
@@ -10193,6 +11111,34 @@
         "generator": "frbench.generate",
         "seed": 1729,
         "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "rds",
+      "family": "scientific",
+      "id": "scientific-arrays-rds-gzip",
+      "inventory": {
+        "bytes": 4233,
+        "sha256": "99d0f58ac7fa94430f2c5efac218c26e7bca8f3c71f0b03ae0d26fa377f8dab3"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "r"
+      },
+      "path": "corpus/generated/scientific/arrays.rds.gzip",
+      "provenance": {
+        "description": "Synthetic data authored for this corpus",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "qualification": {
+        "routing": {
+          "packer": "r-serialization"
+        }
       },
       "scope": "native",
       "tier": "extended"
@@ -10515,6 +11461,196 @@
     },
     {
       "expectation": "observe",
+      "extension": "arrow",
+      "family": "scientific",
+      "id": "scientific-float-edge-arrow",
+      "inventory": {
+        "bytes": 602,
+        "sha256": "f45e0d062b20105332100fbc7fddb9305efe760c5508988919906e840941f1fa"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "format": "ipc",
+        "kind": "arrow"
+      },
+      "path": "corpus/generated/scientific/float-edge.arrow",
+      "provenance": {
+        "description": "Synthetic data authored for this corpus",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "parquet",
+      "family": "scientific",
+      "id": "scientific-float-edge-parquet",
+      "inventory": {
+        "bytes": 549,
+        "sha256": "92b79d788f2a2e56840f93bfd4fbe3f70c668b9137316bbfe5875f9c5ab1d6a9"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "format": "parquet",
+        "kind": "arrow"
+      },
+      "path": "corpus/generated/scientific/float-edge.parquet",
+      "provenance": {
+        "description": "Synthetic data authored for this corpus",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "tiff",
+      "family": "scientific",
+      "id": "scientific-float-edge-tiff",
+      "inventory": {
+        "bytes": 272,
+        "sha256": "ab8c7c3445b94d151a5eac5abefbb766a64d29217e0ed45806190597c70f7988"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "tiff"
+      },
+      "path": "corpus/generated/scientific/float-edge.tiff",
+      "provenance": {
+        "description": "Synthetic data authored for this corpus",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "gguf",
+      "family": "scientific",
+      "id": "scientific-inspection-gguf",
+      "inventory": {
+        "bytes": 112,
+        "sha256": "8625eaf844ecfc3626e9165d9a44c5a97c1bceae75693a917d577542b5006511"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "format": "gguf",
+        "kind": "model"
+      },
+      "path": "corpus/generated/scientific/inspection.gguf",
+      "provenance": {
+        "description": "Bounded inspection-only profile; tensor payloads are never instantiated",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "qualification": {
+        "routing": {
+          "packer": "gguf"
+        },
+        "statuses": [
+          "unchanged"
+        ]
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "onnx",
+      "family": "scientific",
+      "id": "scientific-inspection-onnx",
+      "inventory": {
+        "bytes": 82,
+        "sha256": "abc201c1b185ac3beadefd9718a22d3bbfe06bb1de7505e67cddd994598fb785"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "format": "onnx",
+        "kind": "model"
+      },
+      "path": "corpus/generated/scientific/inspection.onnx",
+      "provenance": {
+        "description": "Synthetic data authored for this corpus",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "qualification": {
+        "routing": {
+          "packer": "onnx"
+        },
+        "statuses": [
+          "unchanged"
+        ]
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "safetensors",
+      "family": "scientific",
+      "id": "scientific-inspection-safetensors",
+      "inventory": {
+        "bytes": 128,
+        "sha256": "3dc9426faee0bde0f26e430b3deace033f8e1aef73f21dea02357644365d4640"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "format": "safetensors",
+        "kind": "model"
+      },
+      "path": "corpus/generated/scientific/inspection.safetensors",
+      "provenance": {
+        "description": "Bounded inspection-only profile; tensor payloads are never instantiated",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "qualification": {
+        "routing": {
+          "packer": "safetensors"
+        },
+        "statuses": [
+          "unchanged"
+        ]
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "h5",
+      "family": "scientific",
+      "id": "scientific-linked-graph-h5",
+      "inventory": {
+        "bytes": 4888,
+        "sha256": "b614addf94d4f116f004d46ac254fbf26068f68229d757fe41fb6702ef599867"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "hdf5"
+      },
+      "path": "corpus/generated/scientific/linked-graph.h5",
+      "provenance": {
+        "description": "Synthetic data authored for this corpus",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
       "extension": "tif",
       "family": "scientific",
       "id": "scientific-multipage-tif",
@@ -10550,6 +11686,29 @@
         "kind": "tiff"
       },
       "path": "corpus/generated/scientific/multipage.tiff",
+      "provenance": {
+        "description": "Synthetic data authored for this corpus",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "nc4",
+      "family": "scientific",
+      "id": "scientific-nested-groups-nc4",
+      "inventory": {
+        "bytes": 6176,
+        "sha256": "17ade9e61d0c0568a76604deaf062fd6f872e47fa16aa52d936358a4f22a5a43"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "netcdf"
+      },
+      "path": "corpus/generated/scientific/nested-groups.nc4",
       "provenance": {
         "description": "Synthetic data authored for this corpus",
         "generator": "frbench.generate",
@@ -11319,6 +12478,30 @@
     },
     {
       "expectation": "observe",
+      "extension": "gzip",
+      "family": "streams",
+      "id": "streams-weak-gzip",
+      "inventory": {
+        "bytes": 16423,
+        "sha256": "358562a190b154b9b9ff17b947524f6f745416e656cff5da03605cbafd522a3f"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "codec": "gz",
+        "kind": "stream"
+      },
+      "path": "corpus/generated/streams/weak.gzip",
+      "provenance": {
+        "description": "Synthetic data authored for this corpus",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
       "extension": "lz",
       "family": "streams",
       "id": "streams-weak-lz",
@@ -11484,6 +12667,29 @@
       },
       "scope": "native",
       "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "tar",
+      "family": "archives",
+      "id": "stress-large-tar",
+      "inventory": {
+        "bytes": 16783360,
+        "sha256": "fc696ddddbf7d5fed17e3a9e9fa7dc8491c5d3521622cdaf2acd124f5d9db471"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "tar"
+      },
+      "path": "corpus/generated/stress/large.tar",
+      "provenance": {
+        "description": "16 MiB per --scale unit; report separately from ordinary cases",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "stress"
     },
     {
       "expectation": "observe",
@@ -12062,6 +13268,29 @@
     },
     {
       "expectation": "observe",
+      "extension": "mkv",
+      "family": "video",
+      "id": "video-multiple-streams-mkv",
+      "inventory": {
+        "bytes": 183273,
+        "sha256": "ff171f63ed951c70b124342a00592c81da7c8d6e5d91c106c631058b4481594e"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "video"
+      },
+      "path": "corpus/generated/video/multiple-streams.mkv",
+      "provenance": {
+        "description": "Synthetic data authored for this corpus",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
       "extension": "3gp",
       "family": "video",
       "id": "video-test-pattern-3gp",
@@ -12414,6 +13643,7 @@
     "gcsx",
     "gem",
     "geojson",
+    "gguf",
     "gif",
     "glox",
     "gltf",
@@ -12421,6 +13651,7 @@
     "gpx",
     "gqsx",
     "gz",
+    "gzip",
     "h5",
     "har",
     "hdf",
@@ -12506,6 +13737,7 @@
     "oga",
     "ogg",
     "onepkg",
+    "onnx",
     "opus",
     "ora",
     "orc",
@@ -12557,6 +13789,8 @@
     "rmskin",
     "rss",
     "rtb",
+    "rtf",
+    "safetensors",
     "sav",
     "scrivx",
     "sketch",
@@ -12594,6 +13828,7 @@
     "tiff",
     "tlz",
     "topojson",
+    "tracev3",
     "ts",
     "tta",
     "txz",

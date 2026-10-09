@@ -1,0 +1,953 @@
+{
+  "attempts": [
+    {
+      "attempt": 0,
+      "detected": {
+        "family": "standalone",
+        "key": "rtf",
+        "packer": "rtf"
+      },
+      "extension": "rtf",
+      "family": "documents",
+      "filerepack_version": "0.4.0",
+      "id": "controls-truncated-rtf",
+      "input_bytes": 204,
+      "log": "logs/controls-truncated-rtf-0.log",
+      "output_bytes": 204,
+      "packer_results": [
+        {
+          "reason": "RTF: unclosed group",
+          "replaced": false,
+          "resources": {
+            "decoded_bytes": 204,
+            "peak_live_scratch_bytes": 0,
+            "scratch_written_bytes": 0
+          }
+        }
+      ],
+      "peak_tree_rss_bytes": 31440896,
+      "qualification_issues": [],
+      "reason": "RTF: unclosed group",
+      "scope": "native",
+      "seconds": 0.0015369579996331595,
+      "status": "unchanged",
+      "tier": "control",
+      "verification": "byte-identity",
+      "wall_seconds": 0.1220978329947684
+    },
+    {
+      "attempt": 1,
+      "detected": {
+        "family": "standalone",
+        "key": "rtf",
+        "packer": "rtf"
+      },
+      "extension": "rtf",
+      "family": "documents",
+      "filerepack_version": "0.4.0",
+      "id": "controls-truncated-rtf",
+      "input_bytes": 204,
+      "log": "logs/controls-truncated-rtf-1.log",
+      "output_bytes": 204,
+      "packer_results": [
+        {
+          "reason": "RTF: unclosed group",
+          "replaced": false,
+          "resources": {
+            "decoded_bytes": 204,
+            "peak_live_scratch_bytes": 0,
+            "scratch_written_bytes": 0
+          }
+        }
+      ],
+      "peak_tree_rss_bytes": 31047680,
+      "qualification_issues": [],
+      "reason": "RTF: unclosed group",
+      "scope": "native",
+      "seconds": 0.0015567079972242936,
+      "status": "unchanged",
+      "tier": "control",
+      "verification": "byte-identity",
+      "wall_seconds": 0.12170429099933244
+    },
+    {
+      "attempt": 2,
+      "detected": {
+        "family": "standalone",
+        "key": "rtf",
+        "packer": "rtf"
+      },
+      "extension": "rtf",
+      "family": "documents",
+      "filerepack_version": "0.4.0",
+      "id": "controls-truncated-rtf",
+      "input_bytes": 204,
+      "log": "logs/controls-truncated-rtf-2.log",
+      "output_bytes": 204,
+      "packer_results": [
+        {
+          "reason": "RTF: unclosed group",
+          "replaced": false,
+          "resources": {
+            "decoded_bytes": 204,
+            "peak_live_scratch_bytes": 0,
+            "scratch_written_bytes": 0
+          }
+        }
+      ],
+      "peak_tree_rss_bytes": 31358976,
+      "qualification_issues": [],
+      "reason": "RTF: unclosed group",
+      "scope": "native",
+      "seconds": 0.0016752919982536696,
+      "status": "unchanged",
+      "tier": "control",
+      "verification": "byte-identity",
+      "wall_seconds": 0.12018212499970105
+    },
+    {
+      "attempt": 0,
+      "capability_available": true,
+      "detected": {
+        "family": "standalone",
+        "key": "rtf",
+        "packer": "rtf"
+      },
+      "extension": "rtf",
+      "family": "documents",
+      "filerepack_version": "0.4.0",
+      "id": "documents-picture-binary-rtf",
+      "input_bytes": 8552,
+      "log": "logs/documents-picture-binary-rtf-0.log",
+      "output_bytes": 382,
+      "packer_results": [
+        {
+          "evidence": [
+            {
+              "count": 1,
+              "executable": "oxipng",
+              "key": "oxipng",
+              "type": "tool",
+              "version": null
+            },
+            {
+              "count": 2,
+              "kind": "png",
+              "reason": "",
+              "stage": "structure",
+              "type": "validation",
+              "valid": true
+            },
+            {
+              "count": 2,
+              "kind": "png",
+              "reason": "",
+              "stage": "preservation",
+              "type": "validation",
+              "valid": true
+            },
+            {
+              "count": 1,
+              "kind": "rtf",
+              "reason": "",
+              "stage": "structure",
+              "type": "validation",
+              "valid": true
+            },
+            {
+              "count": 1,
+              "kind": "rtf",
+              "reason": "",
+              "stage": "preservation",
+              "type": "validation",
+              "valid": true
+            }
+          ],
+          "reason": "",
+          "replaced": true,
+          "resources": {
+            "decoded_bytes": 67579,
+            "peak_live_scratch_bytes": 25208,
+            "scratch_written_bytes": 8710
+          }
+        }
+      ],
+      "peak_tree_rss_bytes": 39649280,
+      "qualification_issues": [],
+      "reason": "Verified smaller output",
+      "scope": "native",
+      "seconds": 0.020715874998131767,
+      "status": "improved",
+      "tier": "extended",
+      "verification": "rtf",
+      "wall_seconds": 0.17957829199440312
+    },
+    {
+      "attempt": 1,
+      "capability_available": true,
+      "detected": {
+        "family": "standalone",
+        "key": "rtf",
+        "packer": "rtf"
+      },
+      "extension": "rtf",
+      "family": "documents",
+      "filerepack_version": "0.4.0",
+      "id": "documents-picture-binary-rtf",
+      "input_bytes": 8552,
+      "log": "logs/documents-picture-binary-rtf-1.log",
+      "output_bytes": 382,
+      "packer_results": [
+        {
+          "evidence": [
+            {
+              "count": 1,
+              "executable": "oxipng",
+              "key": "oxipng",
+              "type": "tool",
+              "version": null
+            },
+            {
+              "count": 2,
+              "kind": "png",
+              "reason": "",
+              "stage": "structure",
+              "type": "validation",
+              "valid": true
+            },
+            {
+              "count": 2,
+              "kind": "png",
+              "reason": "",
+              "stage": "preservation",
+              "type": "validation",
+              "valid": true
+            },
+            {
+              "count": 1,
+              "kind": "rtf",
+              "reason": "",
+              "stage": "structure",
+              "type": "validation",
+              "valid": true
+            },
+            {
+              "count": 1,
+              "kind": "rtf",
+              "reason": "",
+              "stage": "preservation",
+              "type": "validation",
+              "valid": true
+            }
+          ],
+          "reason": "",
+          "replaced": true,
+          "resources": {
+            "decoded_bytes": 67579,
+            "peak_live_scratch_bytes": 25208,
+            "scratch_written_bytes": 8710
+          }
+        }
+      ],
+      "peak_tree_rss_bytes": 32768000,
+      "qualification_issues": [],
+      "reason": "Verified smaller output",
+      "scope": "native",
+      "seconds": 0.02113479200488655,
+      "status": "improved",
+      "tier": "extended",
+      "verification": "rtf",
+      "wall_seconds": 0.12095666599634569
+    },
+    {
+      "attempt": 2,
+      "capability_available": true,
+      "detected": {
+        "family": "standalone",
+        "key": "rtf",
+        "packer": "rtf"
+      },
+      "extension": "rtf",
+      "family": "documents",
+      "filerepack_version": "0.4.0",
+      "id": "documents-picture-binary-rtf",
+      "input_bytes": 8552,
+      "log": "logs/documents-picture-binary-rtf-2.log",
+      "output_bytes": 382,
+      "packer_results": [
+        {
+          "evidence": [
+            {
+              "count": 1,
+              "executable": "oxipng",
+              "key": "oxipng",
+              "type": "tool",
+              "version": null
+            },
+            {
+              "count": 2,
+              "kind": "png",
+              "reason": "",
+              "stage": "structure",
+              "type": "validation",
+              "valid": true
+            },
+            {
+              "count": 2,
+              "kind": "png",
+              "reason": "",
+              "stage": "preservation",
+              "type": "validation",
+              "valid": true
+            },
+            {
+              "count": 1,
+              "kind": "rtf",
+              "reason": "",
+              "stage": "structure",
+              "type": "validation",
+              "valid": true
+            },
+            {
+              "count": 1,
+              "kind": "rtf",
+              "reason": "",
+              "stage": "preservation",
+              "type": "validation",
+              "valid": true
+            }
+          ],
+          "reason": "",
+          "replaced": true,
+          "resources": {
+            "decoded_bytes": 67579,
+            "peak_live_scratch_bytes": 25208,
+            "scratch_written_bytes": 8710
+          }
+        }
+      ],
+      "peak_tree_rss_bytes": 31834112,
+      "qualification_issues": [],
+      "reason": "Verified smaller output",
+      "scope": "native",
+      "seconds": 0.020681750000221655,
+      "status": "improved",
+      "tier": "extended",
+      "verification": "rtf",
+      "wall_seconds": 0.12153670800034888
+    },
+    {
+      "attempt": 0,
+      "capability_available": true,
+      "detected": {
+        "family": "standalone",
+        "key": "rtf",
+        "packer": "rtf"
+      },
+      "extension": "rtf",
+      "family": "documents",
+      "filerepack_version": "0.4.0",
+      "id": "documents-picture-hex-rtf",
+      "input_bytes": 16871,
+      "log": "logs/documents-picture-hex-rtf-0.log",
+      "output_bytes": 533,
+      "packer_results": [
+        {
+          "evidence": [
+            {
+              "count": 1,
+              "executable": "oxipng",
+              "key": "oxipng",
+              "type": "tool",
+              "version": null
+            },
+            {
+              "count": 2,
+              "kind": "png",
+              "reason": "",
+              "stage": "structure",
+              "type": "validation",
+              "valid": true
+            },
+            {
+              "count": 2,
+              "kind": "png",
+              "reason": "",
+              "stage": "preservation",
+              "type": "validation",
+              "valid": true
+            },
+            {
+              "count": 1,
+              "kind": "rtf",
+              "reason": "",
+              "stage": "structure",
+              "type": "validation",
+              "valid": true
+            },
+            {
+              "count": 1,
+              "kind": "rtf",
+              "reason": "",
+              "stage": "preservation",
+              "type": "validation",
+              "valid": true
+            }
+          ],
+          "reason": "",
+          "replaced": true,
+          "resources": {
+            "decoded_bytes": 84519,
+            "peak_live_scratch_bytes": 33527,
+            "scratch_written_bytes": 8861
+          }
+        }
+      ],
+      "peak_tree_rss_bytes": 32538624,
+      "qualification_issues": [],
+      "reason": "Verified smaller output",
+      "scope": "native",
+      "seconds": 0.020564540995110292,
+      "status": "improved",
+      "tier": "extended",
+      "verification": "rtf",
+      "wall_seconds": 0.12175349999597529
+    },
+    {
+      "attempt": 1,
+      "capability_available": true,
+      "detected": {
+        "family": "standalone",
+        "key": "rtf",
+        "packer": "rtf"
+      },
+      "extension": "rtf",
+      "family": "documents",
+      "filerepack_version": "0.4.0",
+      "id": "documents-picture-hex-rtf",
+      "input_bytes": 16871,
+      "log": "logs/documents-picture-hex-rtf-1.log",
+      "output_bytes": 533,
+      "packer_results": [
+        {
+          "evidence": [
+            {
+              "count": 1,
+              "executable": "oxipng",
+              "key": "oxipng",
+              "type": "tool",
+              "version": null
+            },
+            {
+              "count": 2,
+              "kind": "png",
+              "reason": "",
+              "stage": "structure",
+              "type": "validation",
+              "valid": true
+            },
+            {
+              "count": 2,
+              "kind": "png",
+              "reason": "",
+              "stage": "preservation",
+              "type": "validation",
+              "valid": true
+            },
+            {
+              "count": 1,
+              "kind": "rtf",
+              "reason": "",
+              "stage": "structure",
+              "type": "validation",
+              "valid": true
+            },
+            {
+              "count": 1,
+              "kind": "rtf",
+              "reason": "",
+              "stage": "preservation",
+              "type": "validation",
+              "valid": true
+            }
+          ],
+          "reason": "",
+          "replaced": true,
+          "resources": {
+            "decoded_bytes": 84519,
+            "peak_live_scratch_bytes": 33527,
+            "scratch_written_bytes": 8861
+          }
+        }
+      ],
+      "peak_tree_rss_bytes": 31997952,
+      "qualification_issues": [],
+      "reason": "Verified smaller output",
+      "scope": "native",
+      "seconds": 0.020172457996523008,
+      "status": "improved",
+      "tier": "extended",
+      "verification": "rtf",
+      "wall_seconds": 0.12154258300142828
+    },
+    {
+      "attempt": 2,
+      "capability_available": true,
+      "detected": {
+        "family": "standalone",
+        "key": "rtf",
+        "packer": "rtf"
+      },
+      "extension": "rtf",
+      "family": "documents",
+      "filerepack_version": "0.4.0",
+      "id": "documents-picture-hex-rtf",
+      "input_bytes": 16871,
+      "log": "logs/documents-picture-hex-rtf-2.log",
+      "output_bytes": 533,
+      "packer_results": [
+        {
+          "evidence": [
+            {
+              "count": 1,
+              "executable": "oxipng",
+              "key": "oxipng",
+              "type": "tool",
+              "version": null
+            },
+            {
+              "count": 2,
+              "kind": "png",
+              "reason": "",
+              "stage": "structure",
+              "type": "validation",
+              "valid": true
+            },
+            {
+              "count": 2,
+              "kind": "png",
+              "reason": "",
+              "stage": "preservation",
+              "type": "validation",
+              "valid": true
+            },
+            {
+              "count": 1,
+              "kind": "rtf",
+              "reason": "",
+              "stage": "structure",
+              "type": "validation",
+              "valid": true
+            },
+            {
+              "count": 1,
+              "kind": "rtf",
+              "reason": "",
+              "stage": "preservation",
+              "type": "validation",
+              "valid": true
+            }
+          ],
+          "reason": "",
+          "replaced": true,
+          "resources": {
+            "decoded_bytes": 84519,
+            "peak_live_scratch_bytes": 33527,
+            "scratch_written_bytes": 8861
+          }
+        }
+      ],
+      "peak_tree_rss_bytes": 39698432,
+      "qualification_issues": [],
+      "reason": "Verified smaller output",
+      "scope": "native",
+      "seconds": 0.021045082998170983,
+      "status": "improved",
+      "tier": "extended",
+      "verification": "rtf",
+      "wall_seconds": 0.1727279170008842
+    }
+  ],
+  "corpus_manifest_sha256": "80266e09e673e787937b8de6770e6a9367557b861b8075046f9c2f9a2257745d",
+  "created_utc": "2026-10-09T17:24:17.913165+00:00",
+  "environment": {
+    "cpu_count": 14,
+    "machine": "arm64",
+    "packages": {
+      "Pillow": "12.3.0",
+      "astropy": "8.0.1",
+      "brotli": "1.2.0",
+      "duckdb": "1.5.6",
+      "fastavro": "1.12.2",
+      "filerepack": null,
+      "fonttools": "4.66.1",
+      "h5py": "3.16.0",
+      "imagecodecs": "2026.8.16",
+      "lz4": "4.4.5",
+      "netCDF4": "1.7.4",
+      "numpy": "2.5.3",
+      "olefile": "0.47",
+      "onnx": "1.23.2",
+      "pikepdf": "10.16.0",
+      "pillow-heif": "1.8.0",
+      "psutil": "7.2.2",
+      "pyarrow": "25.0.1",
+      "pydicom": "3.0.2",
+      "pypdf": "6.20.0",
+      "pyreadstat": "1.3.6",
+      "tifffile": "2026.9.20",
+      "torch": "2.14.1",
+      "zarr": "2.18.7",
+      "zstandard": "0.25.0"
+    },
+    "platform": "Darwin",
+    "platform_release": "25.5.0",
+    "python": "3.13.7",
+    "tool_overrides": {},
+    "tools": {
+      "7z": {
+        "available": false
+      },
+      "7zz": {
+        "available": true,
+        "sha256": "7a4a800a749d13e1e1c17efc503597f5308035cb3b5316237f9fbbc74fe25c54",
+        "version": "Command Line Error:"
+      },
+      "Rscript": {
+        "available": true,
+        "sha256": "4fb35c972f0f0a6705ad7e7d7cdf21b96fc703f9934007025c9d207c5da68c1f",
+        "version": "Rscript (R) version 4.6.1 (2026-06-24)"
+      },
+      "avifdec": {
+        "available": true,
+        "sha256": "635e3acc8cc93212ca5cf1cc867b9bb6f3b738574e92107ed24be48a4a75e6bd",
+        "version": "Version: 1.4.2 (dav1d [dec]:1.5.4, aom [enc/dec]:3.14.1)"
+      },
+      "avifenc": {
+        "available": true,
+        "sha256": "f9cd38ec2804b56174344fd178ea919f9bff41ec7fc4a471f0ff9065b1b5d076",
+        "version": "Version: 1.4.2 (dav1d [dec]:1.5.4, aom [enc/dec]:3.14.1)"
+      },
+      "brotli": {
+        "available": true,
+        "sha256": "528b0b00c1b2f8323e6185dc40d10f0324d21f9cbcca6d8b549f6b2e49520ecf",
+        "version": "brotli 1.2.0"
+      },
+      "bzip2": {
+        "available": true,
+        "sha256": "c9c5d486ee877f9104363ee0fe20539d4c1fbbb76f2f322d5e871f40aaf6ce26",
+        "version": "BZh9\u0017rE8P�\u0000\u0000\u0000\u0000bzip2, a block-sorting file compressor.  Version 1.0.8, 13-Jul-2019."
+      },
+      "cjxl": {
+        "available": true,
+        "sha256": "fca6d26df6e1d482460b55d56cdf730591335af37ea1585b7643da3c5e5b0d24",
+        "version": "cjxl v0.11.1 0.11.1 [NEON_BF16,NEON]"
+      },
+      "compress": {
+        "available": true,
+        "sha256": "bf8cb1cefedfbf86fbb38dd42278fcad8fe020f3b8989897f1a0b2187aabdda5",
+        "version": "/usr/bin/compress: illegal option -- -"
+      },
+      "convert": {
+        "available": true,
+        "sha256": "7a98a08175fdbe9f26ec75fc4507ed19b08ad9519a74e7b845d0a1f9c2ba887c",
+        "version": "Version: ImageMagick 7.1.2-8 Q16-HDRI aarch64 23412 https://imagemagick.org"
+      },
+      "cwebp": {
+        "available": true,
+        "sha256": "beed71767112f3374e2178b75384fac6e0d448932ea11b5cafda2793ecfb2eaf",
+        "version": "Usage:"
+      },
+      "djxl": {
+        "available": true,
+        "sha256": "46caa557a3e96782a40df12016980717d6e69c799ef835069200072bd3d2cde2",
+        "version": "djxl v0.11.1 0.11.1 [NEON_BF16,NEON]"
+      },
+      "dwebp": {
+        "available": true,
+        "sha256": "07016dafb3147d0bd418db833c41e2c52bc72f5892d33a26d572ee0e56bf7dd5",
+        "version": "Usage: dwebp in_file [options] [-o out_file]"
+      },
+      "ffmpeg": {
+        "available": true,
+        "sha256": "ec48dc609e59493cbd7c0a7d343cc20e0d2bd652985112db8aa9bf88ae1cb9cc",
+        "version": "ffmpeg version 8.0 Copyright (c) 2000-2025 the FFmpeg developers"
+      },
+      "ffprobe": {
+        "available": true,
+        "sha256": "d7bd7be1cc2010ad62754f742665c4e33cc7c95b677132391a1edc71aae82678",
+        "version": "ffprobe version 8.0 Copyright (c) 2007-2025 the FFmpeg developers"
+      },
+      "filerepack-ole": {
+        "available": true,
+        "sha256": "5f682b0bfae895b7c83445933e01beb48c7e67537a9739647a3f29a9b5112d3d",
+        "version": "filerepack-ole 0.4.0 (cfb 0.14.0)"
+      },
+      "flac": {
+        "available": true,
+        "sha256": "8480f3b9f5e7c095bad331ac201fb7dc80098878d19c26a22a806d9440267098",
+        "version": "flac 1.5.0"
+      },
+      "gifsicle": {
+        "available": true,
+        "sha256": "2eee1c6380a98a772ececdd53a767accad7e1962fb3b066f72cda4fe28ce413f",
+        "version": "LCDF Gifsicle 1.96"
+      },
+      "gs": {
+        "available": true,
+        "sha256": "818b2a60f672822403839e8bcb1fc6744008602d14d66e73438d2b4ffa83b851",
+        "version": "10.06.0"
+      },
+      "gzip": {
+        "available": true,
+        "sha256": "c78f313867a6978148f989c8e758fb7a9ba7ff324f0b359b2053f5172f970be5",
+        "version": "Apple gzip 479"
+      },
+      "h5repack": {
+        "available": true,
+        "sha256": "a4ef81bd8211a59d1bc8b6cad1bea391cea806d82bb0edca626a94a10a5d1806",
+        "version": "h5repack: Version 2.2.0"
+      },
+      "jpegoptim": {
+        "available": true,
+        "sha256": "cfbe7dcca8290a18e087473d755265c84dc2a2ffa59cb79dc48ce4472b57ff16",
+        "version": "jpegoptim v1.5.6  aarch64-apple-darwin25.0.0 (Sep 15 2025)"
+      },
+      "jpegtran": {
+        "available": true,
+        "sha256": "1a4c4cab6b103adbab9c602e8c3934593a06b82a7f0e0353dc17cf584f104aab",
+        "version": "usage: /opt/homebrew/bin/jpegtran [switches] [inputfile]"
+      },
+      "lz4": {
+        "available": true,
+        "sha256": "b08405ac45dc1be5615bca7681c8d8d802a62ee9d5e1c1b4392a1e2cc7f68169",
+        "version": "*** lz4 v1.10.0 64-bit multithread, by Yann Collet ***"
+      },
+      "lzip": {
+        "available": true,
+        "sha256": "878483696d0fc2c0f841f2d4ea6de49715335bd464733c8845dc998f41dc59d5",
+        "version": "lzip 1.26"
+      },
+      "lzop": {
+        "available": true,
+        "sha256": "5c856a0071f1abafc92a756692aae39102a1497492e538f6fe587a845b55a384",
+        "version": "lzop 1.04"
+      },
+      "magick": {
+        "available": true,
+        "sha256": "7a98a08175fdbe9f26ec75fc4507ed19b08ad9519a74e7b845d0a1f9c2ba887c",
+        "version": "Version: ImageMagick 7.1.2-8 Q16-HDRI aarch64 23412 https://imagemagick.org"
+      },
+      "mp3packer": {
+        "available": false
+      },
+      "nccopy": {
+        "available": true,
+        "sha256": "db3f30ea975f6bb3dfa001c8db577730c9c4a607bb3b61ad46add6df5b7b6d45",
+        "version": "/opt/homebrew/bin/nccopy: illegal option -- -"
+      },
+      "openssl": {
+        "available": true,
+        "sha256": "517827f877751b6d7abebe404a296fa8e82425c63694a73ab06db35e6d9a8362",
+        "version": "openssl:Error: '--version' is an invalid command."
+      },
+      "optipng": {
+        "available": true,
+        "sha256": "48f5bce00316cbea0cd0e2c0577ac942c2cdebc58034deddcb82831e4bf72176",
+        "version": "OptiPNG version 7.9.1"
+      },
+      "optivorbis": {
+        "available": false
+      },
+      "pdftoppm": {
+        "available": true,
+        "sha256": "de772e88ab9977ccde25def9b403bf42675d75f5dd82b19fbd7d8123ad183159",
+        "version": "I/O Error: Couldn't open file '--version': No such file or directory."
+      },
+      "pdftotext": {
+        "available": false
+      },
+      "pigz": {
+        "available": true,
+        "sha256": "130e29ccdee2b2cc5a282d8c6adf9f8e86d36372fe195b6d698299e4fe4f158a",
+        "version": "pigz 2.8"
+      },
+      "pngcrush": {
+        "available": false
+      },
+      "qpdf": {
+        "available": true,
+        "sha256": "4350be733d18e04fcb7adec8343b591e8b8494e4dc9da68041b73fddb9baf1b6",
+        "version": "qpdf version 12.2.0"
+      },
+      "rar": {
+        "available": true,
+        "sha256": "57a3606c92d1d6698b596a5e83fcfbee715d7e72c5f8847f90501edaf3ff5ea1",
+        "version": "ERROR: Unknown option: -version"
+      },
+      "unrar": {
+        "available": true,
+        "sha256": "911d4631467e63e1a807643f612b3ffb1f87ae91d3d4fe4848af4a86e564e107",
+        "version": "ERROR: Unknown option: -version"
+      },
+      "xz": {
+        "available": true,
+        "sha256": "2abc3832c2f4fc60cbd44fac5cc242de24f123d7fbaf18206060684f84aa5e3f",
+        "version": "xz (XZ Utils) 5.8.4"
+      },
+      "zip": {
+        "available": true,
+        "sha256": "0f01117851dbfb49407e3e06be5d4b9db6733be0729c12d122465982054468e7",
+        "version": "Copyright (c) 1990-2008 Info-ZIP - Type 'zip \"-L\"' for software license."
+      },
+      "zstd": {
+        "available": true,
+        "sha256": "aff8169fb421bb925fb16c44a7e0143fa2c7a941dc45cce76b15062a2ce54917",
+        "version": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+      }
+    }
+  },
+  "filerepack_source": {
+    "commit": "95827f3206d68760819d1a0f21ab9acfcf74313b",
+    "dirty": true,
+    "python_source_sha256": "287aa4b4b5812abd59154e629b0ad294c01b9cfcb631de1f7a4e68dcc2254cd1"
+  },
+  "filerepack_source_end": {
+    "commit": "95827f3206d68760819d1a0f21ab9acfcf74313b",
+    "dirty": true,
+    "python_source_sha256": "287aa4b4b5812abd59154e629b0ad294c01b9cfcb631de1f7a4e68dcc2254cd1"
+  },
+  "harness": {
+    "commit": "5ca79e8e66e6235a2a7aa04e5454fb5044ee0b15",
+    "dirty": true,
+    "python_source_sha256": "d913478958bb29ece545f97e5102686bfb1440c94ea36d3965b623ce9a060154"
+  },
+  "harness_changed_during_run": false,
+  "harness_end": {
+    "commit": "5ca79e8e66e6235a2a7aa04e5454fb5044ee0b15",
+    "dirty": true,
+    "python_source_sha256": "d913478958bb29ece545f97e5102686bfb1440c94ea36d3965b623ce9a060154"
+  },
+  "options": {
+    "debug": true,
+    "keep_if_larger": true,
+    "keep_meta": true,
+    "quiet": true,
+    "wmv_lossless": true
+  },
+  "profile": "lossless",
+  "qualification": {
+    "issues": [],
+    "minimum_verified_cases": 3,
+    "strict_verifiers": true,
+    "verified_cases": 3
+  },
+  "repeat": 3,
+  "schema_version": 1,
+  "source_changed_during_run": false,
+  "summary": {
+    "cases": [
+      {
+        "attempts": 3,
+        "extension": "rtf",
+        "family": "documents",
+        "id": "controls-truncated-rtf",
+        "input_bytes": 204,
+        "output_bytes": 204,
+        "reason": "RTF: unclosed group",
+        "savings_bytes": 0,
+        "savings_pct": 0.0,
+        "scope": "native",
+        "seconds_max": 0.0016752919982536696,
+        "seconds_median": 0.0015567079972242936,
+        "seconds_min": 0.0015369579996331595,
+        "status": "unchanged",
+        "statuses": {
+          "unchanged": 3
+        },
+        "tier": "control"
+      },
+      {
+        "attempts": 3,
+        "extension": "rtf",
+        "family": "documents",
+        "id": "documents-picture-binary-rtf",
+        "input_bytes": 8552,
+        "output_bytes": 382,
+        "reason": "Verified smaller output",
+        "savings_bytes": 8170,
+        "savings_pct": 95.533208606174,
+        "scope": "native",
+        "seconds_max": 0.02113479200488655,
+        "seconds_median": 0.020715874998131767,
+        "seconds_min": 0.020681750000221655,
+        "status": "improved",
+        "statuses": {
+          "improved": 3
+        },
+        "tier": "extended"
+      },
+      {
+        "attempts": 3,
+        "extension": "rtf",
+        "family": "documents",
+        "id": "documents-picture-hex-rtf",
+        "input_bytes": 16871,
+        "output_bytes": 533,
+        "reason": "Verified smaller output",
+        "savings_bytes": 16338,
+        "savings_pct": 96.84073261810207,
+        "scope": "native",
+        "seconds_max": 0.021045082998170983,
+        "seconds_median": 0.020564540995110292,
+        "seconds_min": 0.020172457996523008,
+        "status": "improved",
+        "statuses": {
+          "improved": 3
+        },
+        "tier": "extended"
+      }
+    ],
+    "generated_totals": {
+      "cases": 2,
+      "input_bytes": 25423,
+      "output_bytes": 915,
+      "savings_pct": 96.400896825709,
+      "seconds": 0.04128041599324206
+    },
+    "native_totals": {
+      "cases": 2,
+      "input_bytes": 25423,
+      "output_bytes": 915,
+      "savings_pct": 96.400896825709,
+      "seconds": 0.04128041599324206
+    },
+    "original_totals": {
+      "cases": 0,
+      "input_bytes": 0,
+      "output_bytes": 0,
+      "savings_pct": 0,
+      "seconds": 0
+    },
+    "status_counts": {
+      "improved": 2,
+      "unchanged": 1
+    },
+    "stress_totals": {
+      "cases": 0,
+      "input_bytes": 0,
+      "output_bytes": 0,
+      "savings_pct": 0,
+      "seconds": 0
+    },
+    "verified_totals": {
+      "cases": 2,
+      "input_bytes": 25423,
+      "output_bytes": 915,
+      "savings_pct": 96.400896825709,
+      "seconds": 0.04128041599324206
+    }
+  },
+  "timeout": 120,
+  "warmup": 1
+}

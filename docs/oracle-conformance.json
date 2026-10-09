@@ -1,0 +1,574 @@
+{
+  "limits": "Generic destructive corruption coverage is supplemented by targeted metadata, numeric, graph and structure regressions. Byte-identity acceptance is used where no independent reencoder is declared; this is not evidence of optimizer effectiveness.",
+  "profiles": [
+    {
+      "case": "archives-container-cab",
+      "corruption": "payload-truncation",
+      "equivalence": "byte-identity",
+      "kind": "7z",
+      "profile": "7z::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "data-uncompressed-arrow",
+      "corruption": "payload-truncation",
+      "equivalence": "arrow-recompression",
+      "kind": "arrow",
+      "profile": "arrow:arrow:",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "data-uncompressed-feather",
+      "corruption": "payload-truncation",
+      "equivalence": "arrow-recompression",
+      "kind": "arrow",
+      "profile": "arrow:feather:",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "data-uncompressed-ipc",
+      "corruption": "payload-truncation",
+      "equivalence": "arrow-recompression",
+      "kind": "arrow",
+      "profile": "arrow:ipc:",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "data-uncompressed-orc",
+      "corruption": "payload-truncation",
+      "equivalence": "arrow-recompression",
+      "kind": "arrow",
+      "profile": "arrow:orc:",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "data-compact-parquet",
+      "corruption": "payload-truncation",
+      "equivalence": "arrow-recompression",
+      "kind": "arrow",
+      "profile": "arrow:parquet:",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "native-frame-ase",
+      "corruption": "payload-truncation",
+      "equivalence": "byte-identity",
+      "kind": "aseprite",
+      "profile": "aseprite::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "audio-tone-ogg",
+      "corruption": "payload-truncation",
+      "equivalence": "byte-identity",
+      "kind": "audio",
+      "profile": "audio::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "data-uncompressed-avro",
+      "corruption": "payload-truncation",
+      "equivalence": "byte-identity",
+      "kind": "avro",
+      "profile": "avro::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "native-minimal-blend",
+      "corruption": "payload-truncation",
+      "equivalence": "byte-identity",
+      "kind": "blend",
+      "profile": "blend::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "native-catalog-car",
+      "corruption": "payload-truncation",
+      "equivalence": "byte-identity",
+      "kind": "car",
+      "profile": "car::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "scientific-state-pt",
+      "corruption": "payload-truncation",
+      "equivalence": "zip-recompression",
+      "kind": "checkpoint",
+      "profile": "checkpoint::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "streams-cpio-tree-cpbz2",
+      "corruption": "payload-truncation",
+      "equivalence": "bzip2-recompression",
+      "kind": "cpbz2",
+      "profile": "cpbz2::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "archives-cpio-tree-cpio",
+      "corruption": "payload-truncation",
+      "equivalence": "byte-identity",
+      "kind": "cpio",
+      "profile": "cpio::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "archives-signed-extension-crx",
+      "corruption": "payload-truncation",
+      "equivalence": "byte-identity",
+      "kind": "crx",
+      "profile": "crx::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "medical-synthetic-dcm",
+      "corruption": "payload-truncation",
+      "equivalence": "byte-identity",
+      "kind": "dicom",
+      "profile": "dicom::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "data-slack-duckdb",
+      "corruption": "payload-truncation",
+      "equivalence": "byte-identity",
+      "kind": "duckdb",
+      "profile": "duckdb::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "scientific-arrays-fit",
+      "corruption": "payload-truncation",
+      "equivalence": "byte-identity",
+      "kind": "fits",
+      "profile": "fits::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "fonts-synthetic-woff2",
+      "corruption": "payload-truncation",
+      "equivalence": "font-serialization",
+      "kind": "font",
+      "profile": "font::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "scientific-linked-graph-h5",
+      "corruption": "payload-truncation",
+      "equivalence": "byte-identity",
+      "kind": "hdf5",
+      "profile": "hdf5::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "images-blocks-jxl",
+      "corruption": "payload-truncation",
+      "equivalence": "byte-identity",
+      "kind": "imagemagick",
+      "profile": "imagemagick::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "text-pretty-topojson",
+      "corruption": "payload-truncation",
+      "equivalence": "json-whitespace",
+      "kind": "json",
+      "profile": "json::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "text-records-jsonl",
+      "corruption": "payload-truncation",
+      "equivalence": "jsonl-whitespace",
+      "kind": "jsonl",
+      "profile": "jsonl::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "scientific-arrays-mat",
+      "corruption": "payload-truncation",
+      "equivalence": "mat-recompression",
+      "kind": "mat",
+      "profile": "mat::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "scientific-inspection-gguf",
+      "corruption": "payload-truncation",
+      "equivalence": "byte-identity",
+      "kind": "model",
+      "profile": "model:gguf:",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "scientific-inspection-onnx",
+      "corruption": "payload-truncation",
+      "equivalence": "byte-identity",
+      "kind": "model",
+      "profile": "model:onnx:",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "scientific-inspection-safetensors",
+      "corruption": "payload-truncation",
+      "equivalence": "byte-identity",
+      "kind": "model",
+      "profile": "model:safetensors:",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "scientific-nested-groups-nc4",
+      "corruption": "payload-truncation",
+      "equivalence": "byte-identity",
+      "kind": "netcdf",
+      "profile": "netcdf::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "native-duplicate-values-nib",
+      "corruption": "payload-truncation",
+      "equivalence": "byte-identity",
+      "kind": "nib",
+      "profile": "nib::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "packages-arrays-npz",
+      "corruption": "payload-truncation",
+      "equivalence": "zip-recompression",
+      "kind": "npz",
+      "profile": "npz::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "native-weak-nrrd",
+      "corruption": "payload-truncation",
+      "equivalence": "byte-identity",
+      "kind": "nrrd",
+      "profile": "nrrd::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "original-ole_extended-multicolumns-hwp",
+      "corruption": "payload-truncation",
+      "equivalence": "unused-ole-sector",
+      "kind": "ole",
+      "profile": "ole::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "documents-text-form-link-pdf",
+      "corruption": "payload-truncation",
+      "equivalence": "pdf-recompression",
+      "kind": "pdf",
+      "profile": "pdf::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "native-composite-psb",
+      "corruption": "payload-truncation",
+      "equivalence": "byte-identity",
+      "kind": "psb",
+      "profile": "psb::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "scientific-arrays-rds-xz",
+      "corruption": "payload-truncation",
+      "equivalence": "byte-identity",
+      "kind": "r",
+      "profile": "r::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "archives-container-rar",
+      "corruption": "payload-truncation",
+      "equivalence": "byte-identity",
+      "kind": "rar",
+      "profile": "rar::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "images-blocks-webp",
+      "corruption": "payload-truncation",
+      "equivalence": "byte-identity",
+      "kind": "raster",
+      "profile": "raster::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "documents-picture-binary-rtf",
+      "corruption": "payload-truncation",
+      "equivalence": "byte-identity",
+      "kind": "rtf",
+      "profile": "rtf::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "scientific-records-zsav",
+      "corruption": "payload-truncation",
+      "equivalence": "byte-identity",
+      "kind": "spss",
+      "profile": "spss::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "data-slack-db",
+      "corruption": "payload-truncation",
+      "equivalence": "byte-identity",
+      "kind": "sqlite",
+      "profile": "sqlite::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "streams-compact-br",
+      "corruption": "payload-truncation",
+      "equivalence": "stream-recompression",
+      "kind": "stream",
+      "profile": "stream::br",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "streams-compact-bz2",
+      "corruption": "payload-truncation",
+      "equivalence": "stream-recompression",
+      "kind": "stream",
+      "profile": "stream::bz2",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "streams-compact-gz",
+      "corruption": "payload-truncation",
+      "equivalence": "stream-recompression",
+      "kind": "stream",
+      "profile": "stream::gz",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "streams-compact-lz",
+      "corruption": "payload-truncation",
+      "equivalence": "stream-recompression",
+      "kind": "stream",
+      "profile": "stream::lz",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "streams-compact-lz4",
+      "corruption": "payload-truncation",
+      "equivalence": "stream-recompression",
+      "kind": "stream",
+      "profile": "stream::lz4",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "streams-compact-lzma",
+      "corruption": "payload-truncation",
+      "equivalence": "stream-recompression",
+      "kind": "stream",
+      "profile": "stream::lzma",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "streams-compact-lzo",
+      "corruption": "payload-truncation",
+      "equivalence": "stream-recompression",
+      "kind": "stream",
+      "profile": "stream::lzo",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "streams-compact-xz",
+      "corruption": "payload-truncation",
+      "equivalence": "stream-recompression",
+      "kind": "stream",
+      "profile": "stream::xz",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "streams-compact-z",
+      "corruption": "payload-truncation",
+      "equivalence": "stream-recompression",
+      "kind": "stream",
+      "profile": "stream::z",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "streams-compact-zst",
+      "corruption": "payload-truncation",
+      "equivalence": "stream-recompression",
+      "kind": "stream",
+      "profile": "stream::zst",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "images-drawing-svgz",
+      "corruption": "payload-truncation",
+      "equivalence": "byte-identity",
+      "kind": "svg-render",
+      "profile": "svg-render::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "native-animation-swf",
+      "corruption": "payload-truncation",
+      "equivalence": "byte-identity",
+      "kind": "swf",
+      "profile": "swf::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "archives-linked-tar",
+      "corruption": "tar-member-payload",
+      "equivalence": "byte-identity",
+      "kind": "tar",
+      "profile": "tar::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "archives-container-tar-br",
+      "corruption": "payload-truncation",
+      "equivalence": "byte-identity",
+      "kind": "tar",
+      "profile": "tar::br",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "archives-container-tar-bz2",
+      "corruption": "payload-truncation",
+      "equivalence": "byte-identity",
+      "kind": "tar",
+      "profile": "tar::bz2",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "archives-container-tar-gz",
+      "corruption": "payload-truncation",
+      "equivalence": "byte-identity",
+      "kind": "tar",
+      "profile": "tar::gz",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "archives-container-tar-lz",
+      "corruption": "payload-truncation",
+      "equivalence": "byte-identity",
+      "kind": "tar",
+      "profile": "tar::lz",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "archives-container-tar-lz4",
+      "corruption": "payload-truncation",
+      "equivalence": "byte-identity",
+      "kind": "tar",
+      "profile": "tar::lz4",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "archives-container-tar-lzma",
+      "corruption": "payload-truncation",
+      "equivalence": "byte-identity",
+      "kind": "tar",
+      "profile": "tar::lzma",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "archives-container-tar-lzo",
+      "corruption": "payload-truncation",
+      "equivalence": "byte-identity",
+      "kind": "tar",
+      "profile": "tar::lzo",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "archives-container-tar-xz",
+      "corruption": "payload-truncation",
+      "equivalence": "byte-identity",
+      "kind": "tar",
+      "profile": "tar::xz",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "archives-container-tar-z",
+      "corruption": "payload-truncation",
+      "equivalence": "byte-identity",
+      "kind": "tar",
+      "profile": "tar::z",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "archives-container-tar-zst",
+      "corruption": "payload-truncation",
+      "equivalence": "byte-identity",
+      "kind": "tar",
+      "profile": "tar::zst",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "native-sticker-tgs",
+      "corruption": "payload-truncation",
+      "equivalence": "gzip-recompression",
+      "kind": "tgs",
+      "profile": "tgs::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "scientific-float-edge-tiff",
+      "corruption": "payload-truncation",
+      "equivalence": "byte-identity",
+      "kind": "tiff",
+      "profile": "tiff::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "native-archived-tracev3",
+      "corruption": "payload-truncation",
+      "equivalence": "byte-identity",
+      "kind": "tracev3",
+      "profile": "tracev3::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "video-test-pattern-webm",
+      "corruption": "payload-truncation",
+      "equivalence": "byte-identity",
+      "kind": "video",
+      "profile": "video::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "native-alias-warc-gzip",
+      "corruption": "payload-truncation",
+      "equivalence": "gzip-recompression",
+      "kind": "warc",
+      "profile": "warc::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "text-project-qgs",
+      "corruption": "payload-truncation",
+      "equivalence": "xml-serialization",
+      "kind": "xml",
+      "profile": "xml::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "scientific-arrays-zarr",
+      "corruption": "array-value",
+      "equivalence": "byte-identity",
+      "kind": "zarr",
+      "profile": "zarr::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    },
+    {
+      "case": "archives-empty-zip",
+      "corruption": "payload-truncation",
+      "equivalence": "zip-recompression",
+      "kind": "zip",
+      "profile": "zip::",
+      "test": "tests/test_conformance.py::test_corpus_profile_conformance"
+    }
+  ],
+  "schema_version": 1
+}

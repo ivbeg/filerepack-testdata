@@ -1,4 +1,6 @@
-# Local baseline · 2026-10-05
+# Historical local baseline · 2026-10-05
+
+Superseded for current-corpus observations by [CURRENT-BASELINE.md](CURRENT-BASELINE.md). This archived evidence remains unchanged and is not directly comparable across the corpus, harness and implementation differences.
 
 Full corpus, one measured attempt per case, macOS arm64 / CPython 3.13. Raw local output is in `results/baseline-2026-10-05/`. Portable measured summaries are in [baseline.json](baseline.json).
 

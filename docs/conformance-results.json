@@ -1,0 +1,438 @@
+{
+  "environment": "macOS arm64 / CPython 3.13.7, 2026-10-09",
+  "limits": "28 profiles use independent re-encoding/layout changes; 43 explicitly use byte-identity acceptance. General destructive corruption tests are supplemented by metadata/graph/numeric/document/media regressions. This does not certify every subtle semantic mutation in every format.",
+  "report": {
+    "failed": 0,
+    "passed": 71,
+    "profiles": [
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "byte-identity",
+        "profile": "7z::",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "arrow-recompression",
+        "profile": "arrow:arrow:",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "arrow-recompression",
+        "profile": "arrow:feather:",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "arrow-recompression",
+        "profile": "arrow:ipc:",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "arrow-recompression",
+        "profile": "arrow:orc:",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "arrow-recompression",
+        "profile": "arrow:parquet:",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "byte-identity",
+        "profile": "aseprite::",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "byte-identity",
+        "profile": "audio::",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "byte-identity",
+        "profile": "avro::",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "byte-identity",
+        "profile": "blend::",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "byte-identity",
+        "profile": "car::",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "zip-recompression",
+        "profile": "checkpoint::",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "bzip2-recompression",
+        "profile": "cpbz2::",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "byte-identity",
+        "profile": "cpio::",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "byte-identity",
+        "profile": "crx::",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "byte-identity",
+        "profile": "dicom::",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "byte-identity",
+        "profile": "duckdb::",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "byte-identity",
+        "profile": "fits::",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "font-serialization",
+        "profile": "font::",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "byte-identity",
+        "profile": "hdf5::",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "byte-identity",
+        "profile": "imagemagick::",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "json-whitespace",
+        "profile": "json::",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "jsonl-whitespace",
+        "profile": "jsonl::",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "mat-recompression",
+        "profile": "mat::",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "byte-identity",
+        "profile": "model:gguf:",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "byte-identity",
+        "profile": "model:onnx:",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "byte-identity",
+        "profile": "model:safetensors:",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "byte-identity",
+        "profile": "netcdf::",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "byte-identity",
+        "profile": "nib::",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "zip-recompression",
+        "profile": "npz::",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "byte-identity",
+        "profile": "nrrd::",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "unused-ole-sector",
+        "profile": "ole::",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "pdf-recompression",
+        "profile": "pdf::",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "byte-identity",
+        "profile": "psb::",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "byte-identity",
+        "profile": "r::",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "byte-identity",
+        "profile": "rar::",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "byte-identity",
+        "profile": "raster::",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "byte-identity",
+        "profile": "rtf::",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "byte-identity",
+        "profile": "spss::",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "byte-identity",
+        "profile": "sqlite::",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "stream-recompression",
+        "profile": "stream::br",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "stream-recompression",
+        "profile": "stream::bz2",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "stream-recompression",
+        "profile": "stream::gz",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "stream-recompression",
+        "profile": "stream::lz",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "stream-recompression",
+        "profile": "stream::lz4",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "stream-recompression",
+        "profile": "stream::lzma",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "stream-recompression",
+        "profile": "stream::lzo",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "stream-recompression",
+        "profile": "stream::xz",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "stream-recompression",
+        "profile": "stream::z",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "stream-recompression",
+        "profile": "stream::zst",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "byte-identity",
+        "profile": "svg-render::",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "byte-identity",
+        "profile": "swf::",
+        "status": "passed"
+      },
+      {
+        "corruption": "tar-member-payload",
+        "equivalence": "byte-identity",
+        "profile": "tar::",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "byte-identity",
+        "profile": "tar::br",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "byte-identity",
+        "profile": "tar::bz2",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "byte-identity",
+        "profile": "tar::gz",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "byte-identity",
+        "profile": "tar::lz",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "byte-identity",
+        "profile": "tar::lz4",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "byte-identity",
+        "profile": "tar::lzma",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "byte-identity",
+        "profile": "tar::lzo",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "byte-identity",
+        "profile": "tar::xz",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "byte-identity",
+        "profile": "tar::z",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "byte-identity",
+        "profile": "tar::zst",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "gzip-recompression",
+        "profile": "tgs::",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "byte-identity",
+        "profile": "tiff::",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "byte-identity",
+        "profile": "tracev3::",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "byte-identity",
+        "profile": "video::",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "gzip-recompression",
+        "profile": "warc::",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "xml-serialization",
+        "profile": "xml::",
+        "status": "passed"
+      },
+      {
+        "corruption": "array-value",
+        "equivalence": "byte-identity",
+        "profile": "zarr::",
+        "status": "passed"
+      },
+      {
+        "corruption": "payload-truncation",
+        "equivalence": "zip-recompression",
+        "profile": "zip::",
+        "status": "passed"
+      }
+    ],
+    "skipped": 0,
+    "strict": true
+  }
+}

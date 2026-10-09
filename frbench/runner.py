@@ -15,7 +15,7 @@ from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 
-from .common import ROOT, check_manifest, read_manifest, sha256, write_json
+from .common import ROOT, check_manifest, corpus_root, read_manifest, sha256, write_json
 
 PROFILES = {
     'lossless': {'keep_meta': True, 'wmv_lossless': True},
@@ -44,15 +44,25 @@ def source_identity(path):
         return None
     path = Path(path).resolve()
     source = path / 'filerepack'
-    return {**git_info(path), 'python_source_sha256': __import__('hashlib').sha256(
+    origin = path / '.frbench-source.json'
+    pinned = json.loads(origin.read_text(encoding='utf-8')) if origin.is_file() else {}
+    return {**git_info(path), **pinned, 'python_source_sha256': __import__('hashlib').sha256(
         json.dumps({str(p.relative_to(source)): sha256(p) for p in sorted(source.rglob('*.py'))}, sort_keys=True).encode()).hexdigest()}
+
+
+def harness_identity():
+    source = Path(__file__).resolve().parent
+    files = {p.name: sha256(p) for p in sorted(source.glob('*.py'))}
+    return {**git_info(ROOT), 'python_source_sha256': __import__('hashlib').sha256(
+        json.dumps(files, sort_keys=True).encode()).hexdigest()}
 
 
 def environment():
     packages = {}
     for package in ['filerepack', 'Pillow', 'pikepdf', 'numpy', 'pyarrow', 'h5py', 'netCDF4',
                     'tifffile', 'imagecodecs', 'astropy', 'duckdb', 'fonttools', 'olefile',
-                    'torch', 'pyreadstat', 'zarr', 'zstandard', 'psutil']:
+                    'torch', 'pyreadstat', 'zarr', 'zstandard', 'psutil', 'pypdf', 'onnx',
+                    'lz4', 'brotli', 'fastavro', 'pydicom', 'pillow-heif']:
         try:
             packages[package] = importlib.metadata.version(package)
         except importlib.metadata.PackageNotFoundError:
@@ -62,6 +72,7 @@ def environment():
         exe = shutil.which(name)
         versions[name] = {'available': bool(exe)}
         if exe:
+            versions[name]['sha256'] = sha256(exe)
             flag = '-version' if name in ('ffmpeg', 'ffprobe') else '--version'
             try:
                 process = subprocess.run([exe, flag], capture_output=True, text=True, errors='replace', stdin=subprocess.DEVNULL, timeout=4)
@@ -92,7 +103,8 @@ def terminate(process):
     process.wait()
 
 
-def measure(case, root, filerepack, options, timeout, log, keep_work=False):
+def measure(case, root, filerepack, options, timeout, log, keep_work=False,
+            enforce_outcomes=False):
     with tempfile.TemporaryDirectory(prefix='frbench-') as temp:
         work = Path(temp)
         original = Path(root) / case['path']
@@ -104,7 +116,7 @@ def measure(case, root, filerepack, options, timeout, log, keep_work=False):
         request = work / 'request.json'
         response = work / 'response.json'
         write_json(request, {'case': case, 'source': str(source), 'filerepack': filerepack,
-                             'options': options})
+                             'options': options, 'enforce_outcomes': enforce_outcomes})
         env = dict(os.environ)
         env['PYTHONPATH'] = str(ROOT) + os.pathsep + env.get('PYTHONPATH', '')
         env['PYTHONHASHSEED'] = '0'
@@ -156,7 +168,7 @@ def measure(case, root, filerepack, options, timeout, log, keep_work=False):
 
 
 FAILURES = {'preservation-failure', 'growth-failure', 'error', 'timeout', 'worker-failure',
-            'corpus-failure'}
+            'corpus-failure', 'qualification-failure'}
 
 
 def summarize(rows):
@@ -182,7 +194,7 @@ def summarize(rows):
         item['savings_pct'] = item['savings_bytes'] * 100 / item['input_bytes'] if item['input_bytes'] else 0
         cases.append(item)
     # Totals count one median observation per case, not all repeated copies.
-    valid = [c for c in cases if c['status'] in ('improved', 'unchanged') and c['tier'] != 'control']
+    valid = [c for c in cases if c['status'] in ('improved', 'unchanged') and c['tier'] not in ('control', 'stress')]
     meaningful = [c for c in valid if c['scope'] not in ('container-only', 'alias')]
     def totals(items):
         before = sum(c['input_bytes'] for c in items)
@@ -191,7 +203,11 @@ def summarize(rows):
                 'savings_pct': (before - after) * 100 / before if before else 0,
                 'seconds': sum(c['seconds_median'] or 0 for c in items)}
     return {'cases': cases, 'status_counts': dict(Counter(c['status'] for c in cases)),
-            'verified_totals': totals(valid), 'native_totals': totals(meaningful)}
+            'verified_totals': totals(valid), 'native_totals': totals(meaningful),
+            'original_totals': totals([c for c in valid if c['scope'] == 'original']),
+            'generated_totals': totals([c for c in meaningful if c['scope'] != 'original']),
+            'stress_totals': totals([c for c in cases if c['tier'] == 'stress' and
+                                    c['status'] in ('improved', 'unchanged')])}
 
 
 def markdown(report):
@@ -252,13 +268,14 @@ def run(args):
     metadata = {'schema_version': 1, 'created_utc': datetime.now(timezone.utc).isoformat(),
                 'profile': args.profile, 'repeat': args.repeat, 'warmup': args.warmup,
                 'timeout': args.timeout, 'options': options, 'environment': environment(),
-                'filerepack_source': source_identity(source),
+                'filerepack_source': source_identity(source), 'harness': harness_identity(),
                 'corpus_manifest_sha256': sha256(root / 'corpus/manifest.json')}
     with (destination / 'attempts.jsonl').open('w') as journal:
         for index, case in enumerate(selected, 1):
             for attempt in range(-args.warmup, args.repeat):
                 log = logs / f"{case['id']}-{attempt}.log"
-                result = measure(case, root, source, options, args.timeout, log, args.keep_work)
+                result = measure(case, root, source, options, args.timeout, log, args.keep_work,
+                                 getattr(args, 'require_outcomes', False))
                 row = {**{k: case[k] for k in ('id', 'extension', 'family', 'scope', 'tier')},
                        'attempt': attempt, **result}
                 print(f"[{index}/{len(selected)}] {case['id']} #{attempt}: {result['status']}", flush=True)
@@ -276,9 +293,26 @@ def run(args):
                      'scope': 'control', 'tier': 'control', 'status': 'corpus-failure',
                      'reason': '; '.join(after), 'seconds': None, 'input_bytes': 0, 'output_bytes': 0})
     source_end = source_identity(source)
-    report = {**metadata, 'filerepack_source_end': source_end,
+    harness_end = harness_identity()
+    report = {**metadata, 'filerepack_source_end': source_end, 'harness_end': harness_end,
+              'harness_changed_during_run': harness_end != metadata['harness'],
               'source_changed_during_run': source_end != metadata['filerepack_source'],
               'attempts': rows, 'summary': summarize(rows)}
+    verified = sum(c['status'] in ('improved', 'unchanged')
+                   for c in report['summary']['cases'])
+    issues = []
+    minimum = getattr(args, 'min_verified', 1)
+    if report['harness_changed_during_run']:
+        issues.append('Harness changed during benchmark')
+    if verified < minimum:
+        issues.append(f'Only {verified} cases independently verified; required {minimum}')
+    if getattr(args, 'strict_verifiers', False):
+        skipped = sorted({row['id'] for row in rows if row['status'] == 'skipped-verifier'})
+        if skipped:
+            issues.append('Missing verifiers: ' + ', '.join(skipped))
+    report['qualification'] = {'verified_cases': verified, 'minimum_verified_cases': minimum,
+                               'strict_verifiers': getattr(args, 'strict_verifiers', False),
+                               'issues': issues}
     write_json(destination / 'report.json', report)
     (destination / 'report.md').write_text(markdown(report))
     cases = report['summary']['cases']
@@ -290,20 +324,19 @@ def run(args):
         writer.writerows(cases)
     write_json(destination / 'coverage.json', coverage(root, source, cases))
     print('\n' + str(destination / 'report.md'))
-    return 1 if report['source_changed_during_run'] or any(c['status'] in FAILURES for c in cases) else 0
+    return 1 if issues or report['source_changed_during_run'] or any(c['status'] in FAILURES for c in cases) else 0
 
 
-def coverage(root=ROOT, source=None, results=None):
+def coverage(root=None, source=None, results=None):
+    from .catalog import discover_catalog
+    root = corpus_root(root)
     manifest = read_manifest(root)
+    catalog = json.loads((Path(root) / 'corpus/catalog.json').read_text())
     expected = set(manifest['supported_extensions'])
     drift = None
     if source:
-        env = dict(os.environ, PYTHONPATH=str(source))
-        out = subprocess.run([sys.executable, '-c',
-                              'import json; from filerepack.consts import SUPPORTED_EXTS; '
-                              'print(json.dumps(SUPPORTED_EXTS))'], env=env, capture_output=True,
-                             text=True, check=True)
-        live = set(json.loads(out.stdout))
+        catalog = discover_catalog(source)
+        live = set(catalog['supported_extensions'])
         drift = {'added': sorted(live - expected), 'removed': sorted(expected - live)}
         expected = live
     rows = []
@@ -315,7 +348,6 @@ def coverage(root=ROOT, source=None, results=None):
                      'native_or_original': any(s in ('native', 'original') for s in scopes),
                      'measured_statuses': dict(Counter(c['status'] for c in measured))})
     missing = [r['extension'] for r in rows if not r['cases']]
-    catalog = json.loads((Path(root) / 'corpus/catalog.json').read_text())
     mapping = catalog.get('handler_by_extension', {})
     handler_rows = []
     for handler in sorted(set(mapping.values())):
@@ -325,7 +357,7 @@ def coverage(root=ROOT, source=None, results=None):
                              'cases': len(fixtures),
                              'native_original_or_syntax': any(c['scope'] in ('native', 'original', 'syntax') for c in fixtures)})
     positive = [case for case in manifest['cases'] if case['tier'] != 'control']
-    route_suffixes = [
+    route_suffixes = catalog.get('filename_suffixes') or [
         *(('tar.' + codec) for codec in
           ['gz', 'xz', 'bz2', 'zst', 'br', 'lz4', 'lz', 'lzma', 'lzo', 'z']),
         'warc.gz',
@@ -346,8 +378,12 @@ def coverage(root=ROOT, source=None, results=None):
             route = '.' + suffix
         filename_routes.append({'route': route, 'cases': [case['id'] for case in matching],
                                 'covered': bool(matching)})
+    missing_handlers = [h['handler'] for h in handler_rows if not h['cases']]
+    unmapped = [ext for ext, handler in mapping.items() if handler.startswith('unmapped:')]
     return {'handlers': handler_rows, 'handler_count': len(handler_rows),
             'handlers_covered': sum(bool(h['cases']) for h in handler_rows),
+            'missing_handlers': missing_handlers, 'unmapped_extensions': sorted(unmapped),
+            'registry_identity': catalog.get('implementation'),
             'supported': len(expected), 'covered': len(expected) - len(missing),
             'native_or_original': sum(r['native_or_original'] for r in rows),
             'missing': missing, 'drift': drift, 'extensions': rows,
@@ -372,7 +408,21 @@ def compare(before, after):
                         'seconds_delta': (y['seconds_median'] - x['seconds_median']
                                           if y['seconds_median'] is not None and x['seconds_median'] is not None
                                           else None)})
-    return {'comparable_corpus_and_options': comparable,
+    incompatibilities = []
+    for field in ('corpus_manifest_sha256', 'options', 'environment', 'harness', 'profile',
+                  'repeat', 'warmup', 'timeout'):
+        if a.get(field) is None or b.get(field) is None:
+            incompatibilities.append(field + ': identity unavailable')
+        elif (a[field].get('python_source_sha256') != b[field].get('python_source_sha256')
+              if field == 'harness' else a[field] != b[field]):
+            incompatibilities.append(field + ': differs')
+    if left.keys() != right.keys():
+        incompatibilities.append('selected cases: differ')
+    if any(report.get('source_changed_during_run') or report.get('harness_changed_during_run')
+           for report in (a, b)):
+        incompatibilities.append('source or harness changed during a run')
+    return {'comparable': not incompatibilities, 'incompatibilities': incompatibilities,
+            'comparable_corpus_and_options': comparable,
             'same_environment': a['environment'] == b['environment'],
             'added_cases': sorted(right.keys() - left.keys()),
             'removed_cases': sorted(left.keys() - right.keys()), 'changes': changes}

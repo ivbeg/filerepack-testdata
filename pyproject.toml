@@ -14,15 +14,24 @@ dependencies = []
 
 [project.optional-dependencies]
 corpus = [
-  "Pillow>=11", "pillow-heif>=0.18", "pikepdf>=9", "numpy>=1.26", "pyarrow>=19",
+  "Pillow>=11", "pillow-heif>=0.18", "pikepdf>=9", "pypdf>=5", "numpy>=1.26", "pyarrow>=19",
   "fastavro>=1.9", "h5py>=3.8", "netCDF4>=1.7.2", "tifffile>=2024.1",
   "imagecodecs>=2024.1", "astropy>=6", "duckdb>=1.4.2", "fonttools[woff]>=4.40",
   "pydicom>=3,<4", "pyjpegls>=1.2", "scipy>=1.11", "torch>=2.6", "pyreadstat>=1.2", "pandas>=2",
   "zarr>=2.18,<3", "numcodecs>=0.12,<0.16", "zstandard>=0.19", "psutil>=5.9",
   "brotli>=1", "lz4>=4", "olefile==0.47", "python-docx>=1.1",
-  "openpyxl>=3.1", "python-pptx>=1"
+  "openpyxl>=3.1", "python-pptx>=1", "onnx>=1.16"
 ]
-dev = ["pytest>=8", "ruff>=0.6"]
+verify = [
+  "Pillow>=11", "pillow-heif>=0.18", "pikepdf>=9", "pypdf>=5", "numpy>=1.26", "pyarrow>=19",
+  "fastavro>=1.9", "h5py>=3.8", "netCDF4>=1.7.2", "tifffile>=2024.1",
+  "imagecodecs>=2024.1", "astropy>=6", "duckdb>=1.4.2", "fonttools[woff]>=4.40",
+  "pydicom>=3,<4", "pyjpegls>=1.2", "scipy>=1.11", "pyreadstat>=1.2", "pandas>=2",
+  "zarr>=2.18,<3", "numcodecs>=0.12,<0.16", "zstandard>=0.19", "psutil>=5.9",
+  "brotli>=1", "lz4>=4", "olefile==0.47",
+  "onnx>=1.16"
+]
+dev = ["pytest>=8", "ruff>=0.6", "build>=1.2", "wheel>=0.43"]
 
 [project.scripts]
 frbench = "frbench.cli:main"

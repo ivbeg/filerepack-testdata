@@ -1,5 +1,5 @@
 {
-  "covered": 306,
+  "covered": 312,
   "drift": {
     "added": [],
     "removed": []
@@ -159,7 +159,7 @@
       ]
     },
     {
-      "cases": 1,
+      "cases": 2,
       "extension": "arrow",
       "measured_statuses": {},
       "native_or_original": true,
@@ -465,13 +465,14 @@
       ]
     },
     {
-      "cases": 2,
+      "cases": 3,
       "extension": "docx",
       "measured_statuses": {},
       "native_or_original": true,
       "scopes": [
         "container-only",
-        "native"
+        "native",
+        "original"
       ]
     },
     {
@@ -602,12 +603,13 @@
       ]
     },
     {
-      "cases": 1,
+      "cases": 2,
       "extension": "flac",
       "measured_statuses": {},
       "native_or_original": true,
       "scopes": [
-        "native"
+        "native",
+        "original"
       ]
     },
     {
@@ -640,6 +642,15 @@
     {
       "cases": 1,
       "extension": "geojson",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "gguf",
       "measured_statuses": {},
       "native_or_original": true,
       "scopes": [
@@ -701,7 +712,7 @@
       ]
     },
     {
-      "cases": 3,
+      "cases": 4,
       "extension": "gz",
       "measured_statuses": {},
       "native_or_original": true,
@@ -710,7 +721,16 @@
       ]
     },
     {
-      "cases": 1,
+      "cases": 3,
+      "extension": "gzip",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 2,
       "extension": "h5",
       "measured_statuses": {},
       "native_or_original": true,
@@ -935,7 +955,7 @@
       ]
     },
     {
-      "cases": 1,
+      "cases": 2,
       "extension": "jpg",
       "measured_statuses": {},
       "native_or_original": true,
@@ -1115,12 +1135,13 @@
       ]
     },
     {
-      "cases": 1,
+      "cases": 2,
       "extension": "mat",
       "measured_statuses": {},
       "native_or_original": true,
       "scopes": [
-        "native"
+        "native",
+        "original"
       ]
     },
     {
@@ -1169,7 +1190,7 @@
       ]
     },
     {
-      "cases": 1,
+      "cases": 2,
       "extension": "mkv",
       "measured_statuses": {},
       "native_or_original": true,
@@ -1277,7 +1298,7 @@
       ]
     },
     {
-      "cases": 1,
+      "cases": 2,
       "extension": "nc4",
       "measured_statuses": {},
       "native_or_original": true,
@@ -1486,6 +1507,15 @@
     },
     {
       "cases": 1,
+      "extension": "onnx",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
       "extension": "opus",
       "measured_statuses": {},
       "native_or_original": true,
@@ -1628,7 +1658,7 @@
       ]
     },
     {
-      "cases": 2,
+      "cases": 3,
       "extension": "parquet",
       "measured_statuses": {},
       "native_or_original": true,
@@ -1655,12 +1685,13 @@
       ]
     },
     {
-      "cases": 1,
+      "cases": 3,
       "extension": "pdf",
       "measured_statuses": {},
       "native_or_original": true,
       "scopes": [
-        "native"
+        "native",
+        "original"
       ]
     },
     {
@@ -1682,12 +1713,13 @@
       ]
     },
     {
-      "cases": 3,
+      "cases": 6,
       "extension": "png",
       "measured_statuses": {},
       "native_or_original": true,
       "scopes": [
-        "native"
+        "native",
+        "original"
       ]
     },
     {
@@ -1890,7 +1922,7 @@
       ]
     },
     {
-      "cases": 5,
+      "cases": 6,
       "extension": "rda",
       "measured_statuses": {},
       "native_or_original": true,
@@ -1899,7 +1931,7 @@
       ]
     },
     {
-      "cases": 5,
+      "cases": 6,
       "extension": "rdata",
       "measured_statuses": {},
       "native_or_original": true,
@@ -1908,7 +1940,7 @@
       ]
     },
     {
-      "cases": 5,
+      "cases": 6,
       "extension": "rds",
       "measured_statuses": {},
       "native_or_original": true,
@@ -1950,6 +1982,24 @@
       "native_or_original": false,
       "scopes": [
         "container-only"
+      ]
+    },
+    {
+      "cases": 2,
+      "extension": "rtf",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "safetensors",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
       ]
     },
     {
@@ -2151,7 +2201,7 @@
       ]
     },
     {
-      "cases": 1,
+      "cases": 3,
       "extension": "tar",
       "measured_statuses": {},
       "native_or_original": true,
@@ -2259,7 +2309,7 @@
       ]
     },
     {
-      "cases": 1,
+      "cases": 2,
       "extension": "tiff",
       "measured_statuses": {},
       "native_or_original": true,
@@ -2279,6 +2329,15 @@
     {
       "cases": 1,
       "extension": "topojson",
+      "measured_statuses": {},
+      "native_or_original": true,
+      "scopes": [
+        "native"
+      ]
+    },
+    {
+      "cases": 1,
+      "extension": "tracev3",
       "measured_statuses": {},
       "native_or_original": true,
       "scopes": [
@@ -2457,7 +2516,7 @@
       ]
     },
     {
-      "cases": 2,
+      "cases": 3,
       "extension": "warc",
       "measured_statuses": {},
       "native_or_original": true,
@@ -2746,7 +2805,7 @@
       ]
     },
     {
-      "cases": 2,
+      "cases": 5,
       "extension": "zip",
       "measured_statuses": {},
       "native_or_original": true,
@@ -2785,146 +2844,6 @@
   "filename_routes": [
     {
       "cases": [
-        "archives-container-tar-gz"
-      ],
-      "covered": true,
-      "route": ".tar.gz"
-    },
-    {
-      "cases": [
-        "archives-container-tar-xz"
-      ],
-      "covered": true,
-      "route": ".tar.xz"
-    },
-    {
-      "cases": [
-        "archives-container-tar-bz2"
-      ],
-      "covered": true,
-      "route": ".tar.bz2"
-    },
-    {
-      "cases": [
-        "archives-container-tar-zst"
-      ],
-      "covered": true,
-      "route": ".tar.zst"
-    },
-    {
-      "cases": [
-        "archives-container-tar-br"
-      ],
-      "covered": true,
-      "route": ".tar.br"
-    },
-    {
-      "cases": [
-        "archives-container-tar-lz4"
-      ],
-      "covered": true,
-      "route": ".tar.lz4"
-    },
-    {
-      "cases": [
-        "archives-container-tar-lz"
-      ],
-      "covered": true,
-      "route": ".tar.lz"
-    },
-    {
-      "cases": [
-        "archives-container-tar-lzma"
-      ],
-      "covered": true,
-      "route": ".tar.lzma"
-    },
-    {
-      "cases": [
-        "archives-container-tar-lzo"
-      ],
-      "covered": true,
-      "route": ".tar.lzo"
-    },
-    {
-      "cases": [
-        "archives-container-tar-z"
-      ],
-      "covered": true,
-      "route": ".tar.z"
-    },
-    {
-      "cases": [
-        "native-weak-warc-gz"
-      ],
-      "covered": true,
-      "route": ".warc.gz"
-    },
-    {
-      "cases": [
-        "scientific-arrays-rds-gz"
-      ],
-      "covered": true,
-      "route": ".rds.gz"
-    },
-    {
-      "cases": [
-        "scientific-arrays-rds-bz2"
-      ],
-      "covered": true,
-      "route": ".rds.bz2"
-    },
-    {
-      "cases": [
-        "scientific-arrays-rds-xz"
-      ],
-      "covered": true,
-      "route": ".rds.xz"
-    },
-    {
-      "cases": [
-        "scientific-arrays-rda-gz"
-      ],
-      "covered": true,
-      "route": ".rda.gz"
-    },
-    {
-      "cases": [
-        "scientific-arrays-rda-bz2"
-      ],
-      "covered": true,
-      "route": ".rda.bz2"
-    },
-    {
-      "cases": [
-        "scientific-arrays-rda-xz"
-      ],
-      "covered": true,
-      "route": ".rda.xz"
-    },
-    {
-      "cases": [
-        "scientific-arrays-rdata-gz"
-      ],
-      "covered": true,
-      "route": ".rdata.gz"
-    },
-    {
-      "cases": [
-        "scientific-arrays-rdata-bz2"
-      ],
-      "covered": true,
-      "route": ".rdata.bz2"
-    },
-    {
-      "cases": [
-        "scientific-arrays-rdata-xz"
-      ],
-      "covered": true,
-      "route": ".rdata.xz"
-    },
-    {
-      "cases": [
         "archives-cpio-tree-cpio"
       ],
       "covered": true,
@@ -2943,11 +2862,186 @@
       ],
       "covered": true,
       "route": ".otf (ODF package detected by ZIP content)"
+    },
+    {
+      "cases": [
+        "scientific-arrays-rda-bz2"
+      ],
+      "covered": true,
+      "route": ".rda.bz2"
+    },
+    {
+      "cases": [
+        "scientific-arrays-rda-gz"
+      ],
+      "covered": true,
+      "route": ".rda.gz"
+    },
+    {
+      "cases": [
+        "scientific-arrays-rda-gzip"
+      ],
+      "covered": true,
+      "route": ".rda.gzip"
+    },
+    {
+      "cases": [
+        "scientific-arrays-rda-xz"
+      ],
+      "covered": true,
+      "route": ".rda.xz"
+    },
+    {
+      "cases": [
+        "scientific-arrays-rdata-bz2"
+      ],
+      "covered": true,
+      "route": ".rdata.bz2"
+    },
+    {
+      "cases": [
+        "scientific-arrays-rdata-gz"
+      ],
+      "covered": true,
+      "route": ".rdata.gz"
+    },
+    {
+      "cases": [
+        "scientific-arrays-rdata-gzip"
+      ],
+      "covered": true,
+      "route": ".rdata.gzip"
+    },
+    {
+      "cases": [
+        "scientific-arrays-rdata-xz"
+      ],
+      "covered": true,
+      "route": ".rdata.xz"
+    },
+    {
+      "cases": [
+        "scientific-arrays-rds-bz2"
+      ],
+      "covered": true,
+      "route": ".rds.bz2"
+    },
+    {
+      "cases": [
+        "scientific-arrays-rds-gz"
+      ],
+      "covered": true,
+      "route": ".rds.gz"
+    },
+    {
+      "cases": [
+        "scientific-arrays-rds-gzip"
+      ],
+      "covered": true,
+      "route": ".rds.gzip"
+    },
+    {
+      "cases": [
+        "scientific-arrays-rds-xz"
+      ],
+      "covered": true,
+      "route": ".rds.xz"
+    },
+    {
+      "cases": [
+        "archives-container-tar-br"
+      ],
+      "covered": true,
+      "route": ".tar.br"
+    },
+    {
+      "cases": [
+        "archives-container-tar-bz2"
+      ],
+      "covered": true,
+      "route": ".tar.bz2"
+    },
+    {
+      "cases": [
+        "archives-container-tar-gz"
+      ],
+      "covered": true,
+      "route": ".tar.gz"
+    },
+    {
+      "cases": [
+        "archives-container-tar-gzip"
+      ],
+      "covered": true,
+      "route": ".tar.gzip"
+    },
+    {
+      "cases": [
+        "archives-container-tar-lz"
+      ],
+      "covered": true,
+      "route": ".tar.lz"
+    },
+    {
+      "cases": [
+        "archives-container-tar-lz4"
+      ],
+      "covered": true,
+      "route": ".tar.lz4"
+    },
+    {
+      "cases": [
+        "archives-container-tar-lzma"
+      ],
+      "covered": true,
+      "route": ".tar.lzma"
+    },
+    {
+      "cases": [
+        "archives-container-tar-lzo"
+      ],
+      "covered": true,
+      "route": ".tar.lzo"
+    },
+    {
+      "cases": [
+        "archives-container-tar-xz"
+      ],
+      "covered": true,
+      "route": ".tar.xz"
+    },
+    {
+      "cases": [
+        "archives-container-tar-z"
+      ],
+      "covered": true,
+      "route": ".tar.z"
+    },
+    {
+      "cases": [
+        "archives-container-tar-zst"
+      ],
+      "covered": true,
+      "route": ".tar.zst"
+    },
+    {
+      "cases": [
+        "native-weak-warc-gz"
+      ],
+      "covered": true,
+      "route": ".warc.gz"
+    },
+    {
+      "cases": [
+        "native-alias-warc-gzip"
+      ],
+      "covered": true,
+      "route": ".warc.gzip"
     }
   ],
-  "filename_routes_covered": 23,
+  "filename_routes_covered": 28,
   "generation_gaps": [],
-  "handler_count": 97,
+  "handler_count": 102,
   "handlers": [
     {
       "cases": 2,
@@ -2992,7 +3086,7 @@
       "native_original_or_syntax": true
     },
     {
-      "cases": 3,
+      "cases": 5,
       "extensions": [
         "cbt",
         "gem",
@@ -3069,7 +3163,7 @@
       "native_original_or_syntax": true
     },
     {
-      "cases": 152,
+      "cases": 156,
       "extensions": [
         "3mf",
         "aab",
@@ -3229,7 +3323,7 @@
       "native_original_or_syntax": true
     },
     {
-      "cases": 2,
+      "cases": 3,
       "extensions": [
         "arrow",
         "ipc"
@@ -3389,11 +3483,19 @@
       "native_original_or_syntax": true
     },
     {
-      "cases": 1,
+      "cases": 2,
       "extensions": [
         "flac"
       ],
       "handler": "pack_flac",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "gguf"
+      ],
+      "handler": "pack_gguf",
       "native_original_or_syntax": true
     },
     {
@@ -3405,15 +3507,16 @@
       "native_original_or_syntax": true
     },
     {
-      "cases": 3,
+      "cases": 7,
       "extensions": [
-        "gz"
+        "gz",
+        "gzip"
       ],
       "handler": "pack_gzip",
       "native_original_or_syntax": true
     },
     {
-      "cases": 3,
+      "cases": 4,
       "extensions": [
         "h5",
         "hdf",
@@ -3460,7 +3563,7 @@
       "native_original_or_syntax": true
     },
     {
-      "cases": 7,
+      "cases": 8,
       "extensions": [
         "jfi",
         "jfif",
@@ -3554,7 +3657,7 @@
       "native_original_or_syntax": true
     },
     {
-      "cases": 1,
+      "cases": 2,
       "extensions": [
         "mat"
       ],
@@ -3562,7 +3665,7 @@
       "native_original_or_syntax": true
     },
     {
-      "cases": 1,
+      "cases": 2,
       "extensions": [
         "mkv"
       ],
@@ -3594,7 +3697,7 @@
       "native_original_or_syntax": true
     },
     {
-      "cases": 2,
+      "cases": 3,
       "extensions": [
         "nc",
         "nc4"
@@ -3659,13 +3762,21 @@
     {
       "cases": 1,
       "extensions": [
+        "onnx"
+      ],
+      "handler": "pack_onnx",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
         "orc"
       ],
       "handler": "pack_orc",
       "native_original_or_syntax": true
     },
     {
-      "cases": 2,
+      "cases": 3,
       "extensions": [
         "parquet"
       ],
@@ -3682,7 +3793,7 @@
       "native_original_or_syntax": true
     },
     {
-      "cases": 1,
+      "cases": 3,
       "extensions": [
         "pdf"
       ],
@@ -3690,7 +3801,7 @@
       "native_original_or_syntax": true
     },
     {
-      "cases": 4,
+      "cases": 7,
       "extensions": [
         "apng",
         "png"
@@ -3742,13 +3853,29 @@
       "native_original_or_syntax": true
     },
     {
-      "cases": 15,
+      "cases": 18,
       "extensions": [
         "rda",
         "rdata",
         "rds"
       ],
       "handler": "pack_r_serialization",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 2,
+      "extensions": [
+        "rtf"
+      ],
+      "handler": "pack_rtf",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "safetensors"
+      ],
+      "handler": "pack_safetensors",
       "native_original_or_syntax": true
     },
     {
@@ -3816,12 +3943,20 @@
       "native_original_or_syntax": true
     },
     {
-      "cases": 2,
+      "cases": 3,
       "extensions": [
         "tif",
         "tiff"
       ],
       "handler": "pack_tif",
+      "native_original_or_syntax": true
+    },
+    {
+      "cases": 1,
+      "extensions": [
+        "tracev3"
+      ],
+      "handler": "pack_tracev3",
       "native_original_or_syntax": true
     },
     {
@@ -3843,7 +3978,7 @@
       "native_original_or_syntax": true
     },
     {
-      "cases": 2,
+      "cases": 3,
       "extensions": [
         "warc"
       ],
@@ -3935,11 +4070,17 @@
       "native_original_or_syntax": true
     }
   ],
-  "handlers_covered": 97,
+  "handlers_covered": 102,
   "missing": [],
-  "native_or_original": 157,
+  "missing_handlers": [],
+  "native_or_original": 163,
+  "registry_identity": {
+    "commit": "95827f3206d68760819d1a0f21ab9acfcf74313b",
+    "registry_sha256": "09f306bdb467cdaa911eadf5c4f14643b5644f64bfd788d259e94eb1a30d7be2"
+  },
   "stores": [
     "scientific-arrays-zarr"
   ],
-  "supported": 306
+  "supported": 312,
+  "unmapped_extensions": []
 }

@@ -3,7 +3,6 @@
 Optional generators are isolated: absence/errors become manifest gaps, never fake
 positive fixtures. ZIP aliases are explicitly container-only, not app validity.
 """
-import ast
 import bz2
 import gzip
 import io
@@ -788,7 +787,8 @@ class Builder:
             padding = (-(30 + len(name) + 4)) % 64
             info.extra = struct.pack('<HH', 0xCAFE, padding) + b'\0' * padding
             archive.writestr(info, b'#usda 1.0\ndef Xform "Synthetic" {}\n')
-        self.add('packages/scene.usdz', buffer.getvalue(), 'usdz', 'packages', {'kind': 'zip'})
+        self.add('packages/scene.usdz', buffer.getvalue(), 'usdz', 'packages',
+                 {'kind': 'zip', 'package': 'usdz', 'preserve_order': True})
 
     def additional_formats(self):
         """Add native profiles for registry routes and compound filename dispatch."""
@@ -826,6 +826,9 @@ class Builder:
             'archives/signed-extension.crx', crx3(zip_bytes(crx_entries, level=1)),
             'crx', 'archives', {'kind': 'crx', 'children': crx_children},
             note='CRX3 with a temporary test-only signing key and a minimal extension manifest'))
+        from .fixtures import current_formats, depth_profiles
+        current_formats(self)
+        depth_profiles(self)
 
     def odf_variants(self):
         """Build standards-shaped ODF package profiles for the remaining ODF suffixes."""
@@ -892,34 +895,13 @@ class Builder:
 
 
 def handler_catalog(source, constants):
-    formats = ast.parse((source / 'filerepack/formats.py').read_text())
-    aliases = {}
-    for node in formats.body:
-        if isinstance(node, ast.Assign) and any(isinstance(t, ast.Name) and t.id == 'STANDALONE_ALIASES' for t in node.targets):
-            aliases = ast.literal_eval(node.value)
-    dispatch = ast.parse((source / 'filerepack/dispatch.py').read_text())
-    packers = {}
-    for node in dispatch.body:
-        if isinstance(node, ast.AnnAssign) and isinstance(node.target, ast.Name) and node.target.id == '_PACKERS':
-            packers = {ast.literal_eval(k): v.args[0].id for k, v in zip(node.value.keys, node.value.values)}
-    from .catalog import SPECIAL_FAMILY
-    result = {ext: 'archive:' + SPECIAL_FAMILY.get(ext, 'zip') for ext in constants['ARCHIVE_EXTS']}
-    result.update({ext: packers.get(aliases.get(ext, ext), 'unmapped:' + ext) for ext in constants['STANDALONE_EXTS']})
-    return result
+    from .catalog import discover_catalog
+    return discover_catalog(source)['handler_by_extension']
 
 
 def catalog_from_source(path):
-    source = Path(path)
-    constants = ast.parse((source / 'filerepack/consts.py').read_text())
-    values = {}
-    for node in constants.body:
-        if isinstance(node, ast.Assign):
-            for target in node.targets:
-                if isinstance(target, ast.Name) and target.id in ('ARCHIVE_EXTS', 'STANDALONE_EXTS'):
-                    values[target.id] = ast.literal_eval(node.value)
-    return {'archive_extensions': values['ARCHIVE_EXTS'], 'standalone_extensions': values['STANDALONE_EXTS'],
-            'supported_extensions': sorted(set(values['ARCHIVE_EXTS'] + values['STANDALONE_EXTS'])),
-            'handler_by_extension': handler_catalog(source, values)}
+    from .catalog import discover_catalog
+    return discover_catalog(path)
 
 
 def generate(args):
@@ -927,7 +909,6 @@ def generate(args):
     catalog_path = root / 'corpus/catalog.json'
     if args.filerepack:
         catalog = catalog_from_source(args.filerepack)
-        write_json(catalog_path, catalog)
     else:
         catalog = json.loads(catalog_path.read_text())
     if getattr(args, 'extend', False):
@@ -958,6 +939,7 @@ def generate(args):
                 'cases': sorted(builder.cases, key=lambda c: c['id']), 'generation_gaps': builder.gaps,
                 'generated_license': 'BSD-3-Clause'}
     write_json(root / 'corpus/manifest.json', manifest)
+    write_json(catalog_path, catalog)
     # Remove any partial optional files not indexed in manifest.
     referenced = {(root / c['path']).resolve() for c in builder.cases}
     for path in sorted(directory.rglob('*'), reverse=True):
@@ -969,20 +951,78 @@ def generate(args):
 
 def extend(root, catalog, args):
     """Add newly generated coverage while preserving every existing pinned specimen."""
-    from .common import read_manifest
+    from .common import check_manifest, read_manifest
 
     root = Path(root)
-    builder = Builder(root, catalog, args.scale)
-    builder.additional_formats()
     previous = read_manifest(root)
-    by_id = {case['id']: case for case in previous['cases']}
-    by_id.update({case['id']: case for case in builder.cases})
-    gaps = {item['generator']: item for item in previous.get('generation_gaps', [])}
-    gaps.update({item['generator']: item for item in builder.gaps})
-    manifest = {**previous, 'supported_extensions': catalog['supported_extensions'],
-                'cases': sorted(by_id.values(), key=lambda case: case['id']),
-                'generation_gaps': [gaps[name] for name in sorted(gaps)]}
-    write_json(root / 'corpus/manifest.json', manifest)
-    print(f"Extended corpus to {len(manifest['cases'])} cases; {len(builder.cases)} additions/updates; "
+    failures = check_manifest(root)
+    if failures:
+        raise ValueError('Cannot extend an inconsistent corpus: ' + '; '.join(failures[:5]))
+    work = root / '.work'
+    work.mkdir(exist_ok=True)
+    with tempfile.TemporaryDirectory(prefix='extend-', dir=work) as temp:
+        stage = Path(temp)
+        shutil.copytree(root / 'corpus', stage / 'corpus')
+        if (root / 'licenses').is_dir():
+            shutil.copytree(root / 'licenses', stage / 'licenses')
+        builder = Builder(stage, catalog, args.scale)
+        builder.additional_formats()
+        if args.strict and builder.gaps:
+            print('Extension failed before publication; existing corpus is intact.')
+            return 1
+        by_id = {case['id']: case for case in previous['cases']}
+        owned = {case['path'] for case in previous['cases']}
+        additions = []
+        for case in builder.cases:
+            if case['id'] in by_id:
+                continue
+            relative = Path(case['path'])
+            if relative in owned or (root / relative).exists():
+                raise ValueError('New case collides with an existing path: ' + str(relative))
+            if any(relative == Path(path) or relative in Path(path).parents or
+                   Path(path) in relative.parents for path in owned):
+                raise ValueError('Overlapping fixture path: ' + str(relative))
+            additions.append(case)
+            owned.add(str(relative))
+            by_id[case['id']] = case
+        # Staged generators may recreate old cases. Restore every pinned byte before
+        # validating the combined manifest; only genuinely new IDs are published.
+        shutil.copytree(root / 'corpus', stage / 'corpus', dirs_exist_ok=True)
+        gaps = {item['generator']: item for item in previous.get('generation_gaps', [])}
+        gaps.update({item['generator']: item for item in builder.gaps})
+        manifest = {**previous, 'supported_extensions': catalog['supported_extensions'],
+                    'cases': sorted(by_id.values(), key=lambda case: case['id']),
+                    'generation_gaps': [gaps[name] for name in sorted(gaps)]}
+        write_json(stage / 'corpus/manifest.json', manifest)
+        write_json(stage / 'corpus/catalog.json', catalog)
+        failures = check_manifest(stage)
+        if failures:
+            raise ValueError('Staged corpus failed validation: ' + '; '.join(failures[:5]))
+        from .oracles import fingerprint, require
+        for case in additions:
+            if case['expectation'] == 'unchanged':
+                continue
+            missing = require(case['oracle'])
+            if missing:
+                raise ValueError('Cannot qualify staged case ' + case['id'] + ': ' + ', '.join(missing))
+            fingerprint(stage / case['path'], case['oracle'])
+        backups = {name: (root / 'corpus' / name).read_bytes()
+                   for name in ('manifest.json', 'catalog.json')}
+        published = []
+        try:
+            for case in additions:
+                destination = root / case['path']
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                shutil.move(stage / case['path'], destination)
+                published.append(destination)
+            write_json(root / 'corpus/catalog.json', catalog)
+            write_json(root / 'corpus/manifest.json', manifest)
+        except Exception:
+            for path in reversed(published):
+                shutil.rmtree(path) if path.is_dir() else path.unlink()
+            for name, data in backups.items():
+                (root / 'corpus' / name).write_bytes(data)
+            raise
+    print(f"Extended corpus to {len(manifest['cases'])} cases; {len(additions)} additions; "
           f"{len(builder.gaps)} new generation gaps.")
-    return 1 if args.strict and builder.gaps else 0
+    return 0

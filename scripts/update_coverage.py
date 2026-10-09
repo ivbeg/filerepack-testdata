@@ -30,7 +30,8 @@ def main():
         "Catalog: local filerepack source; regenerate with `python scripts/update_coverage.py --filerepack ../filerepack`.",
         '',
         f"- {len(manifest['cases'])} cases: {tier_counts['smoke']} smoke, "
-        f"{tier_counts['extended']} extended, {tier_counts['control']} rejection controls.",
+        f"{tier_counts['extended']} extended, {tier_counts['control']} rejection controls, "
+        f"{tier_counts['stress']} separate stress fixtures.",
         f"- {data['covered']}/{data['supported']} registered extension routes have non-control fixtures.",
         f"- {native_original} extensions have native or original fixtures.",
         f"- {data['handlers_covered']}/{data['handler_count']} handler groups have fixtures.",
@@ -74,9 +75,11 @@ def main():
         '',
         '## Remaining depth gaps',
         '',
-        'More real user-created office, media and scientific files, application rendering, nested '
-        'archive combinations, complex HDF5 link graphs, high-bit-depth image metadata and opt-in '
-        'OLE content transforms would improve representativeness. The current synthetic corpus '
+        'More real user-created office, video and scientific files, application rendering, larger '
+        'heterogeneous archives and opt-in OLE content transforms would improve representativeness. '
+        'Bounded nesting, archive links/controls, HDF5 graphs/references, nested NetCDF groups, '
+        'high-bit-depth pixels, image metadata, rich PDF and multi-stream media are included. '
+        'The current synthetic corpus '
         'deliberately includes favorable compression opportunities.',
         '',
         'CRX3 is included as a correctly signed ZIP package and the independent oracle checks the '
@@ -85,6 +88,10 @@ def main():
         'CRX recompression.',
         '',
         'Original licensed samples and generated files must be analyzed separately for empirical claims.',
+        'The catalog is a snapshot of the local registry, including optional RTF. The committed '
+        '95827f3 implementation has 311 flat extensions and 101 handlers. Extra corpus routes '
+        'are reported as removed registry entries when comparing an older implementation; '
+        'strict coverage gates uncovered live routes, unresolved handler mappings and filename paths.',
         '',
     ])
     (ROOT / 'docs/COVERAGE.md').write_text('\n'.join(lines))

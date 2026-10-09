@@ -2,322 +2,176 @@
   "cases": [
     {
       "expectation": "observe",
-      "extension": "doc",
-      "family": "ole",
-      "id": "original-ole-simple-doc",
+      "extension": "flac",
+      "family": "audio",
+      "id": "original-audio-silence-flac",
       "inventory": {
-        "bytes": 19456,
-        "sha256": "4876e828e62d490fa188c7c4e47013e2e0dfdf02f5903dfd374bc0d2b2049ca1"
+        "bytes": 50904,
+        "sha256": "999c5bc800d7b7e073cce8b42e194788f277bf4eb8e3c9eaa28e017d5875c62b"
       },
-      "license": "Apache-2.0",
+      "license": "GPL-2.0-or-later",
       "oracle": {
-        "kind": "ole"
+        "kind": "audio"
       },
-      "path": "corpus/originals/ole/simple.doc",
+      "path": "corpus/originals/audio/silence.flac",
       "provenance": {
-        "description": "Unmodified upstream regression fixture",
-        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/document/simple.doc",
-        "type": "original",
-        "upstream_sha256": "4876e828e62d490fa188c7c4e47013e2e0dfdf02f5903dfd374bc0d2b2049ca1"
+        "commit": "ada28b2cc92c515f3f26640a6feef6516d195872",
+        "description": "Unmodified upstream regression fixture; original provenance does not imply a representative production workload",
+        "license_files": [
+          "licenses/originals-mutagen-COPYING"
+        ],
+        "license_source": "https://raw.githubusercontent.com/quodlibet/mutagen/ada28b2cc92c515f3f26640a6feef6516d195872/COPYING",
+        "repository": "https://github.com/quodlibet/mutagen",
+        "source": "https://raw.githubusercontent.com/quodlibet/mutagen/ada28b2cc92c515f3f26640a6feef6516d195872/tests/data/silence-44-s.flac",
+        "type": "upstream-original"
       },
       "scope": "original",
       "tier": "extended"
     },
     {
       "expectation": "observe",
-      "extension": "doc",
-      "family": "ole",
-      "id": "original-ole-pictures_escher-doc",
+      "extension": "docx",
+      "family": "documents",
+      "id": "original-documents-blocks-docx",
       "inventory": {
-        "bytes": 120320,
-        "sha256": "84a68678fc525e763beabab7e79240e2bbf4cd6b7766eed3364681d38fed2457"
+        "bytes": 11949,
+        "sha256": "16243dd05f686d6d5fab331843691492ad78ae3eb4f13cc8686077b44718c0ba"
       },
-      "license": "Apache-2.0",
+      "license": "MIT",
       "oracle": {
-        "kind": "ole"
+        "children": {
+          "[Content_Types].xml": {
+            "kind": "xml"
+          },
+          "_rels/.rels": {
+            "kind": "xml"
+          },
+          "docProps/app.xml": {
+            "kind": "xml"
+          },
+          "docProps/core.xml": {
+            "kind": "xml"
+          },
+          "word/_rels/document.xml.rels": {
+            "kind": "xml"
+          },
+          "word/document.xml": {
+            "kind": "xml"
+          },
+          "word/fontTable.xml": {
+            "kind": "xml"
+          },
+          "word/settings.xml": {
+            "kind": "xml"
+          },
+          "word/styles.xml": {
+            "kind": "xml"
+          },
+          "word/theme/theme1.xml": {
+            "kind": "xml"
+          },
+          "word/webSettings.xml": {
+            "kind": "xml"
+          }
+        },
+        "kind": "zip"
       },
-      "path": "corpus/originals/ole/pictures_escher.doc",
+      "path": "corpus/originals/documents/blocks.docx",
       "provenance": {
-        "description": "Unmodified upstream regression fixture",
-        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/document/pictures_escher.doc",
-        "type": "original",
-        "upstream_sha256": "84a68678fc525e763beabab7e79240e2bbf4cd6b7766eed3364681d38fed2457"
-      },
-      "scope": "original",
-      "tier": "extended"
-    },
-    {
-      "expectation": "unchanged",
-      "extension": "doc",
-      "family": "ole",
-      "id": "original-ole-passwordprotected-doc",
-      "inventory": {
-        "bytes": 19968,
-        "sha256": "863d2216a6f5bb4cec0ea4131a05ae0822dbce347e2940155ef638c6d64935fe"
-      },
-      "license": "Apache-2.0",
-      "oracle": {
-        "kind": "bytes"
-      },
-      "path": "corpus/originals/ole/PasswordProtected.doc",
-      "provenance": {
-        "description": "Unmodified upstream regression fixture",
-        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/document/PasswordProtected.doc",
-        "type": "original",
-        "upstream_sha256": "863d2216a6f5bb4cec0ea4131a05ae0822dbce347e2940155ef638c6d64935fe"
-      },
-      "scope": "original",
-      "tier": "control"
-    },
-    {
-      "expectation": "observe",
-      "extension": "doc",
-      "family": "ole",
-      "id": "original-ole-simplemacro-doc",
-      "inventory": {
-        "bytes": 36864,
-        "sha256": "39e9608c711d38f298ed20a5bfae12fcdaed6f4be2be4d26db670475216ca393"
-      },
-      "license": "Apache-2.0",
-      "oracle": {
-        "kind": "ole"
-      },
-      "path": "corpus/originals/ole/SimpleMacro.doc",
-      "provenance": {
-        "description": "Unmodified upstream regression fixture",
-        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/document/SimpleMacro.doc",
-        "type": "original",
-        "upstream_sha256": "39e9608c711d38f298ed20a5bfae12fcdaed6f4be2be4d26db670475216ca393"
+        "commit": "e45454602b53e8e572b179ccf1c91093ec9f4ed7",
+        "description": "Unmodified upstream regression fixture; original provenance does not imply a representative production workload",
+        "license_files": [
+          "licenses/originals-python-docx-LICENSE"
+        ],
+        "license_source": "https://raw.githubusercontent.com/python-openxml/python-docx/e45454602b53e8e572b179ccf1c91093ec9f4ed7/LICENSE",
+        "repository": "https://github.com/python-openxml/python-docx",
+        "source": "https://raw.githubusercontent.com/python-openxml/python-docx/e45454602b53e8e572b179ccf1c91093ec9f4ed7/tests/test_files/blk-inner-content.docx",
+        "type": "upstream-original"
       },
       "scope": "original",
       "tier": "extended"
     },
     {
       "expectation": "observe",
-      "extension": "xls",
-      "family": "ole",
-      "id": "original-ole-simple-xls",
+      "extension": "pdf",
+      "family": "documents",
+      "id": "original-documents-minimal-pdf",
       "inventory": {
-        "bytes": 13824,
-        "sha256": "2b5ec8298bacffdca61c50f6f7607da0a4e63cf76fa011c62f203e6a66bc072a"
+        "bytes": 763,
+        "sha256": "c16e6eaf7d26ae388cac9a262224981394dc590f940bd2e3bb926eba2f2132a2"
       },
       "license": "Apache-2.0",
       "oracle": {
-        "kind": "ole"
+        "kind": "pdf"
       },
-      "path": "corpus/originals/ole/Simple.xls",
+      "path": "corpus/originals/documents/minimal.pdf",
       "provenance": {
-        "description": "Unmodified upstream regression fixture",
-        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/spreadsheet/Simple.xls",
-        "type": "original",
-        "upstream_sha256": "2b5ec8298bacffdca61c50f6f7607da0a4e63cf76fa011c62f203e6a66bc072a"
+        "commit": "4eba95899886e851cc41d76886483b347612f2a8",
+        "description": "Unmodified upstream regression fixture; original provenance does not imply a representative production workload",
+        "license_files": [
+          "licenses/originals-qpdf-LICENSE.txt"
+        ],
+        "license_source": "https://raw.githubusercontent.com/qpdf/qpdf/4eba95899886e851cc41d76886483b347612f2a8/LICENSE.txt",
+        "repository": "https://github.com/qpdf/qpdf",
+        "source": "https://raw.githubusercontent.com/qpdf/qpdf/4eba95899886e851cc41d76886483b347612f2a8/qpdf/qtest/qpdf/minimal.pdf",
+        "type": "upstream-original"
       },
       "scope": "original",
       "tier": "extended"
     },
     {
       "expectation": "observe",
-      "extension": "xls",
-      "family": "ole",
-      "id": "original-ole-sampless-xls",
+      "extension": "png",
+      "family": "images",
+      "id": "original-images-pngsuite-rgb16-png",
       "inventory": {
-        "bytes": 17408,
-        "sha256": "53c9bd7337aa79fedf29cef8d81ec47fff39f80e25da9d74bc354cfdf1c43b73"
+        "bytes": 302,
+        "sha256": "71179d2905aadb86adc25de7f737869b52e80e154c5335f5e6b614942515b2d4"
       },
-      "license": "Apache-2.0",
+      "license": "LicenseRef-PngSuite",
       "oracle": {
-        "kind": "ole"
+        "exact_png_bits": true,
+        "kind": "raster"
       },
-      "path": "corpus/originals/ole/SampleSS.xls",
+      "path": "corpus/originals/images/pngsuite-rgb16.png",
       "provenance": {
-        "description": "Unmodified upstream regression fixture",
-        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/spreadsheet/SampleSS.xls",
-        "type": "original",
-        "upstream_sha256": "53c9bd7337aa79fedf29cef8d81ec47fff39f80e25da9d74bc354cfdf1c43b73"
-      },
-      "scope": "original",
-      "tier": "extended"
-    },
-    {
-      "expectation": "unchanged",
-      "extension": "xls",
-      "family": "ole",
-      "id": "original-ole-password-xls",
-      "inventory": {
-        "bytes": 22528,
-        "sha256": "3ad12a829132d9c157d213c623af9c534b1449c42e93ab39b17ca53c909ac412"
-      },
-      "license": "Apache-2.0",
-      "oracle": {
-        "kind": "bytes"
-      },
-      "path": "corpus/originals/ole/password.xls",
-      "provenance": {
-        "description": "Unmodified upstream regression fixture",
-        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/spreadsheet/password.xls",
-        "type": "original",
-        "upstream_sha256": "3ad12a829132d9c157d213c623af9c534b1449c42e93ab39b17ca53c909ac412"
-      },
-      "scope": "original",
-      "tier": "control"
-    },
-    {
-      "expectation": "observe",
-      "extension": "ppt",
-      "family": "ole",
-      "id": "original-ole-sampleshow-ppt",
-      "inventory": {
-        "bytes": 125440,
-        "sha256": "64275a6685b8f267827178037dcc59de927475e56385725916f4c6039c7ce7f6"
-      },
-      "license": "Apache-2.0",
-      "oracle": {
-        "kind": "ole"
-      },
-      "path": "corpus/originals/ole/SampleShow.ppt",
-      "provenance": {
-        "description": "Unmodified upstream regression fixture",
-        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/slideshow/SampleShow.ppt",
-        "type": "original",
-        "upstream_sha256": "64275a6685b8f267827178037dcc59de927475e56385725916f4c6039c7ce7f6"
+        "commit": "18ea3e9404a09f42d92f952a4c0d1dd3d688182a",
+        "description": "Unmodified upstream regression fixture; original provenance does not imply a representative production workload",
+        "license_files": [
+          "licenses/originals-libpng-README"
+        ],
+        "license_source": "https://raw.githubusercontent.com/pnggroup/libpng/18ea3e9404a09f42d92f952a4c0d1dd3d688182a/contrib/pngsuite/README",
+        "repository": "https://github.com/pnggroup/libpng",
+        "source": "https://raw.githubusercontent.com/pnggroup/libpng/18ea3e9404a09f42d92f952a4c0d1dd3d688182a/contrib/pngsuite/basn2c16.png",
+        "type": "upstream-original"
       },
       "scope": "original",
       "tier": "extended"
     },
     {
       "expectation": "observe",
-      "extension": "ppt",
-      "family": "ole",
-      "id": "original-ole-simplemacro-ppt",
+      "extension": "png",
+      "family": "images",
+      "id": "original-images-pngsuite-rgba8-png",
       "inventory": {
-        "bytes": 104960,
-        "sha256": "c6755e4c536356082d09ae59185f527e7f8c835b4d99216696d041a024881bba"
+        "bytes": 184,
+        "sha256": "756a03364c02e3c9f85d6f4029eb3cef2488c081dc537d46e102bebcb9e02732"
       },
-      "license": "Apache-2.0",
+      "license": "LicenseRef-PngSuite",
       "oracle": {
-        "kind": "ole"
+        "kind": "raster"
       },
-      "path": "corpus/originals/ole/SimpleMacro.ppt",
+      "path": "corpus/originals/images/pngsuite-rgba8.png",
       "provenance": {
-        "description": "Unmodified upstream regression fixture",
-        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/slideshow/SimpleMacro.ppt",
-        "type": "original",
-        "upstream_sha256": "c6755e4c536356082d09ae59185f527e7f8c835b4d99216696d041a024881bba"
-      },
-      "scope": "original",
-      "tier": "extended"
-    },
-    {
-      "expectation": "unchanged",
-      "extension": "ppt",
-      "family": "ole",
-      "id": "original-ole-password_protected-hello-ppt",
-      "inventory": {
-        "bytes": 10752,
-        "sha256": "8d0dd9f53317a720687cf5234af0c021fab665194b09b9bb56a3f71b495bf45a"
-      },
-      "license": "Apache-2.0",
-      "oracle": {
-        "kind": "bytes"
-      },
-      "path": "corpus/originals/ole/Password_Protected-hello.ppt",
-      "provenance": {
-        "description": "Unmodified upstream regression fixture",
-        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/slideshow/Password_Protected-hello.ppt",
-        "type": "original",
-        "upstream_sha256": "8d0dd9f53317a720687cf5234af0c021fab665194b09b9bb56a3f71b495bf45a"
-      },
-      "scope": "original",
-      "tier": "control"
-    },
-    {
-      "expectation": "observe",
-      "extension": "doc",
-      "family": "ole",
-      "id": "original-ole-pngpicture-doc",
-      "inventory": {
-        "bytes": 14336,
-        "sha256": "259aa01f88c17bb4ad364d08ce62424959f51717b37d8a5578e3045f9eaede6b"
-      },
-      "license": "Apache-2.0",
-      "oracle": {
-        "kind": "ole"
-      },
-      "path": "corpus/originals/ole/PngPicture.doc",
-      "provenance": {
-        "description": "Unmodified upstream regression fixture",
-        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/document/PngPicture.doc",
-        "type": "original",
-        "upstream_sha256": "259aa01f88c17bb4ad364d08ce62424959f51717b37d8a5578e3045f9eaede6b"
-      },
-      "scope": "original",
-      "tier": "extended"
-    },
-    {
-      "expectation": "observe",
-      "extension": "doc",
-      "family": "ole",
-      "id": "original-ole-word_with_embeded-doc",
-      "inventory": {
-        "bytes": 117248,
-        "sha256": "206acf1f7eb7b7d7d2075e04015d005ae9bb56f025560f2583ad3878257bc4c7"
-      },
-      "license": "Apache-2.0",
-      "oracle": {
-        "kind": "ole"
-      },
-      "path": "corpus/originals/ole/word_with_embeded.doc",
-      "provenance": {
-        "description": "Unmodified upstream regression fixture",
-        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/document/word_with_embeded.doc",
-        "type": "original",
-        "upstream_sha256": "206acf1f7eb7b7d7d2075e04015d005ae9bb56f025560f2583ad3878257bc4c7"
-      },
-      "scope": "original",
-      "tier": "extended"
-    },
-    {
-      "expectation": "observe",
-      "extension": "xls",
-      "family": "ole",
-      "id": "original-ole-simplewithformula-xls",
-      "inventory": {
-        "bytes": 13824,
-        "sha256": "73a99975b9ad250669bd49ffe2223ed50df8324775acfbc612740d38827913c9"
-      },
-      "license": "Apache-2.0",
-      "oracle": {
-        "kind": "ole"
-      },
-      "path": "corpus/originals/ole/SimpleWithFormula.xls",
-      "provenance": {
-        "description": "Unmodified upstream regression fixture",
-        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/spreadsheet/SimpleWithFormula.xls",
-        "type": "original",
-        "upstream_sha256": "73a99975b9ad250669bd49ffe2223ed50df8324775acfbc612740d38827913c9"
-      },
-      "scope": "original",
-      "tier": "extended"
-    },
-    {
-      "expectation": "observe",
-      "extension": "xls",
-      "family": "ole",
-      "id": "original-ole-withchart-xls",
-      "inventory": {
-        "bytes": 20992,
-        "sha256": "e72315361da2e7a59d50ad5f8b92dd7464004661014b2ab9b462c2c6a48b70f1"
-      },
-      "license": "Apache-2.0",
-      "oracle": {
-        "kind": "ole"
-      },
-      "path": "corpus/originals/ole/WithChart.xls",
-      "provenance": {
-        "description": "Unmodified upstream regression fixture",
-        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/spreadsheet/WithChart.xls",
-        "type": "original",
-        "upstream_sha256": "e72315361da2e7a59d50ad5f8b92dd7464004661014b2ab9b462c2c6a48b70f1"
+        "commit": "18ea3e9404a09f42d92f952a4c0d1dd3d688182a",
+        "description": "Unmodified upstream regression fixture; original provenance does not imply a representative production workload",
+        "license_files": [
+          "licenses/originals-libpng-README"
+        ],
+        "license_source": "https://raw.githubusercontent.com/pnggroup/libpng/18ea3e9404a09f42d92f952a4c0d1dd3d688182a/contrib/pngsuite/README",
+        "repository": "https://github.com/pnggroup/libpng",
+        "source": "https://raw.githubusercontent.com/pnggroup/libpng/18ea3e9404a09f42d92f952a4c0d1dd3d688182a/contrib/pngsuite/basn6a08.png",
+        "type": "upstream-original"
       },
       "scope": "original",
       "tier": "extended"
@@ -347,46 +201,23 @@
     },
     {
       "expectation": "observe",
-      "extension": "xls",
+      "extension": "doc",
       "family": "ole",
-      "id": "original-ole-withembeddedobjects-xls",
+      "id": "original-ole-headerwithmacros-doc",
       "inventory": {
-        "bytes": 179712,
-        "sha256": "da5ba0f448eaca147b23dd18f4020398555242b348b7ae0d917ed53240877aa7"
+        "bytes": 22528,
+        "sha256": "98b991a18dddaebeda8a3efd0951abeb2a4ce4b6065ed6a2f1c7aa13dbb526f8"
       },
       "license": "Apache-2.0",
       "oracle": {
         "kind": "ole"
       },
-      "path": "corpus/originals/ole/WithEmbeddedObjects.xls",
+      "path": "corpus/originals/ole/HeaderWithMacros.doc",
       "provenance": {
         "description": "Unmodified upstream regression fixture",
-        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/spreadsheet/WithEmbeddedObjects.xls",
+        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/document/HeaderWithMacros.doc",
         "type": "original",
-        "upstream_sha256": "da5ba0f448eaca147b23dd18f4020398555242b348b7ae0d917ed53240877aa7"
-      },
-      "scope": "original",
-      "tier": "extended"
-    },
-    {
-      "expectation": "observe",
-      "extension": "ppt",
-      "family": "ole",
-      "id": "original-ole-pictures-ppt",
-      "inventory": {
-        "bytes": 75776,
-        "sha256": "5318e8486f47c7d9e838eaa4edfe385ba27d7d0ce145364792df53488430e98c"
-      },
-      "license": "Apache-2.0",
-      "oracle": {
-        "kind": "ole"
-      },
-      "path": "corpus/originals/ole/pictures.ppt",
-      "provenance": {
-        "description": "Unmodified upstream regression fixture",
-        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/slideshow/pictures.ppt",
-        "type": "original",
-        "upstream_sha256": "5318e8486f47c7d9e838eaa4edfe385ba27d7d0ce145364792df53488430e98c"
+        "upstream_sha256": "98b991a18dddaebeda8a3efd0951abeb2a4ce4b6065ed6a2f1c7aa13dbb526f8"
       },
       "scope": "original",
       "tier": "extended"
@@ -415,24 +246,300 @@
       "tier": "extended"
     },
     {
-      "expectation": "observe",
-      "extension": "doc",
+      "expectation": "unchanged",
+      "extension": "xls",
       "family": "ole",
-      "id": "original-ole-headerwithmacros-doc",
+      "id": "original-ole-password-xls",
       "inventory": {
         "bytes": 22528,
-        "sha256": "98b991a18dddaebeda8a3efd0951abeb2a4ce4b6065ed6a2f1c7aa13dbb526f8"
+        "sha256": "3ad12a829132d9c157d213c623af9c534b1449c42e93ab39b17ca53c909ac412"
+      },
+      "license": "Apache-2.0",
+      "oracle": {
+        "kind": "bytes"
+      },
+      "path": "corpus/originals/ole/password.xls",
+      "provenance": {
+        "description": "Unmodified upstream regression fixture",
+        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/spreadsheet/password.xls",
+        "type": "original",
+        "upstream_sha256": "3ad12a829132d9c157d213c623af9c534b1449c42e93ab39b17ca53c909ac412"
+      },
+      "scope": "original",
+      "tier": "control"
+    },
+    {
+      "expectation": "unchanged",
+      "extension": "ppt",
+      "family": "ole",
+      "id": "original-ole-password_protected-hello-ppt",
+      "inventory": {
+        "bytes": 10752,
+        "sha256": "8d0dd9f53317a720687cf5234af0c021fab665194b09b9bb56a3f71b495bf45a"
+      },
+      "license": "Apache-2.0",
+      "oracle": {
+        "kind": "bytes"
+      },
+      "path": "corpus/originals/ole/Password_Protected-hello.ppt",
+      "provenance": {
+        "description": "Unmodified upstream regression fixture",
+        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/slideshow/Password_Protected-hello.ppt",
+        "type": "original",
+        "upstream_sha256": "8d0dd9f53317a720687cf5234af0c021fab665194b09b9bb56a3f71b495bf45a"
+      },
+      "scope": "original",
+      "tier": "control"
+    },
+    {
+      "expectation": "unchanged",
+      "extension": "doc",
+      "family": "ole",
+      "id": "original-ole-passwordprotected-doc",
+      "inventory": {
+        "bytes": 19968,
+        "sha256": "863d2216a6f5bb4cec0ea4131a05ae0822dbce347e2940155ef638c6d64935fe"
+      },
+      "license": "Apache-2.0",
+      "oracle": {
+        "kind": "bytes"
+      },
+      "path": "corpus/originals/ole/PasswordProtected.doc",
+      "provenance": {
+        "description": "Unmodified upstream regression fixture",
+        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/document/PasswordProtected.doc",
+        "type": "original",
+        "upstream_sha256": "863d2216a6f5bb4cec0ea4131a05ae0822dbce347e2940155ef638c6d64935fe"
+      },
+      "scope": "original",
+      "tier": "control"
+    },
+    {
+      "expectation": "observe",
+      "extension": "ppt",
+      "family": "ole",
+      "id": "original-ole-pictures-ppt",
+      "inventory": {
+        "bytes": 75776,
+        "sha256": "5318e8486f47c7d9e838eaa4edfe385ba27d7d0ce145364792df53488430e98c"
       },
       "license": "Apache-2.0",
       "oracle": {
         "kind": "ole"
       },
-      "path": "corpus/originals/ole/HeaderWithMacros.doc",
+      "path": "corpus/originals/ole/pictures.ppt",
       "provenance": {
         "description": "Unmodified upstream regression fixture",
-        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/document/HeaderWithMacros.doc",
+        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/slideshow/pictures.ppt",
         "type": "original",
-        "upstream_sha256": "98b991a18dddaebeda8a3efd0951abeb2a4ce4b6065ed6a2f1c7aa13dbb526f8"
+        "upstream_sha256": "5318e8486f47c7d9e838eaa4edfe385ba27d7d0ce145364792df53488430e98c"
+      },
+      "scope": "original",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "doc",
+      "family": "ole",
+      "id": "original-ole-pictures_escher-doc",
+      "inventory": {
+        "bytes": 120320,
+        "sha256": "84a68678fc525e763beabab7e79240e2bbf4cd6b7766eed3364681d38fed2457"
+      },
+      "license": "Apache-2.0",
+      "oracle": {
+        "kind": "ole"
+      },
+      "path": "corpus/originals/ole/pictures_escher.doc",
+      "provenance": {
+        "description": "Unmodified upstream regression fixture",
+        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/document/pictures_escher.doc",
+        "type": "original",
+        "upstream_sha256": "84a68678fc525e763beabab7e79240e2bbf4cd6b7766eed3364681d38fed2457"
+      },
+      "scope": "original",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "doc",
+      "family": "ole",
+      "id": "original-ole-pngpicture-doc",
+      "inventory": {
+        "bytes": 14336,
+        "sha256": "259aa01f88c17bb4ad364d08ce62424959f51717b37d8a5578e3045f9eaede6b"
+      },
+      "license": "Apache-2.0",
+      "oracle": {
+        "kind": "ole"
+      },
+      "path": "corpus/originals/ole/PngPicture.doc",
+      "provenance": {
+        "description": "Unmodified upstream regression fixture",
+        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/document/PngPicture.doc",
+        "type": "original",
+        "upstream_sha256": "259aa01f88c17bb4ad364d08ce62424959f51717b37d8a5578e3045f9eaede6b"
+      },
+      "scope": "original",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "ppt",
+      "family": "ole",
+      "id": "original-ole-ppt_with_embeded-ppt",
+      "inventory": {
+        "bytes": 180736,
+        "sha256": "afa1dd5adc36765e6e40725a133b0330e5ad1febd1506ca93ceae8c5c5400b53"
+      },
+      "license": "Apache-2.0",
+      "oracle": {
+        "kind": "ole"
+      },
+      "path": "corpus/originals/ole/ppt_with_embeded.ppt",
+      "provenance": {
+        "description": "Unmodified upstream regression fixture",
+        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/slideshow/ppt_with_embeded.ppt",
+        "type": "original",
+        "upstream_sha256": "afa1dd5adc36765e6e40725a133b0330e5ad1febd1506ca93ceae8c5c5400b53"
+      },
+      "scope": "original",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "ppt",
+      "family": "ole",
+      "id": "original-ole-sampleshow-ppt",
+      "inventory": {
+        "bytes": 125440,
+        "sha256": "64275a6685b8f267827178037dcc59de927475e56385725916f4c6039c7ce7f6"
+      },
+      "license": "Apache-2.0",
+      "oracle": {
+        "kind": "ole"
+      },
+      "path": "corpus/originals/ole/SampleShow.ppt",
+      "provenance": {
+        "description": "Unmodified upstream regression fixture",
+        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/slideshow/SampleShow.ppt",
+        "type": "original",
+        "upstream_sha256": "64275a6685b8f267827178037dcc59de927475e56385725916f4c6039c7ce7f6"
+      },
+      "scope": "original",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "xls",
+      "family": "ole",
+      "id": "original-ole-sampless-xls",
+      "inventory": {
+        "bytes": 17408,
+        "sha256": "53c9bd7337aa79fedf29cef8d81ec47fff39f80e25da9d74bc354cfdf1c43b73"
+      },
+      "license": "Apache-2.0",
+      "oracle": {
+        "kind": "ole"
+      },
+      "path": "corpus/originals/ole/SampleSS.xls",
+      "provenance": {
+        "description": "Unmodified upstream regression fixture",
+        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/spreadsheet/SampleSS.xls",
+        "type": "original",
+        "upstream_sha256": "53c9bd7337aa79fedf29cef8d81ec47fff39f80e25da9d74bc354cfdf1c43b73"
+      },
+      "scope": "original",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "doc",
+      "family": "ole",
+      "id": "original-ole-simple-doc",
+      "inventory": {
+        "bytes": 19456,
+        "sha256": "4876e828e62d490fa188c7c4e47013e2e0dfdf02f5903dfd374bc0d2b2049ca1"
+      },
+      "license": "Apache-2.0",
+      "oracle": {
+        "kind": "ole"
+      },
+      "path": "corpus/originals/ole/simple.doc",
+      "provenance": {
+        "description": "Unmodified upstream regression fixture",
+        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/document/simple.doc",
+        "type": "original",
+        "upstream_sha256": "4876e828e62d490fa188c7c4e47013e2e0dfdf02f5903dfd374bc0d2b2049ca1"
+      },
+      "scope": "original",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "xls",
+      "family": "ole",
+      "id": "original-ole-simple-xls",
+      "inventory": {
+        "bytes": 13824,
+        "sha256": "2b5ec8298bacffdca61c50f6f7607da0a4e63cf76fa011c62f203e6a66bc072a"
+      },
+      "license": "Apache-2.0",
+      "oracle": {
+        "kind": "ole"
+      },
+      "path": "corpus/originals/ole/Simple.xls",
+      "provenance": {
+        "description": "Unmodified upstream regression fixture",
+        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/spreadsheet/Simple.xls",
+        "type": "original",
+        "upstream_sha256": "2b5ec8298bacffdca61c50f6f7607da0a4e63cf76fa011c62f203e6a66bc072a"
+      },
+      "scope": "original",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "doc",
+      "family": "ole",
+      "id": "original-ole-simplemacro-doc",
+      "inventory": {
+        "bytes": 36864,
+        "sha256": "39e9608c711d38f298ed20a5bfae12fcdaed6f4be2be4d26db670475216ca393"
+      },
+      "license": "Apache-2.0",
+      "oracle": {
+        "kind": "ole"
+      },
+      "path": "corpus/originals/ole/SimpleMacro.doc",
+      "provenance": {
+        "description": "Unmodified upstream regression fixture",
+        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/document/SimpleMacro.doc",
+        "type": "original",
+        "upstream_sha256": "39e9608c711d38f298ed20a5bfae12fcdaed6f4be2be4d26db670475216ca393"
+      },
+      "scope": "original",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "ppt",
+      "family": "ole",
+      "id": "original-ole-simplemacro-ppt",
+      "inventory": {
+        "bytes": 104960,
+        "sha256": "c6755e4c536356082d09ae59185f527e7f8c835b4d99216696d041a024881bba"
+      },
+      "license": "Apache-2.0",
+      "oracle": {
+        "kind": "ole"
+      },
+      "path": "corpus/originals/ole/SimpleMacro.ppt",
+      "provenance": {
+        "description": "Unmodified upstream regression fixture",
+        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/slideshow/SimpleMacro.ppt",
+        "type": "original",
+        "upstream_sha256": "c6755e4c536356082d09ae59185f527e7f8c835b4d99216696d041a024881bba"
       },
       "scope": "original",
       "tier": "extended"
@@ -464,6 +571,52 @@
       "expectation": "observe",
       "extension": "xls",
       "family": "ole",
+      "id": "original-ole-simplewithformula-xls",
+      "inventory": {
+        "bytes": 13824,
+        "sha256": "73a99975b9ad250669bd49ffe2223ed50df8324775acfbc612740d38827913c9"
+      },
+      "license": "Apache-2.0",
+      "oracle": {
+        "kind": "ole"
+      },
+      "path": "corpus/originals/ole/SimpleWithFormula.xls",
+      "provenance": {
+        "description": "Unmodified upstream regression fixture",
+        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/spreadsheet/SimpleWithFormula.xls",
+        "type": "original",
+        "upstream_sha256": "73a99975b9ad250669bd49ffe2223ed50df8324775acfbc612740d38827913c9"
+      },
+      "scope": "original",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "xls",
+      "family": "ole",
+      "id": "original-ole-simplewithimages-xls",
+      "inventory": {
+        "bytes": 48128,
+        "sha256": "dd35970bf68df7bb609b681634602ead30001816009c791012d00b5563ab9314"
+      },
+      "license": "Apache-2.0",
+      "oracle": {
+        "kind": "ole"
+      },
+      "path": "corpus/originals/ole/SimpleWithImages.xls",
+      "provenance": {
+        "description": "Unmodified upstream regression fixture",
+        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/spreadsheet/SimpleWithImages.xls",
+        "type": "original",
+        "upstream_sha256": "dd35970bf68df7bb609b681634602ead30001816009c791012d00b5563ab9314"
+      },
+      "scope": "original",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "xls",
+      "family": "ole",
       "id": "original-ole-squaremacro-xls",
       "inventory": {
         "bytes": 25600,
@@ -479,29 +632,6 @@
         "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/spreadsheet/SquareMacro.xls",
         "type": "original",
         "upstream_sha256": "3fe72d16a8ffb870e47a5a6724329516661f5d7c1f6d98ee8e3bda20e2edd4a9"
-      },
-      "scope": "original",
-      "tier": "extended"
-    },
-    {
-      "expectation": "observe",
-      "extension": "ppt",
-      "family": "ole",
-      "id": "original-ole-ppt_with_embeded-ppt",
-      "inventory": {
-        "bytes": 180736,
-        "sha256": "afa1dd5adc36765e6e40725a133b0330e5ad1febd1506ca93ceae8c5c5400b53"
-      },
-      "license": "Apache-2.0",
-      "oracle": {
-        "kind": "ole"
-      },
-      "path": "corpus/originals/ole/ppt_with_embeded.ppt",
-      "provenance": {
-        "description": "Unmodified upstream regression fixture",
-        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/slideshow/ppt_with_embeded.ppt",
-        "type": "original",
-        "upstream_sha256": "afa1dd5adc36765e6e40725a133b0330e5ad1febd1506ca93ceae8c5c5400b53"
       },
       "scope": "original",
       "tier": "extended"
@@ -556,251 +686,67 @@
       "expectation": "observe",
       "extension": "xls",
       "family": "ole",
-      "id": "original-ole-simplewithimages-xls",
+      "id": "original-ole-withchart-xls",
       "inventory": {
-        "bytes": 48128,
-        "sha256": "dd35970bf68df7bb609b681634602ead30001816009c791012d00b5563ab9314"
+        "bytes": 20992,
+        "sha256": "e72315361da2e7a59d50ad5f8b92dd7464004661014b2ab9b462c2c6a48b70f1"
       },
       "license": "Apache-2.0",
       "oracle": {
         "kind": "ole"
       },
-      "path": "corpus/originals/ole/SimpleWithImages.xls",
+      "path": "corpus/originals/ole/WithChart.xls",
       "provenance": {
         "description": "Unmodified upstream regression fixture",
-        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/spreadsheet/SimpleWithImages.xls",
+        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/spreadsheet/WithChart.xls",
         "type": "original",
-        "upstream_sha256": "dd35970bf68df7bb609b681634602ead30001816009c791012d00b5563ab9314"
+        "upstream_sha256": "e72315361da2e7a59d50ad5f8b92dd7464004661014b2ab9b462c2c6a48b70f1"
       },
       "scope": "original",
       "tier": "extended"
     },
     {
       "expectation": "observe",
-      "extension": "msg",
+      "extension": "xls",
       "family": "ole",
-      "id": "original-ole_extended-attachment_test_msg-msg",
+      "id": "original-ole-withembeddedobjects-xls",
       "inventory": {
-        "bytes": 52224,
-        "sha256": "4f5ab34d4e6bbb04945319dc0decdcfce785779bda618c89ca2eb0fe82e9caf0"
+        "bytes": 179712,
+        "sha256": "da5ba0f448eaca147b23dd18f4020398555242b348b7ae0d917ed53240877aa7"
       },
       "license": "Apache-2.0",
       "oracle": {
         "kind": "ole"
       },
-      "path": "corpus/originals/ole_extended/attachment_test_msg.msg",
+      "path": "corpus/originals/ole/WithEmbeddedObjects.xls",
       "provenance": {
         "description": "Unmodified upstream regression fixture",
-        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/hsmf/attachment_test_msg.msg",
+        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/spreadsheet/WithEmbeddedObjects.xls",
         "type": "original",
-        "upstream_sha256": "4f5ab34d4e6bbb04945319dc0decdcfce785779bda618c89ca2eb0fe82e9caf0"
+        "upstream_sha256": "da5ba0f448eaca147b23dd18f4020398555242b348b7ae0d917ed53240877aa7"
       },
       "scope": "original",
       "tier": "extended"
     },
     {
       "expectation": "observe",
-      "extension": "msg",
+      "extension": "doc",
       "family": "ole",
-      "id": "original-ole_extended-example_received_unicode-msg",
+      "id": "original-ole-word_with_embeded-doc",
       "inventory": {
-        "bytes": 56832,
-        "sha256": "d1aa06234247d23f1ebe0338488c02c20b98cb2e164c38c2aeef28820bfe95da"
+        "bytes": 117248,
+        "sha256": "206acf1f7eb7b7d7d2075e04015d005ae9bb56f025560f2583ad3878257bc4c7"
       },
       "license": "Apache-2.0",
       "oracle": {
         "kind": "ole"
       },
-      "path": "corpus/originals/ole_extended/example_received_unicode.msg",
+      "path": "corpus/originals/ole/word_with_embeded.doc",
       "provenance": {
         "description": "Unmodified upstream regression fixture",
-        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/hsmf/example_received_unicode.msg",
+        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/document/word_with_embeded.doc",
         "type": "original",
-        "upstream_sha256": "d1aa06234247d23f1ebe0338488c02c20b98cb2e164c38c2aeef28820bfe95da"
-      },
-      "scope": "original",
-      "tier": "extended"
-    },
-    {
-      "expectation": "observe",
-      "extension": "vsd",
-      "family": "ole",
-      "id": "original-ole_extended-test_visio-some_random_text-vsd",
-      "inventory": {
-        "bytes": 45568,
-        "sha256": "31de63a4d06b699c2f4b64d66efd8c2e6e91ebcfb88f72dd2556026f8ce3807e"
-      },
-      "license": "Apache-2.0",
-      "oracle": {
-        "kind": "ole"
-      },
-      "path": "corpus/originals/ole_extended/Test_Visio-Some_Random_Text.vsd",
-      "provenance": {
-        "description": "Unmodified upstream regression fixture",
-        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/diagram/Test_Visio-Some_Random_Text.vsd",
-        "type": "original",
-        "upstream_sha256": "31de63a4d06b699c2f4b64d66efd8c2e6e91ebcfb88f72dd2556026f8ce3807e"
-      },
-      "scope": "original",
-      "tier": "extended"
-    },
-    {
-      "expectation": "observe",
-      "extension": "pub",
-      "family": "ole",
-      "id": "original-ole_extended-sample-pub",
-      "inventory": {
-        "bytes": 72192,
-        "sha256": "6fefdef46b87c767150878dc384549cb2d2ec2ac54de25f8ddb3a5628301107e"
-      },
-      "license": "Apache-2.0",
-      "oracle": {
-        "kind": "ole"
-      },
-      "path": "corpus/originals/ole_extended/Sample.pub",
-      "provenance": {
-        "description": "Unmodified upstream regression fixture",
-        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/publisher/Sample.pub",
-        "type": "original",
-        "upstream_sha256": "6fefdef46b87c767150878dc384549cb2d2ec2ac54de25f8ddb3a5628301107e"
-      },
-      "scope": "original",
-      "tier": "extended"
-    },
-    {
-      "expectation": "observe",
-      "extension": "mpp",
-      "family": "ole",
-      "id": "original-ole_extended-testzerolengthcodepage-mpp",
-      "inventory": {
-        "bytes": 77824,
-        "sha256": "9b18f64acb87a8fb00e157db010f0d6fd247aff0667f104f43b6aebee939cdac"
-      },
-      "license": "Apache-2.0",
-      "oracle": {
-        "kind": "ole"
-      },
-      "path": "corpus/originals/ole_extended/TestZeroLengthCodePage.mpp",
-      "provenance": {
-        "description": "Unmodified upstream regression fixture",
-        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/hpsf/TestZeroLengthCodePage.mpp",
-        "type": "original",
-        "upstream_sha256": "9b18f64acb87a8fb00e157db010f0d6fd247aff0667f104f43b6aebee939cdac"
-      },
-      "scope": "original",
-      "tier": "extended"
-    },
-    {
-      "expectation": "observe",
-      "extension": "hwp",
-      "family": "ole",
-      "id": "original-ole_extended-sample-5017-pics-hwp",
-      "inventory": {
-        "bytes": 216576,
-        "sha256": "898dd6b821caaca62a6a449e8c90ecad0c20d669603e968558636296bbaf82a2"
-      },
-      "license": "AGPL-3.0",
-      "oracle": {
-        "kind": "ole"
-      },
-      "path": "corpus/originals/ole_extended/sample-5017-pics.hwp",
-      "provenance": {
-        "description": "Unmodified upstream regression fixture",
-        "source": "https://raw.githubusercontent.com/mete0r/pyhwp/83239f0d3bdf438b2c9f7dcff455a6e841154a39/tests/hwp5_tests/fixtures/sample-5017-pics.hwp",
-        "type": "original",
-        "upstream_sha256": "898dd6b821caaca62a6a449e8c90ecad0c20d669603e968558636296bbaf82a2"
-      },
-      "scope": "original",
-      "tier": "extended"
-    },
-    {
-      "expectation": "observe",
-      "extension": "hwp",
-      "family": "ole",
-      "id": "original-ole_extended-multicolumns-hwp",
-      "inventory": {
-        "bytes": 11776,
-        "sha256": "b6798c22e2fab6467360b6a020050eba5db9b90daca7fc6520a158055ec949fa"
-      },
-      "license": "AGPL-3.0",
-      "oracle": {
-        "kind": "ole"
-      },
-      "path": "corpus/originals/ole_extended/multicolumns.hwp",
-      "provenance": {
-        "description": "Unmodified upstream regression fixture",
-        "source": "https://raw.githubusercontent.com/mete0r/pyhwp/83239f0d3bdf438b2c9f7dcff455a6e841154a39/tests/hwp5_tests/fixtures/multicolumns.hwp",
-        "type": "original",
-        "upstream_sha256": "b6798c22e2fab6467360b6a020050eba5db9b90daca7fc6520a158055ec949fa"
-      },
-      "scope": "original",
-      "tier": "extended"
-    },
-    {
-      "expectation": "observe",
-      "extension": "msi",
-      "family": "ole",
-      "id": "original-ole_extended-simplecomponent-msi",
-      "inventory": {
-        "bytes": 15360,
-        "sha256": "88d2e1b583f5c82308afa9a5fb96efd1c5bd5add3023c7324d78f14198ff5f8d"
-      },
-      "license": "MS-RL",
-      "oracle": {
-        "kind": "ole"
-      },
-      "path": "corpus/originals/ole_extended/SimpleComponent.msi",
-      "provenance": {
-        "description": "Unmodified upstream regression fixture",
-        "source": "https://raw.githubusercontent.com/wixtoolset/wix3/ddc834a9b51b906f703f48fa6d8590681a76ad67/test/data/Integration/BuildingPackages/Components/ComponentTests/SimpleComponent/expected.msi",
-        "type": "original",
-        "upstream_sha256": "88d2e1b583f5c82308afa9a5fb96efd1c5bd5add3023c7324d78f14198ff5f8d"
-      },
-      "scope": "original",
-      "tier": "extended"
-    },
-    {
-      "expectation": "observe",
-      "extension": "hwp",
-      "family": "ole",
-      "id": "original-ole_extended-pagedefs-hwp",
-      "inventory": {
-        "bytes": 14848,
-        "sha256": "9c4428dcc55b1d1872c2ae7e494f8bc8a080673a9c0a2965eb2f090a1635a81b"
-      },
-      "license": "AGPL-3.0",
-      "oracle": {
-        "kind": "ole"
-      },
-      "path": "corpus/originals/ole_extended/pagedefs.hwp",
-      "provenance": {
-        "description": "Unmodified upstream regression fixture",
-        "source": "https://raw.githubusercontent.com/mete0r/pyhwp/83239f0d3bdf438b2c9f7dcff455a6e841154a39/tests/hwp5_tests/fixtures/pagedefs.hwp",
-        "type": "original",
-        "upstream_sha256": "9c4428dcc55b1d1872c2ae7e494f8bc8a080673a9c0a2965eb2f090a1635a81b"
-      },
-      "scope": "original",
-      "tier": "extended"
-    },
-    {
-      "expectation": "observe",
-      "extension": "hwp",
-      "family": "ole",
-      "id": "original-ole_extended-sample-5017-hwp",
-      "inventory": {
-        "bytes": 40448,
-        "sha256": "ff3faae938610fcfbedc21c27c507ca0cc038b44872b65d10fcad0b55af67ba2"
-      },
-      "license": "AGPL-3.0",
-      "oracle": {
-        "kind": "ole"
-      },
-      "path": "corpus/originals/ole_extended/sample-5017.hwp",
-      "provenance": {
-        "description": "Unmodified upstream regression fixture",
-        "source": "https://raw.githubusercontent.com/mete0r/pyhwp/83239f0d3bdf438b2c9f7dcff455a6e841154a39/tests/hwp5_tests/fixtures/sample-5017.hwp",
-        "type": "original",
-        "upstream_sha256": "ff3faae938610fcfbedc21c27c507ca0cc038b44872b65d10fcad0b55af67ba2"
+        "upstream_sha256": "206acf1f7eb7b7d7d2075e04015d005ae9bb56f025560f2583ad3878257bc4c7"
       },
       "scope": "original",
       "tier": "extended"
@@ -855,29 +801,6 @@
       "expectation": "observe",
       "extension": "doc",
       "family": "ole",
-      "id": "original-ole_extended-two_images-doc",
-      "inventory": {
-        "bytes": 24064,
-        "sha256": "a2c2f835d2ab986ae367a787fcad04c2fa24c5135ae477bf934e7c074895312e"
-      },
-      "license": "Apache-2.0",
-      "oracle": {
-        "kind": "ole"
-      },
-      "path": "corpus/originals/ole_extended/two_images.doc",
-      "provenance": {
-        "description": "Unmodified upstream regression fixture",
-        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/document/two_images.doc",
-        "type": "original",
-        "upstream_sha256": "a2c2f835d2ab986ae367a787fcad04c2fa24c5135ae477bf934e7c074895312e"
-      },
-      "scope": "original",
-      "tier": "extended"
-    },
-    {
-      "expectation": "observe",
-      "extension": "doc",
-      "family": "ole",
       "id": "original-ole_extended-58804_1-doc",
       "inventory": {
         "bytes": 61440,
@@ -893,6 +816,29 @@
         "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/document/58804_1.doc",
         "type": "original",
         "upstream_sha256": "2ed323f50ec9213bb0651f7c536754cfd787445e3797115d73e57db6fe55971b"
+      },
+      "scope": "original",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "msg",
+      "family": "ole",
+      "id": "original-ole_extended-attachment_test_msg-msg",
+      "inventory": {
+        "bytes": 52224,
+        "sha256": "4f5ab34d4e6bbb04945319dc0decdcfce785779bda618c89ca2eb0fe82e9caf0"
+      },
+      "license": "Apache-2.0",
+      "oracle": {
+        "kind": "ole"
+      },
+      "path": "corpus/originals/ole_extended/attachment_test_msg.msg",
+      "provenance": {
+        "description": "Unmodified upstream regression fixture",
+        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/hsmf/attachment_test_msg.msg",
+        "type": "original",
+        "upstream_sha256": "4f5ab34d4e6bbb04945319dc0decdcfce785779bda618c89ca2eb0fe82e9caf0"
       },
       "scope": "original",
       "tier": "extended"
@@ -916,6 +862,52 @@
         "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/spreadsheet/DrawingContinue.xls",
         "type": "original",
         "upstream_sha256": "98be3273c7b9e09a521aba736aac866688e5b06d954edfe73eaff2c1b9a25555"
+      },
+      "scope": "original",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "msg",
+      "family": "ole",
+      "id": "original-ole_extended-example_received_unicode-msg",
+      "inventory": {
+        "bytes": 56832,
+        "sha256": "d1aa06234247d23f1ebe0338488c02c20b98cb2e164c38c2aeef28820bfe95da"
+      },
+      "license": "Apache-2.0",
+      "oracle": {
+        "kind": "ole"
+      },
+      "path": "corpus/originals/ole_extended/example_received_unicode.msg",
+      "provenance": {
+        "description": "Unmodified upstream regression fixture",
+        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/hsmf/example_received_unicode.msg",
+        "type": "original",
+        "upstream_sha256": "d1aa06234247d23f1ebe0338488c02c20b98cb2e164c38c2aeef28820bfe95da"
+      },
+      "scope": "original",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "xls",
+      "family": "ole",
+      "id": "original-ole_extended-file-with-png-image-xls",
+      "inventory": {
+        "bytes": 49152,
+        "sha256": "d427f083b912e73e453e0a110d1b807e8adb26c93f40d2a7ba9019abe299275e"
+      },
+      "license": "MPL-2.0",
+      "oracle": {
+        "kind": "ole"
+      },
+      "path": "corpus/originals/ole_extended/file-with-png-image.xls",
+      "provenance": {
+        "description": "Unmodified upstream regression fixture",
+        "source": "https://raw.githubusercontent.com/LibreOffice/core/cf80890d16f7ef318155efe5843f99153d199e07/sc/qa/unit/data/xls/file-with-png-image.xls",
+        "type": "original",
+        "upstream_sha256": "d427f083b912e73e453e0a110d1b807e8adb26c93f40d2a7ba9019abe299275e"
       },
       "scope": "original",
       "tier": "extended"
@@ -962,6 +954,144 @@
         "source": "https://raw.githubusercontent.com/LibreOffice/core/cf80890d16f7ef318155efe5843f99153d199e07/sw/qa/extras/ww8export/data/msobrightnesscontrast.doc",
         "type": "original",
         "upstream_sha256": "80849cd4d607b70420aa8b4f4af5a03b6f7e899bf25775f34a5c450ee82ea4de"
+      },
+      "scope": "original",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "hwp",
+      "family": "ole",
+      "id": "original-ole_extended-multicolumns-hwp",
+      "inventory": {
+        "bytes": 11776,
+        "sha256": "b6798c22e2fab6467360b6a020050eba5db9b90daca7fc6520a158055ec949fa"
+      },
+      "license": "AGPL-3.0",
+      "oracle": {
+        "kind": "ole"
+      },
+      "path": "corpus/originals/ole_extended/multicolumns.hwp",
+      "provenance": {
+        "description": "Unmodified upstream regression fixture",
+        "source": "https://raw.githubusercontent.com/mete0r/pyhwp/83239f0d3bdf438b2c9f7dcff455a6e841154a39/tests/hwp5_tests/fixtures/multicolumns.hwp",
+        "type": "original",
+        "upstream_sha256": "b6798c22e2fab6467360b6a020050eba5db9b90daca7fc6520a158055ec949fa"
+      },
+      "scope": "original",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "hwp",
+      "family": "ole",
+      "id": "original-ole_extended-pagedefs-hwp",
+      "inventory": {
+        "bytes": 14848,
+        "sha256": "9c4428dcc55b1d1872c2ae7e494f8bc8a080673a9c0a2965eb2f090a1635a81b"
+      },
+      "license": "AGPL-3.0",
+      "oracle": {
+        "kind": "ole"
+      },
+      "path": "corpus/originals/ole_extended/pagedefs.hwp",
+      "provenance": {
+        "description": "Unmodified upstream regression fixture",
+        "source": "https://raw.githubusercontent.com/mete0r/pyhwp/83239f0d3bdf438b2c9f7dcff455a6e841154a39/tests/hwp5_tests/fixtures/pagedefs.hwp",
+        "type": "original",
+        "upstream_sha256": "9c4428dcc55b1d1872c2ae7e494f8bc8a080673a9c0a2965eb2f090a1635a81b"
+      },
+      "scope": "original",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "hwp",
+      "family": "ole",
+      "id": "original-ole_extended-sample-5017-hwp",
+      "inventory": {
+        "bytes": 40448,
+        "sha256": "ff3faae938610fcfbedc21c27c507ca0cc038b44872b65d10fcad0b55af67ba2"
+      },
+      "license": "AGPL-3.0",
+      "oracle": {
+        "kind": "ole"
+      },
+      "path": "corpus/originals/ole_extended/sample-5017.hwp",
+      "provenance": {
+        "description": "Unmodified upstream regression fixture",
+        "source": "https://raw.githubusercontent.com/mete0r/pyhwp/83239f0d3bdf438b2c9f7dcff455a6e841154a39/tests/hwp5_tests/fixtures/sample-5017.hwp",
+        "type": "original",
+        "upstream_sha256": "ff3faae938610fcfbedc21c27c507ca0cc038b44872b65d10fcad0b55af67ba2"
+      },
+      "scope": "original",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "hwp",
+      "family": "ole",
+      "id": "original-ole_extended-sample-5017-pics-hwp",
+      "inventory": {
+        "bytes": 216576,
+        "sha256": "898dd6b821caaca62a6a449e8c90ecad0c20d669603e968558636296bbaf82a2"
+      },
+      "license": "AGPL-3.0",
+      "oracle": {
+        "kind": "ole"
+      },
+      "path": "corpus/originals/ole_extended/sample-5017-pics.hwp",
+      "provenance": {
+        "description": "Unmodified upstream regression fixture",
+        "source": "https://raw.githubusercontent.com/mete0r/pyhwp/83239f0d3bdf438b2c9f7dcff455a6e841154a39/tests/hwp5_tests/fixtures/sample-5017-pics.hwp",
+        "type": "original",
+        "upstream_sha256": "898dd6b821caaca62a6a449e8c90ecad0c20d669603e968558636296bbaf82a2"
+      },
+      "scope": "original",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "pub",
+      "family": "ole",
+      "id": "original-ole_extended-sample-pub",
+      "inventory": {
+        "bytes": 72192,
+        "sha256": "6fefdef46b87c767150878dc384549cb2d2ec2ac54de25f8ddb3a5628301107e"
+      },
+      "license": "Apache-2.0",
+      "oracle": {
+        "kind": "ole"
+      },
+      "path": "corpus/originals/ole_extended/Sample.pub",
+      "provenance": {
+        "description": "Unmodified upstream regression fixture",
+        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/publisher/Sample.pub",
+        "type": "original",
+        "upstream_sha256": "6fefdef46b87c767150878dc384549cb2d2ec2ac54de25f8ddb3a5628301107e"
+      },
+      "scope": "original",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "msi",
+      "family": "ole",
+      "id": "original-ole_extended-simplecomponent-msi",
+      "inventory": {
+        "bytes": 15360,
+        "sha256": "88d2e1b583f5c82308afa9a5fb96efd1c5bd5add3023c7324d78f14198ff5f8d"
+      },
+      "license": "MS-RL",
+      "oracle": {
+        "kind": "ole"
+      },
+      "path": "corpus/originals/ole_extended/SimpleComponent.msi",
+      "provenance": {
+        "description": "Unmodified upstream regression fixture",
+        "source": "https://raw.githubusercontent.com/wixtoolset/wix3/ddc834a9b51b906f703f48fa6d8590681a76ad67/test/data/Integration/BuildingPackages/Components/ComponentTests/SimpleComponent/expected.msi",
+        "type": "original",
+        "upstream_sha256": "88d2e1b583f5c82308afa9a5fb96efd1c5bd5add3023c7324d78f14198ff5f8d"
       },
       "scope": "original",
       "tier": "extended"
@@ -1083,23 +1213,97 @@
     },
     {
       "expectation": "observe",
-      "extension": "xls",
+      "extension": "vsd",
       "family": "ole",
-      "id": "original-ole_extended-file-with-png-image-xls",
+      "id": "original-ole_extended-test_visio-some_random_text-vsd",
       "inventory": {
-        "bytes": 49152,
-        "sha256": "d427f083b912e73e453e0a110d1b807e8adb26c93f40d2a7ba9019abe299275e"
+        "bytes": 45568,
+        "sha256": "31de63a4d06b699c2f4b64d66efd8c2e6e91ebcfb88f72dd2556026f8ce3807e"
       },
-      "license": "MPL-2.0",
+      "license": "Apache-2.0",
       "oracle": {
         "kind": "ole"
       },
-      "path": "corpus/originals/ole_extended/file-with-png-image.xls",
+      "path": "corpus/originals/ole_extended/Test_Visio-Some_Random_Text.vsd",
       "provenance": {
         "description": "Unmodified upstream regression fixture",
-        "source": "https://raw.githubusercontent.com/LibreOffice/core/cf80890d16f7ef318155efe5843f99153d199e07/sc/qa/unit/data/xls/file-with-png-image.xls",
+        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/diagram/Test_Visio-Some_Random_Text.vsd",
         "type": "original",
-        "upstream_sha256": "d427f083b912e73e453e0a110d1b807e8adb26c93f40d2a7ba9019abe299275e"
+        "upstream_sha256": "31de63a4d06b699c2f4b64d66efd8c2e6e91ebcfb88f72dd2556026f8ce3807e"
+      },
+      "scope": "original",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "mpp",
+      "family": "ole",
+      "id": "original-ole_extended-testzerolengthcodepage-mpp",
+      "inventory": {
+        "bytes": 77824,
+        "sha256": "9b18f64acb87a8fb00e157db010f0d6fd247aff0667f104f43b6aebee939cdac"
+      },
+      "license": "Apache-2.0",
+      "oracle": {
+        "kind": "ole"
+      },
+      "path": "corpus/originals/ole_extended/TestZeroLengthCodePage.mpp",
+      "provenance": {
+        "description": "Unmodified upstream regression fixture",
+        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/hpsf/TestZeroLengthCodePage.mpp",
+        "type": "original",
+        "upstream_sha256": "9b18f64acb87a8fb00e157db010f0d6fd247aff0667f104f43b6aebee939cdac"
+      },
+      "scope": "original",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "doc",
+      "family": "ole",
+      "id": "original-ole_extended-two_images-doc",
+      "inventory": {
+        "bytes": 24064,
+        "sha256": "a2c2f835d2ab986ae367a787fcad04c2fa24c5135ae477bf934e7c074895312e"
+      },
+      "license": "Apache-2.0",
+      "oracle": {
+        "kind": "ole"
+      },
+      "path": "corpus/originals/ole_extended/two_images.doc",
+      "provenance": {
+        "description": "Unmodified upstream regression fixture",
+        "source": "https://raw.githubusercontent.com/apache/poi/12c3688d130035f3dc2ca2a0f50d929456435a93/test-data/document/two_images.doc",
+        "type": "original",
+        "upstream_sha256": "a2c2f835d2ab986ae367a787fcad04c2fa24c5135ae477bf934e7c074895312e"
+      },
+      "scope": "original",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "mat",
+      "family": "scientific",
+      "id": "original-scientific-matlab-double-mat",
+      "inventory": {
+        "bytes": 232,
+        "sha256": "4eb909e17c7f742f58acf75ec25b0ebd8b3fc5a83b813ddc3781e40ec2664fc2"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "mat"
+      },
+      "path": "corpus/originals/scientific/matlab-double.mat",
+      "provenance": {
+        "commit": "ecee36d388004b86bdf56bf3fd7498006cddda96",
+        "description": "Unmodified upstream regression fixture; original provenance does not imply a representative production workload",
+        "license_files": [
+          "licenses/originals-scipy-LICENSE.txt"
+        ],
+        "license_source": "https://raw.githubusercontent.com/scipy/scipy/ecee36d388004b86bdf56bf3fd7498006cddda96/LICENSE.txt",
+        "repository": "https://github.com/scipy/scipy",
+        "source": "https://raw.githubusercontent.com/scipy/scipy/ecee36d388004b86bdf56bf3fd7498006cddda96/scipy/io/matlab/tests/data/testdouble_7.4_GLNX86.mat",
+        "type": "upstream-original"
       },
       "scope": "original",
       "tier": "extended"

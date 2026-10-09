@@ -1,0 +1,36 @@
+{
+  "python310": {
+    "checks": [
+      {
+        "artifact": "filerepack_testdata-0.1.0-py3-none-any.whl",
+        "explicit_corpus_check": "passed",
+        "installed_import": "isolated environment",
+        "missing_corpus_diagnostic": "passed"
+      },
+      {
+        "artifact": "filerepack_testdata-0.1.0.tar.gz",
+        "explicit_corpus_check": "passed",
+        "installed_import": "isolated environment",
+        "missing_corpus_diagnostic": "passed"
+      }
+    ],
+    "python": "3.10.20"
+  },
+  "python313": {
+    "checks": [
+      {
+        "artifact": "filerepack_testdata-0.1.0-py3-none-any.whl",
+        "explicit_corpus_check": "passed",
+        "installed_import": "isolated environment",
+        "missing_corpus_diagnostic": "passed"
+      },
+      {
+        "artifact": "filerepack_testdata-0.1.0.tar.gz",
+        "explicit_corpus_check": "passed",
+        "installed_import": "isolated environment",
+        "missing_corpus_diagnostic": "passed"
+      }
+    ],
+    "python": "3.13.7"
+  }
+}

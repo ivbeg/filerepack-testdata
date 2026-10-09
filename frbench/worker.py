@@ -2,12 +2,31 @@
 import dataclasses
 import json
 import os
+import re
 import sys
 import time
 from pathlib import Path
 
 from .common import file_inventory, write_json
 from .oracles import fingerprint, require
+
+
+def outcome_issues(case, result):
+    contract = case.get('qualification', {})
+    if contract.get('requires_extension') and not result.get('capability_available', True):
+        return []
+    issues = []
+    if contract.get('statuses') and result['status'] not in contract['statuses']:
+        issues.append('Unexpected status: ' + result['status'])
+    if contract.get('reason_pattern') and not re.search(contract['reason_pattern'], result['reason']):
+        issues.append('Expected outcome reason was not observed')
+    detected = result.get('detected') or {}
+    for key, value in contract.get('routing', {}).items():
+        if detected.get(key) != value:
+            issues.append(f'Routing {key}: expected {value!r}, observed {detected.get(key)!r}')
+    if contract.get('require_attempt') and not result.get('packer_results'):
+        issues.append('Required packer attempt was not reported')
+    return issues
 
 
 def main():
@@ -32,6 +51,9 @@ def main():
             os.environ['PYTHONPATH'] = request['filerepack'] + os.pathsep + os.environ.get('PYTHONPATH', '')
         from filerepack import FileRepacker, RepackOptions, __version__
         from filerepack.formats import identify_filename
+        if case.get('qualification', {}).get('requires_extension'):
+            from filerepack.consts import STANDALONE_EXTS
+            result['capability_available'] = case['qualification']['requires_extension'] in STANDALONE_EXTS
         result['filerepack_version'] = __version__
         options = RepackOptions(**request['options'])
         phase = 'repack'
@@ -77,6 +99,11 @@ def main():
             result.update(status='unchanged', reason='; '.join(reasons) or
                           'No accepted candidate (inspect log/tool inventory for cause)')
         result['verification'] = 'byte-identity' if case['expectation'] == 'unchanged' else case['oracle']['kind']
+        result['qualification_issues'] = outcome_issues(case, result)
+        if request.get('enforce_outcomes') and result['qualification_issues']:
+            result['observed_status'] = result['status']
+            result.update(status='qualification-failure',
+                          reason='; '.join(result['qualification_issues']))
     except Exception as exc:
         result.update(status='error', phase=phase, reason=type(exc).__name__ + ': ' + str(exc))
     write_json(response, result)
