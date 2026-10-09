@@ -2,7 +2,7 @@ PYTHON ?= .venv/bin/python
 FILEREPACK ?= ../filerepack
 OUT ?= results/run
 
-.PHONY: test check smoke benchmark generate coverage
+.PHONY: test check smoke benchmark generate extend coverage
 
 test:
 	$(PYTHON) -m pytest -q
@@ -19,6 +19,10 @@ benchmark:
 
 generate:
 	$(PYTHON) -m frbench generate --filerepack $(FILEREPACK) --strict
+
+extend:
+	$(PYTHON) -m frbench generate --extend --filerepack $(FILEREPACK) --strict
+	$(PYTHON) scripts/update_coverage.py --filerepack $(FILEREPACK)
 
 coverage:
 	$(PYTHON) -m frbench coverage --filerepack $(FILEREPACK)

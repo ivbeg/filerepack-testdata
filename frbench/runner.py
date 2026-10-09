@@ -28,7 +28,7 @@ PROFILES = {
 TOOLS = ['7zz', '7z', 'zip', 'rar', 'unrar', 'gzip', 'pigz', 'xz', 'bzip2', 'zstd',
          'brotli', 'lz4', 'lzip', 'lzop', 'compress', 'qpdf', 'gs', 'pdftoppm', 'pdftotext',
          'ffmpeg', 'ffprobe', 'flac', 'jpegoptim', 'jpegtran', 'optipng', 'pngcrush',
-         'gifsicle', 'cwebp', 'dwebp', 'magick', 'convert', 'avifenc', 'avifdec', 'cjxl',
+         'gifsicle', 'cwebp', 'dwebp', 'magick', 'convert', 'openssl', 'avifenc', 'avifdec', 'cjxl',
          'djxl', 'h5repack', 'nccopy', 'Rscript', 'filerepack-ole', 'mp3packer', 'optivorbis']
 
 
@@ -324,11 +324,35 @@ def coverage(root=ROOT, source=None, results=None):
         handler_rows.append({'handler': handler, 'extensions': extensions,
                              'cases': len(fixtures),
                              'native_original_or_syntax': any(c['scope'] in ('native', 'original', 'syntax') for c in fixtures)})
+    positive = [case for case in manifest['cases'] if case['tier'] != 'control']
+    route_suffixes = [
+        *(('tar.' + codec) for codec in
+          ['gz', 'xz', 'bz2', 'zst', 'br', 'lz4', 'lz', 'lzma', 'lzo', 'z']),
+        'warc.gz',
+        *(f'{ext}.{codec}' for ext in ['rds', 'rda', 'rdata']
+          for codec in ['gz', 'bz2', 'xz']),
+        'cpio',
+        'cpio.bz2',
+        'otf',
+    ]
+    filename_routes = []
+    for suffix in route_suffixes:
+        if suffix == 'otf':
+            matching = [case for case in positive if case['extension'] == 'otf']
+            route = '.otf (ODF package detected by ZIP content)'
+        else:
+            matching = [case for case in positive
+                        if Path(case['path']).name.lower().endswith('.' + suffix)]
+            route = '.' + suffix
+        filename_routes.append({'route': route, 'cases': [case['id'] for case in matching],
+                                'covered': bool(matching)})
     return {'handlers': handler_rows, 'handler_count': len(handler_rows),
             'handlers_covered': sum(bool(h['cases']) for h in handler_rows),
             'supported': len(expected), 'covered': len(expected) - len(missing),
             'native_or_original': sum(r['native_or_original'] for r in rows),
             'missing': missing, 'drift': drift, 'extensions': rows,
+            'filename_routes': filename_routes,
+            'filename_routes_covered': sum(route['covered'] for route in filename_routes),
             'generation_gaps': manifest.get('generation_gaps', []),
             'stores': [c['id'] for c in manifest['cases'] if c['extension'] == 'zarr']}
 

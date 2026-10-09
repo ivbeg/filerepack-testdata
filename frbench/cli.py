@@ -22,6 +22,8 @@ def main():
     generate.add_argument('--scale', type=positive, default=1, help='Synthetic record count multiplier')
     generate.add_argument('--minimal', action='store_true', help='Stdlib corpus only; optional gaps explicit')
     generate.add_argument('--strict', action='store_true', help='Fail if any generator fails')
+    generate.add_argument('--extend', action='store_true',
+                          help='Add new coverage without rebuilding existing generated files')
     bench = sub.add_parser('run', help='Run each case in a fresh copy/process')
     bench.add_argument('--root', default=str(ROOT))
     bench.add_argument('--filerepack', help='Source checkout; otherwise use installed filerepack')
@@ -87,6 +89,8 @@ def main():
                       f"{result['native_or_original']} have native/original fixtures.")
                 print(f"{result['handlers_covered']}/{result['handler_count']} distinct handler groups have fixtures.")
                 print('Missing: ' + ', '.join(result['missing']))
+                print(f"Special filename routes: {result['filename_routes_covered']}/"
+                      f"{len(result['filename_routes'])} covered.")
                 if result['drift']:
                     print('Registry drift: ' + json.dumps(result['drift']))
                 for gap in result['generation_gaps']:

@@ -14,10 +14,13 @@ ZIP/container transport fixtures. A generic ZIP renamed `.sketch` exercises tran
 walking; it does not demonstrate Sketch application compatibility. See [coverage](docs/COVERAGE.md),
 [methodology](docs/METHODOLOGY.md) and [data licensing](DATA-LICENSES.md).
 
-The [local baseline](docs/BASELINE.md) ran all 403 cases: 263 improved, 139 stayed unchanged,
-and one WOFF2 case failed the strict embedded-timestamp check. A separate 12-case smoke suite
-passed all three measured repeats. Coverage currently reaches 302/303 extension routes and all
-94 named handler groups; 139 extensions have native/original fixtures.
+The [historical local baseline](docs/BASELINE.md) ran the original 403-case corpus: 263 improved,
+139 stayed unchanged, and one WOFF2 case failed the strict embedded-timestamp check. The expanded
+corpus now has 432 cases, fixtures for all 306 registered extensions and all 97 handler groups,
+plus 23 compound/content-detected filename routes. A separate 12-case smoke suite passed all three
+measured repeats. See [current coverage](docs/COVERAGE.md) for the distinctions between native,
+syntax, alias and transport-only samples, and the [format expansion measurement](docs/FORMAT-EXPANSION.md)
+for the latest added-case results and observed CRX/CAR limitations.
 
 ## Quick start
 
@@ -107,6 +110,9 @@ The corpus is already included. Regeneration is optional and replaces only `corp
 
 ```sh
 python -m frbench generate --filerepack ../filerepack --strict
+# Add current missing-format coverage without rewriting existing generated fixtures.
+python -m frbench generate --extend --filerepack ../filerepack --strict
+python scripts/update_coverage.py --filerepack ../filerepack
 python -m frbench check --decode
 python -m frbench coverage --filerepack ../filerepack --json > coverage.json
 python -m pytest -q
@@ -119,8 +125,9 @@ large optional library-based families. `--scale N` increases synthetic record co
 multiplying image dimensions. Treat a regenerated manifest as a new dataset version.
 
 Seeds, data values and profiles are reproducible. Exact binary regeneration additionally depends
-on library/tool versions, creation times and encrypted-envelope randomness; the checked-in bytes and hashes
-are the stable benchmark reference. Do not regenerate while benchmarking.
+on library/tool versions, creation times, encrypted-envelope randomness and ephemeral CRX test-key
+generation; the checked-in bytes and hashes are the stable benchmark reference. Do not regenerate
+while benchmarking.
 
 Originals remain byte-identical and can be restored with `python scripts/fetch_originals.py`
 using commit-pinned URLs and mandatory size/SHA-256 verification. Add an original only with known

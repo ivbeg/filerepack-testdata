@@ -14,6 +14,7 @@ import struct
 import subprocess
 import tempfile
 import zipfile
+import zlib
 from pathlib import Path
 from xml.dom import minidom
 
@@ -177,6 +178,275 @@ def archive_state(path, config):
     return sorted(entries, key=repr)
 
 
+def npz_state(path):
+    """Load a trusted numeric NPZ fixture with NumPy, never enabling pickle."""
+    import numpy as np
+
+    arrays = np.load(path, allow_pickle=False)
+    if not isinstance(arrays, np.lib.npyio.NpzFile):
+        raise ValueError('Expected a NumPy NPZ archive')
+    try:
+        return [(name, array_bits(arrays[name])) for name in arrays.files]
+    finally:
+        arrays.close()
+
+
+def cpio_state(data):
+    """Check newc records and compare names, metadata and typed member contents."""
+    offset = 0
+    records = []
+    while offset + 110 <= len(data):
+        header = data[offset:offset + 110]
+        magic = header[:6]
+        if magic not in (b'070701', b'070702'):
+            raise ValueError('Invalid newc CPIO magic')
+        try:
+            fields = [int(header[6 + i * 8:14 + i * 8], 16) for i in range(13)]
+        except ValueError as exc:
+            raise ValueError('Invalid newc CPIO header field') from exc
+        file_size, name_size, checksum = fields[6], fields[11], fields[12]
+        if name_size < 1:
+            raise ValueError('Empty newc CPIO filename')
+        name_start = offset + 110
+        name_end = name_start + name_size
+        if name_end > len(data):
+            raise ValueError('Truncated newc CPIO filename')
+        name = data[name_start:name_end]
+        if not name.endswith(b'\0'):
+            raise ValueError('Unterminated newc CPIO filename')
+        try:
+            decoded_name = name[:-1].decode('utf-8')
+        except UnicodeDecodeError as exc:
+            raise ValueError('Invalid newc CPIO filename encoding') from exc
+        data_start = (name_end + 3) & ~3
+        data_end = data_start + file_size
+        if data_end > len(data):
+            raise ValueError('Truncated newc CPIO member data')
+        payload = data[data_start:data_end]
+        if magic == b'070702' and sum(payload) & 0xffffffff != checksum:
+            raise ValueError('newc CPIO checksum mismatch')
+        offset = (data_end + 3) & ~3
+        if decoded_name == 'TRAILER!!!':
+            if file_size or any(data[offset:]):
+                raise ValueError('Invalid newc CPIO trailer or non-padding suffix')
+            if not records:
+                raise ValueError('Empty newc CPIO archive')
+            trailer_identity = tuple(value for i, value in enumerate(fields) if i not in (6, 12))
+            return (records, trailer_identity)
+        if not decoded_name or decoded_name.startswith('/') or '..' in decoded_name.split('/'):
+            raise ValueError('Unsafe newc CPIO path in fixture')
+        if decoded_name.endswith('.json'):
+            content = json_tokens(payload)
+        elif decoded_name.endswith('.xml'):
+            content = xml_tree(payload)
+        else:
+            content = digest(payload)
+        metadata = tuple(value for i, value in enumerate(fields) if i not in (6, 12))
+        records.append((decoded_name, metadata, content))
+    raise ValueError('Missing or truncated newc CPIO trailer')
+
+
+def _read_varint(data, offset):
+    value = shift = 0
+    while offset < len(data) and shift <= 63:
+        byte = data[offset]
+        offset += 1
+        value |= (byte & 0x7f) << shift
+        if byte < 0x80:
+            return value, offset
+        shift += 7
+    raise ValueError('Invalid CRX protobuf varint')
+
+
+def _protobuf_fields(data):
+    fields = []
+    offset = 0
+    while offset < len(data):
+        key, offset = _read_varint(data, offset)
+        number, wire = key >> 3, key & 7
+        if number == 0:
+            raise ValueError('Invalid CRX protobuf field number')
+        if wire == 0:
+            value, offset = _read_varint(data, offset)
+        elif wire == 2:
+            length, offset = _read_varint(data, offset)
+            end = offset + length
+            if end > len(data):
+                raise ValueError('Truncated CRX protobuf field')
+            value, offset = data[offset:end], end
+        elif wire == 1:
+            end = offset + 8
+            if end > len(data):
+                raise ValueError('Truncated CRX protobuf fixed64 field')
+            value, offset = data[offset:end], end
+        elif wire == 5:
+            end = offset + 4
+            if end > len(data):
+                raise ValueError('Truncated CRX protobuf fixed32 field')
+            value, offset = data[offset:end], end
+        else:
+            raise ValueError('Unsupported CRX protobuf wire type')
+        fields.append((number, wire, value))
+    return fields
+
+
+def _crx3_parts(data):
+    if len(data) < 12 or data[:4] != b'Cr24':
+        raise ValueError('Missing CRX magic')
+    version, header_length = struct.unpack_from('<II', data, 4)
+    if version != 3 or not header_length or 12 + header_length >= len(data):
+        raise ValueError('Invalid CRX3 header')
+    header = _protobuf_fields(data[12:12 + header_length])
+    zip_payload = data[12 + header_length:]
+    signed_values = [value for number, wire, value in header if number == 10000 and wire == 2]
+    proofs = [value for number, wire, value in header if number == 2 and wire == 2]
+    if len(signed_values) != 1 or len(proofs) != 1:
+        raise ValueError('CRX3 must have exactly one signed header and RSA proof')
+    signed_header_data = signed_values[0]
+    proof = _protobuf_fields(proofs[0])
+    public_values = [value for number, wire, value in proof if number == 1 and wire == 2]
+    signature_values = [value for number, wire, value in proof if number == 2 and wire == 2]
+    if len(public_values) != 1 or len(signature_values) != 1:
+        raise ValueError('Malformed CRX3 RSA proof')
+    ids = [value for number, wire, value in _protobuf_fields(signed_header_data)
+           if number == 1 and wire == 2]
+    public_key = public_values[0]
+    if len(ids) != 1 or ids[0] != hashlib.sha256(public_key).digest()[:16]:
+        raise ValueError('CRX3 signed extension ID does not match its public key')
+    signing_input = (b'CRX3 SignedData\0' + struct.pack('<I', len(signed_header_data))
+                     + signed_header_data + zip_payload)
+    return public_key, signature_values[0], signing_input, zip_payload
+
+
+def crx_state(path, config):
+    public_key, signature, signing_input, zip_payload = _crx3_parts(Path(path).read_bytes())
+    with tempfile.TemporaryDirectory(prefix='frbench-crx-verify-') as temp:
+        temp = Path(temp)
+        public_der = temp / 'public.der'
+        public_pem = temp / 'public.pem'
+        signature_path = temp / 'signature.bin'
+        signed_path = temp / 'signed.bin'
+        zip_path = temp / 'payload.zip'
+        public_der.write_bytes(public_key)
+        signature_path.write_bytes(signature)
+        signed_path.write_bytes(signing_input)
+        zip_path.write_bytes(zip_payload)
+        command(['openssl', 'pkey', '-pubin', '-inform', 'DER', '-in', str(public_der),
+                 '-out', str(public_pem)])
+        command(['openssl', 'dgst', '-sha256', '-verify', str(public_pem), '-signature',
+                 str(signature_path), '-sigopt', 'rsa_padding_mode:pkcs1', str(signed_path)])
+        contents = archive_state(zip_path, {'kind': 'zip',
+                                           'children': config.get('children', {})})
+    return (hashlib.sha256(public_key).hexdigest(), digest(zip_payload), contents)
+
+
+def car_state(path):
+    """Read the corpus's BOMStore/one-rendition profile without filerepack code."""
+    data = Path(path).read_bytes()
+    if len(data) < 512 or data[:8] != b'BOMStore' or any(data[32:512]):
+        raise ValueError('Invalid corpus CAR BOMStore header')
+    version, block_count, index_offset, index_size, vars_offset, vars_size = struct.unpack_from(
+        '>6I', data, 8)
+    if version != 1:
+        raise ValueError('Unsupported corpus CAR BOMStore version')
+    if (index_offset < 512 or index_offset + index_size > len(data)
+            or vars_offset < 512 or vars_offset + vars_size > len(data)):
+        raise ValueError('CAR index or variable table is outside the file')
+    table = data[index_offset:index_offset + index_size]
+    if len(table) < 8:
+        raise ValueError('Truncated CAR block index')
+    capacity = struct.unpack_from('>I', table)[0]
+    if 4 + capacity * 8 + 4 > len(table):
+        raise ValueError('Truncated CAR block pointers')
+    pointers = [struct.unpack_from('>2I', table, 4 + i * 8) for i in range(capacity)]
+    free_count = struct.unpack_from('>I', table, 4 + capacity * 8)[0]
+    if free_count:
+        raise ValueError('This generated CAR profile has no free pointer table')
+    if any(table[8 + capacity * 8:]):
+        raise ValueError('Unexpected CAR block-index suffix')
+    blocks = {}
+    occupied = [(0, 512), (index_offset, index_offset + index_size),
+                (vars_offset, vars_offset + vars_size)]
+    for block_id, (address, size) in enumerate(pointers):
+        if not address and not size:
+            continue
+        if block_id == 0 or not address or not size or address + size > len(data):
+            raise ValueError('Invalid CAR block pointer')
+        blocks[block_id] = data[address:address + size]
+        occupied.append((address, address + size))
+    if len(blocks) != block_count:
+        raise ValueError('CAR allocated-block count differs from its index')
+    end = 0
+    for start, stop in sorted(occupied):
+        if start < end or any(data[end:start]):
+            raise ValueError('CAR blocks overlap or contain unclassified bytes')
+        end = stop
+    if any(data[end:]):
+        raise ValueError('Unexpected CAR trailing bytes')
+
+    variable_data = data[vars_offset:vars_offset + vars_size]
+    if len(variable_data) < 4:
+        raise ValueError('Truncated CAR variable table')
+    variable_count = struct.unpack_from('>I', variable_data)[0]
+    variables, offset = {}, 4
+    for _ in range(variable_count):
+        if offset + 5 > len(variable_data):
+            raise ValueError('Truncated CAR variable')
+        block_id, size = struct.unpack_from('>IB', variable_data, offset)
+        end = offset + 5 + size
+        name = variable_data[offset + 5:end]
+        if not name or end > len(variable_data) or name in variables or block_id not in blocks:
+            raise ValueError('Invalid CAR named variable')
+        variables[name] = block_id
+        offset = end
+    if offset != len(variable_data) or not {b'CARHEADER', b'RENDITIONS', b'KEYFORMAT'} <= variables.keys():
+        raise ValueError('Invalid CAR catalog variables')
+
+    renditions_tree = blocks[variables[b'RENDITIONS']]
+    if len(renditions_tree) != 21 or renditions_tree[:4] != b'tree':
+        raise ValueError('Unsupported CAR rendition-tree profile')
+    tree_version, root_id, page_size, entry_count = struct.unpack_from('>4I', renditions_tree, 4)
+    if tree_version != 1 or page_size < 12 or root_id not in blocks:
+        raise ValueError('Invalid CAR rendition-tree header')
+    page = blocks[root_id]
+    if len(page) < page_size:
+        raise ValueError('Truncated CAR rendition-tree page')
+    leaf, count, forward, backward = struct.unpack_from('>HHII', page)
+    if leaf != 1 or count != entry_count or forward or backward or 12 + count * 8 > len(page):
+        raise ValueError('Invalid CAR rendition-tree leaf')
+    rendition_entries = [struct.unpack_from('>2I', page, 12 + i * 8) for i in range(count)]
+    rendition_ids = set()
+    for value_id, key_id in rendition_entries:
+        if value_id not in blocks or key_id not in blocks:
+            raise ValueError('CAR rendition tree references a missing block')
+        key = blocks[key_id]
+        rendition = blocks[value_id]
+        if len(key) != 2 or len(rendition) < 184 or rendition[:4] != b'ISTC':
+            raise ValueError('Invalid generated CAR rendition/key')
+        tlv_size = struct.unpack_from('>I', rendition, 168)[0]
+        body_size = struct.unpack_from('>I', rendition, 180)[0]
+        body_start = 184 + tlv_size
+        if body_start + body_size != len(rendition):
+            raise ValueError('CAR rendition sizes do not match')
+        body = rendition[body_start:]
+        if body[:4] in (b'MLEC', b'CELM') and len(body) >= 16:
+            body_version, codec, compressed_size = struct.unpack_from('<3I', body, 4)
+            if body_version != 0 or codec != 2 or compressed_size != len(body) - 16:
+                raise ValueError('Unsupported generated CAR rendition compression')
+            raw = zlib.decompress(body[16:])
+            normalized = (rendition[:180], rendition[184:body_start], body[:12], raw)
+        else:
+            normalized = (digest(rendition),)
+        rendition_ids.add(value_id)
+        blocks[value_id] = ('rendition', normalized)
+    if len(rendition_ids) != entry_count:
+        raise ValueError('Duplicate CAR rendition block')
+    if len(rendition_ids) != 1:
+        raise ValueError('Generated CAR profile expects one rendition')
+    return (data[:16], data[32:512], variable_data,
+            [(block_id, blocks[block_id]) for block_id in sorted(blocks)])
+
+
 def bytes_state(data, config, name='blob'):
     kind = config['kind']
     if kind == 'bytes':
@@ -267,8 +537,18 @@ def bytes_state(data, config, name='blob'):
 def fingerprint(path, config):
     path = Path(path)
     kind = config['kind']
+    if kind == 'npz':
+        return npz_state(path)
     if kind in ('zip', 'tar'):
         return archive_state(path, config)
+    if kind == 'cpbz2':
+        return cpio_state(bz2.decompress(path.read_bytes()))
+    if kind == 'cpio':
+        return cpio_state(path.read_bytes())
+    if kind == 'crx':
+        return crx_state(path, config)
+    if kind == 'car':
+        return car_state(path)
     if kind in ('bytes', 'json', 'jsonl', 'xml', 'stream', 'swf', 'tgs', 'blend',
                 'nrrd', 'psb', 'aseprite'):
         return bytes_state(path.read_bytes(), config)
@@ -502,11 +782,13 @@ def require(config):
         'hdf5': ['h5py', 'numpy'], 'netcdf': ['netCDF4', 'numpy'],
         'tiff': ['tifffile', 'numpy'], 'fits': ['astropy', 'numpy'], 'mat': ['scipy', 'numpy'],
         'duckdb': ['duckdb'], 'dicom': ['pydicom', 'numpy'], 'spss': ['pyreadstat'], 'font': ['fontTools'], 'zarr': ['zarr', 'numpy'],
+        'npz': ['numpy'],
         'pdf': ['pikepdf', 'PIL'],
     }.get(config['kind'], [])
     commands = {'audio': ['ffmpeg', 'ffprobe'], 'video': ['ffmpeg', 'ffprobe'],
                 'pdf': ['gs'], '7z': ['7zz'], 'rar': ['unrar'],
-                'imagemagick': ['magick'], 'svg-render': ['magick']}.get(config['kind'], [])
+                'imagemagick': ['magick'], 'svg-render': ['magick'],
+                'crx': ['openssl']}.get(config['kind'], [])
     codec = config.get('codec')
     if codec in ('br', 'zst', 'lz4'):
         modules += [{'br': 'brotli', 'zst': 'zstandard', 'lz4': 'lz4'}[codec]]

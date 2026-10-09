@@ -1,27 +1,26 @@
 # Coverage snapshot
 
-Catalog: current local filerepack source, 2026-10-05. Regenerate this snapshot with `python -m frbench coverage --json`.
+Catalog: local filerepack source; regenerate with `python scripts/update_coverage.py --filerepack ../filerepack`.
 
-- 403 cases: 12 smoke, 377 extended, 14 rejection controls.
-- 302/303 registered extension routes have non-control fixtures (99.67%).
-- 139 extensions have native or original fixtures; the rest are syntax, routing or transport tests.
-- 94/94 distinct file-handler/archive-family groups have fixtures.
-- 48 upstream originals; remaining fixtures are generated or explicit routing derivatives.
-- Directory Zarr v2 and compound compressed-tar/WARC names are additional cases, outside the flat extension denominator.
+- 432 cases: 12 smoke, 406 extended, 14 rejection controls.
+- 306/306 registered extension routes have non-control fixtures.
+- 157 extensions have native or original fixtures.
+- 97/97 handler groups have fixtures.
+- 48 upstream originals; remaining fixtures are generated or routing derivatives.
+- 23/23 compound/content-detected filename routes have fixtures.
+- Directory Zarr v2 is an additional store fixture outside the flat extension denominator.
 
-The missing `.crx` route requires a proper signed Chrome extension envelope. A renamed ZIP would not supply meaningful CRX evidence, so it is an explicit gap.
-
-Handler coverage means an input exists for the code path. It does not mean the environment has every encoder, that every variant is supported, or that every case produced a smaller candidate.
+Handler and extension coverage means an input exists for that path. It does not guarantee that every sample is accepted for rewriting or becomes smaller.
 
 ## Fixture scopes
 
 | Scope | Cases | Meaning |
 |---|---:|---|
-| alias | 27 | An existing bitstream under another supported routing suffix. |
-| container-only | 128 | Generic ZIP/TAR/SQLite payload; no application-format claim. |
-| native | 184 | Generated readable profile for that format; see oracle limits. |
-| original | 48 | Unmodified commit-pinned upstream regression sample. |
-| syntax | 16 | Valid generic text/binary structure, without application/render qualification. |
+| alias | 28 | Existing bitstream under another supported routing suffix. |
+| container-only | 128 | Generic ZIP/TAR/SQLite payload without an application-format claim. |
+| native | 212 | Generated format-shaped profile checked by the listed oracle. |
+| original | 48 | Unmodified, license-reviewed upstream regression sample. |
+| syntax | 16 | Valid generic structure without application/render qualification. |
 
 ## Handler groups
 
@@ -29,6 +28,8 @@ Handler coverage means an input exists for the code path. It does not mean the e
 |---|---:|---|
 | `archive:7z` | 2 | yes |
 | `archive:cab` | 1 | yes |
+| `archive:cpio` | 1 | yes |
+| `archive:cpio.bz2` | 1 | yes |
 | `archive:rar` | 2 | yes |
 | `archive:tar` | 3 | yes |
 | `archive:tar.bz2` | 2 | transport/alias only |
@@ -39,7 +40,7 @@ Handler coverage means an input exists for the code path. It does not mean the e
 | `archive:tar.z` | 1 | transport/alias only |
 | `archive:tar.zst` | 1 | transport/alias only |
 | `archive:wim` | 1 | yes |
-| `archive:zip` | 137 | yes |
+| `archive:zip` | 152 | yes |
 | `pack_3gp` | 1 | yes |
 | `pack_ai` | 1 | transport/alias only |
 | `pack_ape` | 1 | yes |
@@ -53,6 +54,7 @@ Handler coverage means an input exists for the code path. It does not mean the e
 | `pack_bmp` | 2 | yes |
 | `pack_brotli` | 3 | yes |
 | `pack_bz2` | 3 | yes |
+| `pack_car` | 1 | yes |
 | `pack_checkpoint` | 2 | yes |
 | `pack_compress` | 3 | yes |
 | `pack_dcm` | 3 | yes |
@@ -100,7 +102,7 @@ Handler coverage means an input exists for the code path. It does not mean the e
 | `pack_psd` | 1 | yes |
 | `pack_qgd` | 1 | yes |
 | `pack_qgs` | 1 | yes |
-| `pack_r_serialization` | 6 | yes |
+| `pack_r_serialization` | 15 | yes |
 | `pack_spss` | 2 | yes |
 | `pack_sqlite` | 7 | yes |
 | `pack_svg` | 1 | yes |
@@ -156,13 +158,16 @@ Handler coverage means an input exists for the code path. It does not mean the e
 | .br | 3 | native |
 | .bz2 | 3 | native |
 | .cab | 1 | native |
+| .car | 1 | native |
 | .cb7 | 1 | alias |
 | .cbr | 1 | alias |
 | .cbt | 1 | container-only |
 | .cbz | 1 | container-only |
+| .cpbz2 | 1 | native |
+| .cpio | 1 | native |
 | .crate | 1 | alias |
 | .crtx | 1 | container-only |
-| .crx | 0 | missing |
+| .crx | 1 | native |
 | .cur | 1 | native |
 | .dae | 1 | syntax |
 | .db | 1 | native |
@@ -273,12 +278,12 @@ Handler coverage means an input exists for the code path. It does not mean the e
 | .nrrd | 2 | native |
 | .numbers | 1 | container-only |
 | .nupkg | 1 | container-only |
-| .odb | 1 | container-only |
-| .odc | 1 | container-only |
-| .odf | 1 | container-only |
-| .odg | 1 | container-only |
-| .odi | 1 | container-only |
-| .odm | 1 | container-only |
+| .odb | 2 | container-only, native |
+| .odc | 2 | container-only, native |
+| .odf | 2 | container-only, native |
+| .odg | 2 | container-only, native |
+| .odi | 2 | container-only, native |
+| .odm | 2 | container-only, native |
 | .odp | 2 | container-only, native |
 | .ods | 2 | container-only, native |
 | .odt | 2 | container-only, native |
@@ -290,14 +295,14 @@ Handler coverage means an input exists for the code path. It does not mean the e
 | .ora | 1 | container-only |
 | .orc | 1 | native |
 | .osk | 1 | container-only |
-| .otc | 1 | container-only |
-| .otg | 1 | container-only |
-| .oth | 1 | container-only |
-| .oti | 1 | container-only |
-| .otm | 1 | container-only |
-| .otp | 1 | container-only |
-| .ots | 1 | container-only |
-| .ott | 1 | container-only |
+| .otc | 2 | container-only, native |
+| .otg | 2 | container-only, native |
+| .oth | 2 | container-only, native |
+| .oti | 2 | container-only, native |
+| .otm | 2 | container-only, native |
+| .otp | 2 | container-only, native |
+| .ots | 2 | container-only, native |
+| .ott | 2 | container-only, native |
 | .oxps | 1 | container-only |
 | .oxt | 1 | container-only |
 | .pages | 1 | container-only |
@@ -330,9 +335,9 @@ Handler coverage means an input exists for the code path. It does not mean the e
 | .qgs | 1 | native |
 | .qgz | 1 | native |
 | .rar | 1 | native |
-| .rda | 2 | native |
-| .rdata | 2 | native |
-| .rds | 2 | native |
+| .rda | 5 | native |
+| .rdata | 5 | native |
+| .rds | 5 | native |
 | .rels | 1 | syntax |
 | .rmskin | 1 | container-only |
 | .rss | 1 | syntax |
@@ -430,8 +435,40 @@ Handler coverage means an input exists for the code path. It does not mean the e
 | .zsav | 1 | native |
 | .zst | 3 | native |
 
+## Filename routes
+
+| Filename suffix or detected type | Cases |
+|---|---:|
+| `.tar.gz` | archives-container-tar-gz |
+| `.tar.xz` | archives-container-tar-xz |
+| `.tar.bz2` | archives-container-tar-bz2 |
+| `.tar.zst` | archives-container-tar-zst |
+| `.tar.br` | archives-container-tar-br |
+| `.tar.lz4` | archives-container-tar-lz4 |
+| `.tar.lz` | archives-container-tar-lz |
+| `.tar.lzma` | archives-container-tar-lzma |
+| `.tar.lzo` | archives-container-tar-lzo |
+| `.tar.z` | archives-container-tar-z |
+| `.warc.gz` | native-weak-warc-gz |
+| `.rds.gz` | scientific-arrays-rds-gz |
+| `.rds.bz2` | scientific-arrays-rds-bz2 |
+| `.rds.xz` | scientific-arrays-rds-xz |
+| `.rda.gz` | scientific-arrays-rda-gz |
+| `.rda.bz2` | scientific-arrays-rda-bz2 |
+| `.rda.xz` | scientific-arrays-rda-xz |
+| `.rdata.gz` | scientific-arrays-rdata-gz |
+| `.rdata.bz2` | scientific-arrays-rdata-bz2 |
+| `.rdata.xz` | scientific-arrays-rdata-xz |
+| `.cpio` | archives-cpio-tree-cpio |
+| `.cpio.bz2` | streams-cpio-tree-cpio-bz2 |
+| `.otf (ODF package detected by ZIP content)` | packages-native-otf |
+
+The ODF packages use the registered media-type/extension pairs from the [OASIS OpenDocument 1.3 MIME type table](https://docs.oasis-open.org/office/OpenDocument/v1.3/os/part3-schema/OpenDocument-v1.3-os-part3-schema.pdf). The `.otf` sample is an ODF formula template selected by ZIP content, because `.otf` is not a flat registry extension.
+
 ## Remaining depth gaps
 
-Additional real-world modern Office/ODF/media/scientific workloads, application rendering, nested archive-within-archive permutations, complex HDF5 link graphs, wide bit-depth/image metadata coverage and opt-in OLE content transforms would strengthen representativeness. The existing corpus is a compact format and preservation matrix, with deliberately favorable synthetic compression opportunities.
+More real user-created office, media and scientific files, application rendering, nested archive combinations, complex HDF5 link graphs, high-bit-depth image metadata and opt-in OLE content transforms would improve representativeness. The current synthetic corpus deliberately includes favorable compression opportunities.
 
-Generic ODF-style ZIP aliases may be rejected by package policy; the separate native ODT/ODS/ODP/EPUB fixtures exercise proper controls and mimetype layout. Original licensed samples and synthetic files must be analyzed separately for empirical claims.
+CRX3 is included as a correctly signed ZIP package and the independent oracle checks the signature. The current local filerepack run safely leaves it unchanged because the archive reader rejects the CRX prefix. This fixture records input coverage, not a claim of successful CRX recompression.
+
+Original licensed samples and generated files must be analyzed separately for empirical claims.

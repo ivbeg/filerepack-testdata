@@ -5607,6 +5607,66 @@
     },
     {
       "expectation": "observe",
+      "extension": "cpio",
+      "family": "archives",
+      "id": "archives-cpio-tree-cpio",
+      "inventory": {
+        "bytes": 622080,
+        "sha256": "1c78df6066ad49d82911ab184b799198bb6d0ac4205c4363f47b28006710f1a3"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "cpio"
+      },
+      "path": "corpus/generated/archives/cpio-tree.cpio",
+      "provenance": {
+        "description": "newc CPIO tree with regular files, a directory, symlink and hard links",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "crx",
+      "family": "archives",
+      "id": "archives-signed-extension-crx",
+      "inventory": {
+        "bytes": 52733,
+        "sha256": "f4f929c8d9c753f761bc5b83ddb209906fc8262816b2459db809d7bc1ff808f9"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "children": {
+          "data.json": {
+            "kind": "json"
+          },
+          "data.xml": {
+            "kind": "xml"
+          },
+          "manifest.json": {
+            "kind": "json"
+          },
+          "nested/records.jsonl": {
+            "kind": "jsonl"
+          }
+        },
+        "kind": "crx"
+      },
+      "path": "corpus/generated/archives/signed-extension.crx",
+      "provenance": {
+        "description": "CRX3 with a temporary test-only signing key and a minimal extension manifest",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
       "extension": "zip",
       "family": "archives",
       "id": "archives-weak-zip",
@@ -7418,6 +7478,29 @@
     },
     {
       "expectation": "observe",
+      "extension": "car",
+      "family": "native",
+      "id": "native-catalog-car",
+      "inventory": {
+        "bytes": 138344,
+        "sha256": "99237bced5ada801895f0ed6f0c34265fe4a7eb413b3326f199b59d4437aeada"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "car"
+      },
+      "path": "corpus/generated/native/catalog.car",
+      "provenance": {
+        "description": "Synthetic BOMStore catalog with a compressed MLEC rendition",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
       "extension": "psb",
       "family": "images",
       "id": "native-composite-psb",
@@ -8738,7 +8821,7 @@
       },
       "license": "BSD-3-Clause",
       "oracle": {
-        "kind": "zip"
+        "kind": "npz"
       },
       "path": "corpus/generated/packages/arrays.npz",
       "provenance": {
@@ -9168,6 +9251,471 @@
     },
     {
       "expectation": "observe",
+      "extension": "odb",
+      "family": "packages",
+      "id": "packages-native-odb",
+      "inventory": {
+        "bytes": 1214,
+        "sha256": "fa3b55fd35c4d8c0f384c7957fb1190c36d243ac0044047befca85fe6a47fd13"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "children": {
+          "content.xml": {
+            "kind": "xml"
+          }
+        },
+        "kind": "zip",
+        "stored_first": [
+          "mimetype"
+        ]
+      },
+      "path": "corpus/generated/packages/native.odb",
+      "provenance": {
+        "description": "ODF database package with its registered media type",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "odc",
+      "family": "packages",
+      "id": "packages-native-odc",
+      "inventory": {
+        "bytes": 1233,
+        "sha256": "2366c0bc0f0774ad236708baf617dfcc60398b0bc0c4e4b4a28e80a09974c79a"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "children": {
+          "content.xml": {
+            "kind": "xml"
+          }
+        },
+        "kind": "zip",
+        "stored_first": [
+          "mimetype"
+        ]
+      },
+      "path": "corpus/generated/packages/native.odc",
+      "provenance": {
+        "description": "ODF chart package with its registered media type",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "odf",
+      "family": "packages",
+      "id": "packages-native-odf",
+      "inventory": {
+        "bytes": 1270,
+        "sha256": "8bf299821b438082372a5f3b696c74ae6d8e70a997cb4b49c0e068ebb0a045a2"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "children": {
+          "content.xml": {
+            "kind": "xml"
+          }
+        },
+        "kind": "zip",
+        "stored_first": [
+          "mimetype"
+        ]
+      },
+      "path": "corpus/generated/packages/native.odf",
+      "provenance": {
+        "description": "ODF formula package with its registered media type",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "odg",
+      "family": "packages",
+      "id": "packages-native-odg",
+      "inventory": {
+        "bytes": 1263,
+        "sha256": "61b42167706af0e7f9003934a53db5c0e4a475a562dab5c75f2c7ffb8920c20e"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "children": {
+          "content.xml": {
+            "kind": "xml"
+          }
+        },
+        "kind": "zip",
+        "stored_first": [
+          "mimetype"
+        ]
+      },
+      "path": "corpus/generated/packages/native.odg",
+      "provenance": {
+        "description": "ODF graphics package with its registered media type",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "odi",
+      "family": "packages",
+      "id": "packages-native-odi",
+      "inventory": {
+        "bytes": 1205,
+        "sha256": "2fa0fc4305b737c482f4f04649a8ff3d17292d2de57fb1d0dbb32a78e04828d4"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "children": {
+          "content.xml": {
+            "kind": "xml"
+          }
+        },
+        "kind": "zip",
+        "stored_first": [
+          "mimetype"
+        ]
+      },
+      "path": "corpus/generated/packages/native.odi",
+      "provenance": {
+        "description": "ODF image package with its registered media type",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "odm",
+      "family": "packages",
+      "id": "packages-native-odm",
+      "inventory": {
+        "bytes": 1267,
+        "sha256": "ba4531648ddd91bbb199798b9fed51451d7dc78b70f928eb8fbfdd43db1c5de5"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "children": {
+          "content.xml": {
+            "kind": "xml"
+          }
+        },
+        "kind": "zip",
+        "stored_first": [
+          "mimetype"
+        ]
+      },
+      "path": "corpus/generated/packages/native.odm",
+      "provenance": {
+        "description": "ODF text-master package with its registered media type",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "otc",
+      "family": "packages",
+      "id": "packages-native-otc",
+      "inventory": {
+        "bytes": 1251,
+        "sha256": "1ffa984cd1fd495e9d3f7ad0f864651268219b36b32643cca390c3e5b03b4b9f"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "children": {
+          "content.xml": {
+            "kind": "xml"
+          }
+        },
+        "kind": "zip",
+        "stored_first": [
+          "mimetype"
+        ]
+      },
+      "path": "corpus/generated/packages/native.otc",
+      "provenance": {
+        "description": "ODF chart-template package with its registered media type",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "otf",
+      "family": "packages",
+      "id": "packages-native-otf",
+      "inventory": {
+        "bytes": 1288,
+        "sha256": "2bc1c84c99e70abcb4f2ee88d85027a7011bf4418eef9b5c31aba5bfbf4a5fb6"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "children": {
+          "content.xml": {
+            "kind": "xml"
+          }
+        },
+        "kind": "zip",
+        "stored_first": [
+          "mimetype"
+        ]
+      },
+      "path": "corpus/generated/packages/native.otf",
+      "provenance": {
+        "description": "ODF formula-template package with its registered media type",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "otg",
+      "family": "packages",
+      "id": "packages-native-otg",
+      "inventory": {
+        "bytes": 1280,
+        "sha256": "55e7b46f8be16ca25189c7a2f1960cccf4f012645fa5412de90cf6f125ec36e0"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "children": {
+          "content.xml": {
+            "kind": "xml"
+          }
+        },
+        "kind": "zip",
+        "stored_first": [
+          "mimetype"
+        ]
+      },
+      "path": "corpus/generated/packages/native.otg",
+      "provenance": {
+        "description": "ODF graphics-template package with its registered media type",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "oth",
+      "family": "packages",
+      "id": "packages-native-oth",
+      "inventory": {
+        "bytes": 1262,
+        "sha256": "c878383e08a0447287c748d532bdbc8a3f47e03d4b5cc252607424478bff4f61"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "children": {
+          "content.xml": {
+            "kind": "xml"
+          }
+        },
+        "kind": "zip",
+        "stored_first": [
+          "mimetype"
+        ]
+      },
+      "path": "corpus/generated/packages/native.oth",
+      "provenance": {
+        "description": "ODF text-web package with its registered media type",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "oti",
+      "family": "packages",
+      "id": "packages-native-oti",
+      "inventory": {
+        "bytes": 1223,
+        "sha256": "0271ad27337109f313d5c9d0efc4cb80e0f129d72185d57c8a75fb7ece0eef47"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "children": {
+          "content.xml": {
+            "kind": "xml"
+          }
+        },
+        "kind": "zip",
+        "stored_first": [
+          "mimetype"
+        ]
+      },
+      "path": "corpus/generated/packages/native.oti",
+      "provenance": {
+        "description": "ODF image-template package with its registered media type",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "otm",
+      "family": "packages",
+      "id": "packages-native-otm",
+      "inventory": {
+        "bytes": 1289,
+        "sha256": "2bb3a998f707da04a3fa1b8bacffde5c3bca6a509c742c1fe216b8918bbf93eb"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "children": {
+          "content.xml": {
+            "kind": "xml"
+          }
+        },
+        "kind": "zip",
+        "stored_first": [
+          "mimetype"
+        ]
+      },
+      "path": "corpus/generated/packages/native.otm",
+      "provenance": {
+        "description": "ODF text-master-template package with its registered media type",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "otp",
+      "family": "packages",
+      "id": "packages-native-otp",
+      "inventory": {
+        "bytes": 1298,
+        "sha256": "a6a6c8150e37fbd7cb92bef507977fb1349ba5348b626ee0d6ec2362d1e09f99"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "children": {
+          "content.xml": {
+            "kind": "xml"
+          }
+        },
+        "kind": "zip",
+        "stored_first": [
+          "mimetype"
+        ]
+      },
+      "path": "corpus/generated/packages/native.otp",
+      "provenance": {
+        "description": "ODF presentation-template package with its registered media type",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "ots",
+      "family": "packages",
+      "id": "packages-native-ots",
+      "inventory": {
+        "bytes": 1297,
+        "sha256": "4963f79811c7e07a646947a32b6700f67d6d060fa63094ed494f71a033c864a1"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "children": {
+          "content.xml": {
+            "kind": "xml"
+          }
+        },
+        "kind": "zip",
+        "stored_first": [
+          "mimetype"
+        ]
+      },
+      "path": "corpus/generated/packages/native.ots",
+      "provenance": {
+        "description": "ODF spreadsheet-template package with its registered media type",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "ott",
+      "family": "packages",
+      "id": "packages-native-ott",
+      "inventory": {
+        "bytes": 1273,
+        "sha256": "db09fde771ab7ac020060a7e93c112a5f7cca57f8d66ee099d67600b3ab215a2"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "children": {
+          "content.xml": {
+            "kind": "xml"
+          }
+        },
+        "kind": "zip",
+        "stored_first": [
+          "mimetype"
+        ]
+      },
+      "path": "corpus/generated/packages/native.ott",
+      "provenance": {
+        "description": "ODF text-template package with its registered media type",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
       "extension": "usdz",
       "family": "packages",
       "id": "packages-scene-usdz",
@@ -9421,6 +9969,75 @@
     },
     {
       "expectation": "observe",
+      "extension": "rda",
+      "family": "scientific",
+      "id": "scientific-arrays-rda-bz2",
+      "inventory": {
+        "bytes": 1626,
+        "sha256": "12c82507be64c296cded098d51c0a2caa3ba3dc332107db5c89cc5e28199c797"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "r"
+      },
+      "path": "corpus/generated/scientific/arrays.rda.bz2",
+      "provenance": {
+        "description": "R serialization in its supported bz2 compound suffix",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "rda",
+      "family": "scientific",
+      "id": "scientific-arrays-rda-gz",
+      "inventory": {
+        "bytes": 4017,
+        "sha256": "aebf8d34d128024b982f7cbe1677aaaf0b6997e52c6c4a611116ac6a1e036628"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "r"
+      },
+      "path": "corpus/generated/scientific/arrays.rda.gz",
+      "provenance": {
+        "description": "R serialization in its supported gz compound suffix",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "rda",
+      "family": "scientific",
+      "id": "scientific-arrays-rda-xz",
+      "inventory": {
+        "bytes": 428,
+        "sha256": "e3611ce9d984ab50fc7922db872302a604ec6d633ac9ee7e857498b7f5206911"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "r"
+      },
+      "path": "corpus/generated/scientific/arrays.rda.xz",
+      "provenance": {
+        "description": "R serialization in its supported xz compound suffix",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
       "extension": "rdata",
       "family": "scientific",
       "id": "scientific-arrays-rdata",
@@ -9444,6 +10061,75 @@
     },
     {
       "expectation": "observe",
+      "extension": "rdata",
+      "family": "scientific",
+      "id": "scientific-arrays-rdata-bz2",
+      "inventory": {
+        "bytes": 1626,
+        "sha256": "12c82507be64c296cded098d51c0a2caa3ba3dc332107db5c89cc5e28199c797"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "r"
+      },
+      "path": "corpus/generated/scientific/arrays.rdata.bz2",
+      "provenance": {
+        "description": "R serialization in its supported bz2 compound suffix",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "rdata",
+      "family": "scientific",
+      "id": "scientific-arrays-rdata-gz",
+      "inventory": {
+        "bytes": 4017,
+        "sha256": "aebf8d34d128024b982f7cbe1677aaaf0b6997e52c6c4a611116ac6a1e036628"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "r"
+      },
+      "path": "corpus/generated/scientific/arrays.rdata.gz",
+      "provenance": {
+        "description": "R serialization in its supported gz compound suffix",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "rdata",
+      "family": "scientific",
+      "id": "scientific-arrays-rdata-xz",
+      "inventory": {
+        "bytes": 428,
+        "sha256": "e3611ce9d984ab50fc7922db872302a604ec6d633ac9ee7e857498b7f5206911"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "r"
+      },
+      "path": "corpus/generated/scientific/arrays.rdata.xz",
+      "provenance": {
+        "description": "R serialization in its supported xz compound suffix",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
       "extension": "rds",
       "family": "scientific",
       "id": "scientific-arrays-rds",
@@ -9458,6 +10144,75 @@
       "path": "corpus/generated/scientific/arrays.rds",
       "provenance": {
         "description": "Synthetic data authored for this corpus",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "rds",
+      "family": "scientific",
+      "id": "scientific-arrays-rds-bz2",
+      "inventory": {
+        "bytes": 1589,
+        "sha256": "df67dd1ef9aa12533e42909122a0e8a493ffe760ce762211c33b11962e2c0f69"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "r"
+      },
+      "path": "corpus/generated/scientific/arrays.rds.bz2",
+      "provenance": {
+        "description": "R serialization in its supported bz2 compound suffix",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "rds",
+      "family": "scientific",
+      "id": "scientific-arrays-rds-gz",
+      "inventory": {
+        "bytes": 4233,
+        "sha256": "99d0f58ac7fa94430f2c5efac218c26e7bca8f3c71f0b03ae0d26fa377f8dab3"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "r"
+      },
+      "path": "corpus/generated/scientific/arrays.rds.gz",
+      "provenance": {
+        "description": "R serialization in its supported gz compound suffix",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "rds",
+      "family": "scientific",
+      "id": "scientific-arrays-rds-xz",
+      "inventory": {
+        "bytes": 412,
+        "sha256": "333d7ae407feb21c35b06be2f53fcdd1296d45156ced2fac0aa789fc6ac216c9"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "r"
+      },
+      "path": "corpus/generated/scientific/arrays.rds.xz",
+      "provenance": {
+        "description": "R serialization in its supported xz compound suffix",
         "generator": "frbench.generate",
         "seed": 1729,
         "type": "generated"
@@ -10203,6 +10958,51 @@
         "type": "generated"
       },
       "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "cpbz2",
+      "family": "archives",
+      "id": "streams-cpio-tree-cpbz2",
+      "inventory": {
+        "bytes": 17344,
+        "sha256": "7eace25b51fe21af1e3a66425ef75dccf8f56d81c8bc56b0359c636aecfab957"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "cpbz2"
+      },
+      "path": "corpus/generated/streams/cpio-tree.cpbz2",
+      "provenance": {
+        "description": "newc CPIO tree wrapped in a weak bzip2 stream",
+        "generator": "frbench.generate",
+        "seed": 1729,
+        "type": "generated"
+      },
+      "scope": "native",
+      "tier": "extended"
+    },
+    {
+      "expectation": "observe",
+      "extension": "cpio.bz2",
+      "family": "archives",
+      "id": "streams-cpio-tree-cpio-bz2",
+      "inventory": {
+        "bytes": 17344,
+        "sha256": "7eace25b51fe21af1e3a66425ef75dccf8f56d81c8bc56b0359c636aecfab957"
+      },
+      "license": "BSD-3-Clause",
+      "oracle": {
+        "kind": "cpbz2"
+      },
+      "path": "corpus/generated/streams/cpio-tree.cpio.bz2",
+      "provenance": {
+        "description": "Same CPIO+bzip2 bitstream under the compound suffix",
+        "parent": "streams-cpio-tree-cpbz2",
+        "type": "derived-alias"
+      },
+      "scope": "alias",
       "tier": "extended"
     },
     {
@@ -11573,10 +12373,13 @@
     "br",
     "bz2",
     "cab",
+    "car",
     "cb7",
     "cbr",
     "cbt",
     "cbz",
+    "cpbz2",
+    "cpio",
     "crate",
     "crtx",
     "crx",

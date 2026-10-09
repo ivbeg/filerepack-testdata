@@ -19,6 +19,7 @@ from pathlib import Path
 
 from .common import file_inventory, write_json
 from .oracles import command
+from .special_formats import car_profile, cpio_bz2, cpio_profile, crx3
 
 FIXED_TIME = (2020, 1, 2, 3, 4, 6)
 JSON_EXTS = 'json geojson ipynb map har topojson gltf'.split()
@@ -521,7 +522,7 @@ class Builder:
         # Valid NPZ is a real NPY ZIP corpus, unlike generic archive aliases.
         buffer = io.BytesIO()
         np.savez(buffer, values=np.zeros((128, 128)), labels=np.arange(128))
-        self.add('packages/arrays.npz', buffer.getvalue(), 'npz', 'packages', {'kind': 'zip'})
+        self.add('packages/arrays.npz', buffer.getvalue(), 'npz', 'packages', {'kind': 'npz'})
 
     def r(self):
         for ext in ['rds', 'rda', 'rdata']:
@@ -789,6 +790,90 @@ class Builder:
             archive.writestr(info, b'#usda 1.0\ndef Xform "Synthetic" {}\n')
         self.add('packages/scene.usdz', buffer.getvalue(), 'usdz', 'packages', {'kind': 'zip'})
 
+    def additional_formats(self):
+        """Add native profiles for registry routes and compound filename dispatch."""
+        payload = self.payload
+        self.add('native/catalog.car', car_profile(payload), 'car', 'native', {'kind': 'car'},
+                 note='Synthetic BOMStore catalog with a compressed MLEC rendition')
+        cpio = cpio_profile(payload, self.json, self.xml)
+        self.add('archives/cpio-tree.cpio', cpio, 'cpio', 'archives', {'kind': 'cpio'},
+                 note='newc CPIO tree with regular files, a directory, symlink and hard links')
+        compressed_cpio = cpio_bz2(payload, self.json, self.xml)
+        self.add('streams/cpio-tree.cpbz2', compressed_cpio, 'cpbz2', 'archives',
+                 {'kind': 'cpbz2'}, note='newc CPIO tree wrapped in a weak bzip2 stream')
+        self.add('streams/cpio-tree.cpio.bz2', compressed_cpio, 'cpio.bz2', 'archives',
+                 {'kind': 'cpbz2'}, scope='alias',
+                 provenance={'type': 'derived-alias', 'parent': 'streams-cpio-tree-cpbz2',
+                             'description': 'Same CPIO+bzip2 bitstream under the compound suffix'})
+
+        self.odf_variants()
+
+        for ext in ['rds', 'rda', 'rdata']:
+            source = self.directory / f'scientific/arrays.{ext}'
+            if not source.is_file():
+                continue
+            raw = source.read_bytes()
+            for codec in ['gz', 'bz2', 'xz']:
+                self.add(f'scientific/arrays.{ext}.{codec}', compress(raw, codec, 1), ext,
+                         'scientific', {'kind': 'r'},
+                         note=f'R serialization in its supported {codec} compound suffix')
+
+        crx_entries = {**self.entries, 'manifest.json': json.dumps({
+            'manifest_version': 3, 'name': 'Frbench synthetic extension', 'version': '1.0.0',
+            'description': 'Generated data for a compression benchmark.'}, indent=2).encode()}
+        crx_children = {**self.children, 'manifest.json': {'kind': 'json'}}
+        self.optional('crx', lambda: self.add(
+            'archives/signed-extension.crx', crx3(zip_bytes(crx_entries, level=1)),
+            'crx', 'archives', {'kind': 'crx', 'children': crx_children},
+            note='CRX3 with a temporary test-only signing key and a minimal extension manifest'))
+
+    def odf_variants(self):
+        """Build standards-shaped ODF package profiles for the remaining ODF suffixes."""
+        namespace = {
+            'office': 'urn:oasis:names:tc:opendocument:xmlns:office:1.0',
+            'text': 'urn:oasis:names:tc:opendocument:xmlns:text:1.0',
+            'table': 'urn:oasis:names:tc:opendocument:xmlns:table:1.0',
+            'draw': 'urn:oasis:names:tc:opendocument:xmlns:drawing:1.0',
+            'chart': 'urn:oasis:names:tc:opendocument:xmlns:chart:1.0',
+            'math': 'http://www.w3.org/1998/Math/MathML',
+        }
+        profiles = {
+            'odg': ('graphics', '<office:drawing><draw:page draw:name="Synthetic"/></office:drawing>'),
+            'otg': ('graphics-template', '<office:drawing><draw:page draw:name="Template"/></office:drawing>'),
+            'odf': ('formula', '<office:formula><math:math><math:mi>x</math:mi></math:math></office:formula>'),
+            'odb': ('database', '<office:database/>'),
+            'odc': ('chart', '<office:chart><chart:chart/></office:chart>'),
+            'odi': ('image', '<office:image/>'),
+            'odm': ('text-master', '<office:text><text:p>Synthetic master text</text:p></office:text>'),
+            'ott': ('text-template', '<office:text><text:p>Synthetic text template</text:p></office:text>'),
+            'ots': ('spreadsheet-template', '<office:spreadsheet><table:table table:name="Template"/></office:spreadsheet>'),
+            'otp': ('presentation-template', '<office:presentation><draw:page draw:name="Template"/></office:presentation>'),
+            'oth': ('text-web', '<office:text><text:p>Synthetic web template</text:p></office:text>'),
+            'otm': ('text-master-template', '<office:text><text:p>Synthetic master template</text:p></office:text>'),
+            'otc': ('chart-template', '<office:chart><chart:chart/></office:chart>'),
+            'oti': ('image-template', '<office:image/>'),
+            'otf': ('formula-template', '<office:formula><math:math><math:mi>x</math:mi></math:math></office:formula>'),
+        }
+        for ext, (document_type, body) in profiles.items():
+            mime = 'application/vnd.oasis.opendocument.' + document_type
+            content = ('<?xml version="1.0" encoding="UTF-8"?>'
+                       '<office:document-content ' + ' '.join(
+                           f'xmlns:{prefix}="{uri}"' for prefix, uri in namespace.items()) +
+                       ' office:version="1.2"><office:body>' + body +
+                       '</office:body></office:document-content>').encode()
+            manifest = ('<manifest:manifest '
+                        'xmlns:manifest="urn:oasis:names:tc:opendocument:xmlns:manifest:1.0" '
+                        'manifest:version="1.2"><manifest:file-entry manifest:full-path="/" '
+                        'manifest:media-type="' + mime + '"/><manifest:file-entry '
+                        'manifest:full-path="content.xml" manifest:media-type="text/xml"/>'
+                        '</manifest:manifest>').encode()
+            archive = {'mimetype': mime.encode(), 'content.xml': content,
+                       'META-INF/manifest.xml': manifest}
+            self.add('packages/native.' + ext, zip_bytes(archive, mimetype='mimetype'), ext,
+                     'packages', {'kind': 'zip', 'children': {'content.xml': {'kind': 'xml'}},
+                                  'stored_first': ['mimetype']},
+                     note=f'ODF {document_type} package with its registered media type')
+
     def aliases(self):
         groups = {
             'jpg': ['jpeg', 'jpe', 'jfif', 'jif', 'jfi', 'thm'],
@@ -845,6 +930,8 @@ def generate(args):
         write_json(catalog_path, catalog)
     else:
         catalog = json.loads(catalog_path.read_text())
+    if getattr(args, 'extend', False):
+        return extend(root, catalog, args)
     # Owned generated tree can be recreated; original pinned assets are separate.
     directory = root / 'corpus/generated'
     if directory.exists():
@@ -861,6 +948,7 @@ def generate(args):
             builder.optional(name, getattr(builder, name))
     else:
         builder.gaps.append({'generator': 'optional', 'reason': 'Skipped by --minimal'})
+    builder.additional_formats()
     originals_path = root / 'corpus/originals/index.json'
     if originals_path.exists():
         builder.cases.extend(json.loads(originals_path.read_text())['cases'])
@@ -876,4 +964,25 @@ def generate(args):
         if path.is_file() and not any(path == p or p in path.parents for p in referenced):
             path.unlink()
     print(f"Generated {len(builder.cases)} cases; {len(builder.gaps)} explicit generation gaps.")
+    return 1 if args.strict and builder.gaps else 0
+
+
+def extend(root, catalog, args):
+    """Add newly generated coverage while preserving every existing pinned specimen."""
+    from .common import read_manifest
+
+    root = Path(root)
+    builder = Builder(root, catalog, args.scale)
+    builder.additional_formats()
+    previous = read_manifest(root)
+    by_id = {case['id']: case for case in previous['cases']}
+    by_id.update({case['id']: case for case in builder.cases})
+    gaps = {item['generator']: item for item in previous.get('generation_gaps', [])}
+    gaps.update({item['generator']: item for item in builder.gaps})
+    manifest = {**previous, 'supported_extensions': catalog['supported_extensions'],
+                'cases': sorted(by_id.values(), key=lambda case: case['id']),
+                'generation_gaps': [gaps[name] for name in sorted(gaps)]}
+    write_json(root / 'corpus/manifest.json', manifest)
+    print(f"Extended corpus to {len(manifest['cases'])} cases; {len(builder.cases)} additions/updates; "
+          f"{len(builder.gaps)} new generation gaps.")
     return 1 if args.strict and builder.gaps else 0

@@ -1,4 +1,5 @@
 import json
+import zipfile
 
 import pytest
 
@@ -45,6 +46,33 @@ def test_archive_detects_member_removal_and_nested_content_corruption(tmp_path):
     assert fingerprint(a, config) == fingerprint(b, config)
     b.write_bytes(zip_bytes({'data.json': b'{"n":2}', 'raw.bin': b'exact'}))
     assert fingerprint(a, config) != fingerprint(b, config)
+
+
+def test_npz_oracle_uses_numpy_reader_without_unpickling(tmp_path):
+    np = pytest.importorskip('numpy')
+    source, candidate, corrupted = (tmp_path / name for name in
+                                    ('source.npz', 'candidate.npz', 'corrupted.npz'))
+    values = np.array([0.0, -0.0, np.nan, 2.5], dtype='<f8')
+    labels = np.arange(4, dtype='<i2')
+    np.savez(source, values=values, labels=labels)
+
+    with zipfile.ZipFile(source) as archive:
+        entries = {info.filename: archive.read(info) for info in archive.infolist()}
+    candidate.write_bytes(zip_bytes(entries, level=9))
+
+    oracle = {'kind': 'npz'}
+    expected = fingerprint(source, oracle)
+    assert expected == fingerprint(candidate, oracle)
+
+    changed = values.copy()
+    changed[-1] = 3.5
+    np.savez(corrupted, values=changed, labels=labels)
+    assert expected != fingerprint(corrupted, oracle)
+
+    objects = tmp_path / 'objects.npz'
+    np.savez(objects, values=np.array([{'safe': 'not loaded'}], dtype=object))
+    with pytest.raises(ValueError, match='Object arrays'):
+        fingerprint(objects, oracle)
 
 
 def test_epub_oracle_enforces_stored_first_mimetype(tmp_path):

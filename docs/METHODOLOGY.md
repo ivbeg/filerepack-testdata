@@ -33,9 +33,10 @@ world's real files; original and generated evidence are clearly separated.
 |---|---|---|
 | JSON / JSONL | Exact non-whitespace lexical tokens, strings, duplicate keys, number spelling; JSONL line endings | No application-specific HAR/glTF behavior validation |
 | XML | DOM elements/attributes, namespaces, text including whitespace, comments, PI and doctype | Syntax equivalence, not app rendering |
-| Streams / R | Hash of complete decoded bytes | R graph never instantiated; no native readRDS execution |
+| Streams / R | Hash of complete decoded bytes, including `.rds/.rda/.rdata` inside gzip/bzip2/xz wrappers | R graph never instantiated; no native readRDS execution |
 | ZIP / TAR | Member names, directories and decoded payloads; nested JSON/XML minification verified recursively; TAR links/mode/ownership/mtime/PAX | ZIP filesystem metadata not independently compared in this version |
-| ODF / EPUB | Above plus first uncompressed mimetype and exact protected control manifests | Small generated content profiles; no office/reader render qualification |
+| NPZ | NumPy `load(..., allow_pickle=False)` keys, dtypes, shapes and exact numeric bits | Generated numeric fixture; object arrays are refused without unpickling |
+| ODF / EPUB | Above plus first uncompressed mimetype and exact protected control manifests | Generated profiles include ODF text, spreadsheet, presentation, graphics, chart, image, formula, database and template MIME types; no office/reader render qualification |
 | OOXML | XML trees and decoded thumbnail/image pixels, plus remaining member bytes | No Word/Excel/PowerPoint application render qualification |
 | 7z / RAR / CAB / WIM | Integrity test, trusted fixture extraction and complete decoded member mapping | Uses 7zz (unrar for RAR); transport metadata not independently checked |
 | Raster / animations | Every Pillow-decoded RGBA frame, size, duration, loop, disposal/blend | Metadata/ICC/EXIF not independently compared; native high-bit-depth TIFF has a separate oracle |
@@ -53,6 +54,9 @@ world's real files; original and generated evidence are clearly separated.
 | Zarr v2 | Array bit patterns, paths and attributes through zarr | Complete local offline store only; no object-store/concurrent writer tests |
 | WOFF / WOFF2 | fontTools uncompressed table XML, including metadata/timestamps; calculated checksum excluded | Glyph encoding normalization beyond this generated profile may require a more specific oracle |
 | OLE | olefile live streams and directory identity/CLSID/state/timestamps | Compaction only; content recompression needs a future intended-change oracle |
+| Apple CAR | BOMStore block IDs and catalog variables, rendition keys, and decoded zlib content | One synthetic CoreUI rendition; the current local filerepack checkout rejects the rewritten CSI body length and leaves the source unchanged |
+| CRX3 | RSA signature, extension ID, ZIP member CRCs and decoded member profiles | Ephemeral test key; the current local filerepack checkout leaves the signed CRX wrapper unchanged |
+| CPIO+bzip2 | newc record framing plus exact decoded CPIO bytes | Synthetic files, directory, symlink and hard-link pair; outer bzip2 stream only |
 | NRRD / Blender / SWF / TGS / PSB / Aseprite / NIB / WARC | Passive decoded payloads/records and relevant generated-profile metadata | Hand-authored structural profiles; limited oracle subsets explicitly reject other encodings |
 | Malformed / protected controls | Exact source byte identity | Rejection behavior, not a positive-format compression success |
 
